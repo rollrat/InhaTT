@@ -1,4 +1,12 @@
-﻿using System;
+﻿/***
+
+   Copyright (C) 2017. rollrat. All Rights Reserved.
+
+   04-20-2017:   HyunJun Jeong, Creation
+
+***/
+
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
