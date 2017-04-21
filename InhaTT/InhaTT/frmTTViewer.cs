@@ -22,35 +22,55 @@ namespace InhaTT
 {
     public partial class frmTTViewer : Form
     {
-        ArrayList subject;
-        ArrayList tet = new ArrayList();
-        ArrayList txts = new ArrayList();
+        List<Bot.SubjectStruct> subject;
+        List<TimeElement> view_table = new List<TimeElement> ();
+
+        /// <summary>
+        /// 모든 조합이 저장됨
+        /// </summary>
+        List<List<TimeElement>> txts = new List<List<TimeElement>>();
         int ir = 0;
 
-        public frmTTViewer(ArrayList al)
+        public frmTTViewer(List<Bot.SubjectStruct> al)
         {
             InitializeComponent();
 
             subject = al;
 
             Open();
-            Show();
-            listView2.Invalidate();
-            Application.DoEvents();
-            DrawTimeTable();
-            listView2.Invalidate();
+            this.Show();
+
+            lvTable.Invalidate();
             Application.DoEvents();
             DrawTimeTable();
         }
+
+        private void frmTTViewer_Load(object sender, EventArgs e)
+        {
+            lvTable.Columns[0].TextAlign = HorizontalAlignment.Center;
+            DateTime dt = new DateTime(1900, 1, 1, 9, 0, 0);
+            for (int i = 1; i <= 25; i++)
+            {
+                string dtt = dt.Hour.ToString().PadLeft(2, '0') + ":" + dt.Minute.ToString().PadLeft(2, '0') + "~";
+                dt = dt.AddMinutes(30);
+                dtt += dt.Hour.ToString().PadLeft(2, '0') + ":" + dt.Minute.ToString().PadLeft(2, '0');
+                lvTable.Items.Add(new ListViewItem(new string[] {"",
+                    i.ToString().PadLeft(2, '0') + " 교시(" + dtt + ")","","","","",""}));
+            }
+        }
+
+        /// <summary>
+        /// 조합 파일 불러오기
+        /// </summary>
         private void Open()
         {
             try
             {
                 string line;
-                System.IO.StreamReader file = new System.IO.StreamReader(AppDomain.CurrentDomain.BaseDirectory + @"combinations.txt");
+                System.IO.StreamReader file = new System.IO.StreamReader(frmMain.PathCombinations);
                 while ((line = file.ReadLine()) != null)
                 {
-                    ArrayList al = new ArrayList();
+                    List<TimeElement> al = new List<TimeElement>();
                     foreach (string ix in line.Split('|'))
                         if ( ix != "" )
                         {
@@ -67,18 +87,17 @@ namespace InhaTT
                 file.Close();
                 if ( txts.Count > 0 )
                 {
-                    tet = (ArrayList)txts[0];
+                    view_table = txts[0];
                 }
                 if (txts.Count == 1)
-                    button2.Enabled = false;
+                    bRight.Enabled = false;
             }
             catch {  }
         }
-
         private void DrawTimeTable()
         {
-            listView1.Items.Clear();
-            foreach (TimeElement te in tet)
+            lvSearch.Items.Clear();
+            foreach (TimeElement te in view_table)
             {
                 int index = Convert.ToInt32(te.index);
                 Random rm = new Random(index);
@@ -90,22 +109,22 @@ namespace InhaTT
                     int c = i / 25;
                     int r = i % 25;
 
-                    listView2.CreateGraphics().FillRectangle(new SolidBrush(
+                    lvTable.CreateGraphics().FillRectangle(new SolidBrush(
                         Color.FromArgb(200, _r, _g, _b)
-                        ), listView2.Items[r].SubItems[c + 2].Bounds);
+                        ), lvTable.Items[r].SubItems[c + 2].Bounds);
 
                     if (Math.Abs(g - i) != 1)
                     {
-                        listView2.CreateGraphics().DrawString(((Bot.SubjectStruct)subject[index]).과목명,
-                            listView2.Font, Brushes.White,
-                            listView2.Items[r].SubItems[c + 2].Bounds);
+                        lvTable.CreateGraphics().DrawString(subject[index].과목명,
+                            lvTable.Font, Brushes.White,
+                            lvTable.Items[r].SubItems[c + 2].Bounds);
                         second = true;
                     }
                     else if (second == true)
                     {
-                        listView2.CreateGraphics().DrawString(getSlice(((Bot.SubjectStruct)subject[index]).시강),
-                            listView2.Font, Brushes.White,
-                            listView2.Items[r].SubItems[c + 2].Bounds);
+                        lvTable.CreateGraphics().DrawString(getSlice(subject[index].시강),
+                            lvTable.Font, Brushes.White,
+                            lvTable.Items[r].SubItems[c + 2].Bounds);
                         second = false;
                     }
 
@@ -120,16 +139,16 @@ namespace InhaTT
             }
         }
 
-        private void listView2_ColumnWidthChanging(object sender, ColumnWidthChangingEventArgs e)
+        private void lvTable_ColumnWidthChanging(object sender, ColumnWidthChangingEventArgs e)
         {
             e.Cancel = true;
-            e.NewWidth = listView2.Columns[e.ColumnIndex].Width;
+            e.NewWidth = lvTable.Columns[e.ColumnIndex].Width;
         }
 
 
         private void AppendSubjectToList(Bot.SubjectStruct ss)
         {
-            listView1.Items.Add(new ListViewItem(new string[] { ss.index.ToString(),
+            lvSearch.Items.Add(new ListViewItem(new string[] { ss.index.ToString(),
                 ss.필드, ss.학수번호, ss.분반, ss.과목명, ss.학년, ss.학점,
                 ss.구분, ss.시강, ss.교수, ss.평가, ss.비고 }));
         }
@@ -151,73 +170,45 @@ namespace InhaTT
             return builder.ToString();
         }
         
-        private void frmTTViewer_Load(object sender, EventArgs e)
+        #region 버튼 클릭
+        private void LeftClick()
         {
-            listView2.Columns[0].TextAlign = HorizontalAlignment.Center;
-            DateTime dt = new DateTime(1900, 1, 1, 9, 0, 0);
-            for (int i = 1; i <= 25; i++)
-            {
-                string dtt = dt.Hour.ToString().PadLeft(2, '0') + ":" + dt.Minute.ToString().PadLeft(2, '0') + "~";
-                dt = dt.AddMinutes(30);
-                dtt += dt.Hour.ToString().PadLeft(2, '0') + ":" + dt.Minute.ToString().PadLeft(2, '0');
-                listView2.Items.Add(new ListViewItem(new string[] {"",
-                    i.ToString().PadLeft(2, '0') + " 교시(" + dtt + ")","","","","",""}));
-            }
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            ir++; tet = (ArrayList)txts[ir];
-            if (txts.Count == ir + 1)
-                button2.Enabled = false;
-            if (ir > 0)
-                button1.Enabled = true;
-            listView2.Invalidate();
-            Application.DoEvents();
-            DrawTimeTable();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            ir--; tet = (ArrayList)txts[ir];
+            ir--; view_table = txts[ir];
             if (ir == 0)
-                button1.Enabled = false;
+                bLeft.Enabled = false;
             if (txts.Count != ir + 1)
-                button2.Enabled = true;
-            listView2.Invalidate();
+                bRight.Enabled = true;
+            lvTable.Invalidate();
             Application.DoEvents();
             DrawTimeTable();
         }
-        
-        private void listView2_KeyDown(object sender, KeyEventArgs e)
+        private void RightClick()
         {
-            if (e.KeyCode == Keys.Right && button2.Enabled)
-            {
-                ir++; tet = (ArrayList)txts[ir];
-                if (txts.Count == ir + 1)
-                    button2.Enabled = false;
-                if (ir > 0)
-                    button1.Enabled = true;
-                listView2.Invalidate();
-                Application.DoEvents();
-                DrawTimeTable();
-            }
-            else if (e.KeyCode == Keys.Left && button1.Enabled)
-            {
-                ir--; tet = (ArrayList)txts[ir];
-                if (ir == 0)
-                    button1.Enabled = false;
-                if (txts.Count != ir + 1)
-                    button2.Enabled = true;
-                listView2.Invalidate();
-                Application.DoEvents();
-                DrawTimeTable();
-            }
+            ir++; view_table = txts[ir];
+            if (txts.Count == ir + 1)
+                bRight.Enabled = false;
+            if (ir > 0)
+                bLeft.Enabled = true;
+            lvTable.Invalidate();
+            Application.DoEvents();
+            DrawTimeTable();
         }
-
-        private void button3_Click(object sender, EventArgs e)
+        private void bRight_Click(object sender, EventArgs e)
+        { RightClick(); }
+        private void bLeft_Click(object sender, EventArgs e)
+        { LeftClick(); }
+        private void lvTable_KeyDown(object sender, KeyEventArgs e)
         {
-            Program.m.tet = tet;
+            if (e.KeyCode == Keys.Right && bRight.Enabled)
+                RightClick();
+            else if (e.KeyCode == Keys.Left && bLeft.Enabled)
+                LeftClick();
+        }
+        #endregion
+
+        private void bToMain_Click(object sender, EventArgs e)
+        {
+            Program.m.view_table = view_table;
             Program.m.Trans();
             Program.m.Focus();
         }

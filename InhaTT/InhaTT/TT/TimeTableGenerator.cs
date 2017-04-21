@@ -15,6 +15,7 @@ using System.Threading.Tasks;
 
 namespace InhaTT
 {
+    // 폐기됨
     class TimeTableGenerator
     {
         Dictionary<string, ArrayList> dic = new Dictionary<string, ArrayList>();

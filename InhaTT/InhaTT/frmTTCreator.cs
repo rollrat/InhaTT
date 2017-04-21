@@ -21,8 +21,9 @@ namespace InhaTT
 {
     public partial class frmTTCreator : Form
     {
-        ArrayList subject;
-        public frmTTCreator(ArrayList al)
+        List<Bot.SubjectStruct> subject;
+
+        public frmTTCreator(List<Bot.SubjectStruct> al)
         {
             InitializeComponent();
 
@@ -31,80 +32,82 @@ namespace InhaTT
 
         private void frmTTCreator_Load(object sender, EventArgs e)
         {
-            comboBox1.Text = "과목명";
-            textBox1.AutoCompleteCustomSource.Clear();
+            cbSearch.Text = "과목명";
+            tbSearch.AutoCompleteCustomSource.Clear();
             ArrayList al = new ArrayList();
             foreach (Bot.SubjectStruct ss in subject)
                 if (!al.Contains(ss.과목명)) al.Add(ss.과목명);
-            textBox1.AutoCompleteCustomSource.AddRange(al.ToArray(typeof(string)) as string[]);
-
-
+            tbSearch.AutoCompleteCustomSource.AddRange(al.ToArray(typeof(string)) as string[]);
+            
             // 리스트뷰-컬럼 to ColHeader
             List<frmMain.ColHeader> columnsTrans = new List<frmMain.ColHeader>();
-            foreach (ColumnHeader column in listView1.Columns)
+            foreach (ColumnHeader column in lvSearch.Columns)
             {
                 columnsTrans.Add(new frmMain.ColHeader(column.Text, column.Width, column.TextAlign, true));
             }
-            listView1.Columns.Clear();
-            listView1.Columns.AddRange(columnsTrans.ToArray());
+            lvSearch.Columns.Clear();
+            lvSearch.Columns.AddRange(columnsTrans.ToArray());
         }
-
-
-        private void listView1_ColumnClick(object sender, ColumnClickEventArgs e)
+        
+        private void lvSearch_ColumnClick(object sender, ColumnClickEventArgs e)
         {
-            frmMain.ColHeader clickedCol = (frmMain.ColHeader)this.listView1.Columns[e.Column];
+            frmMain.ColHeader clickedCol = (frmMain.ColHeader)this.lvSearch.Columns[e.Column];
             clickedCol.@ascending = !clickedCol.@ascending;
-            int numItems = this.listView1.Items.Count;
-            this.listView1.BeginUpdate();
+            int numItems = this.lvSearch.Items.Count;
+            this.lvSearch.BeginUpdate();
 
             ArrayList SortArray = new ArrayList();
             int i = 0;
             for (i = 0; i <= numItems - 1; i++)
             {
-                SortArray.Add(new frmMain.SortWrapper(this.listView1.Items[i], e.Column));
+                SortArray.Add(new frmMain.SortWrapper(this.lvSearch.Items[i], e.Column));
             }
 
             SortArray.Sort(0, SortArray.Count, new frmMain.SortWrapper.SortComparer(clickedCol.@ascending));
 
-            this.listView1.Items.Clear();
+            this.lvSearch.Items.Clear();
             int z = 0;
             for (z = 0; z <= numItems - 1; z++)
             {
-                this.listView1.Items.Add(((frmMain.SortWrapper)SortArray[z]).sortItem);
+                this.lvSearch.Items.Add(((frmMain.SortWrapper)SortArray[z]).sortItem);
             }
 
-            this.listView1.EndUpdate();
+            this.lvSearch.EndUpdate();
         }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void cbSearch_SelectedIndexChanged(object sender, EventArgs e)
         {
-            textBox1.AutoCompleteCustomSource.Clear();
+            tbSearch.AutoCompleteCustomSource.Clear();
             ArrayList al = new ArrayList();
-            if (comboBox1.Text == "과목명")
+            if (cbSearch.Text == "과목명")
             {
                 foreach (Bot.SubjectStruct ss in subject)
                     if (!al.Contains(ss.과목명)) al.Add(ss.과목명);
             }
-            else if (comboBox1.Text == "학수번호")
+            else if (cbSearch.Text == "학수번호")
             {
                 foreach (Bot.SubjectStruct ss in subject)
                     if (!al.Contains(ss.학수번호)) al.Add(ss.학수번호);
             }
-            textBox1.AutoCompleteCustomSource.AddRange(al.ToArray(typeof(string)) as string[]);
+            tbSearch.AutoCompleteCustomSource.AddRange(al.ToArray(typeof(string)) as string[]);
         }
 
-        ArrayList subject_group = new ArrayList();
+        /// <summary>
+        /// 검색 테스트 케이스를 저장합니다.
+        /// 상위 리스트엔 각 과목명에 해당하는 리스트가,
+        /// 하위 리스트엔 과목명이 같은 과목들이 저장됩니다.
+        /// </summary>
+        List<List<TimeElement>> subject_group = new List<List<TimeElement>>();
 
-        private void textBox1_KeyUp(object sender, KeyEventArgs e)
+        private void tbSearch_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
-                if (comboBox1.Text == "과목명")
+                List<TimeElement> subjects = new List<TimeElement>();
+                if (cbSearch.Text == "과목명")
                 {
-                    ArrayList subjects = new ArrayList();
                     foreach (Bot.SubjectStruct ss in subject)
                     {
-                        if (ss.과목명 == textBox1.Text)
+                        if (ss.과목명 == tbSearch.Text)
                         {
                             TimeElement te = TimeParser.Get(ss.시강);
                             te.index = ss.index.ToString();
@@ -112,14 +115,12 @@ namespace InhaTT
                             AppendSubjectToList(ss);
                         }
                     }
-                    subject_group.Add(subjects);
                 }
-                else if (comboBox1.Text == "학수번호")
+                else if (cbSearch.Text == "학수번호")
                 {
-                    ArrayList subjects = new ArrayList();
                     foreach (Bot.SubjectStruct ss in subject)
                     {
-                        if (ss.학수번호 == textBox1.Text)
+                        if (ss.학수번호 == tbSearch.Text)
                         {
                             TimeElement te = TimeParser.Get(ss.시강);
                             te.index = ss.index.ToString();
@@ -127,66 +128,58 @@ namespace InhaTT
                             AppendSubjectToList(ss);
                         }
                     }
-                    subject_group.Add(subjects);
                 }
+                subject_group.Add(subjects);
             }
         }
-
-        private void listView1_KeyDown(object sender, KeyEventArgs e)
+        private void lvSearch_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Delete)
             {
-                foreach (ListViewItem lvi in listView1.SelectedItems)
+                foreach (ListViewItem lvi in lvSearch.SelectedItems)
                 {
                     DelLVI(lvi);
                 }
             }
         }
 
-        private void DelLVI(ListViewItem lvi)
-        {
-            string vi = lvi.SubItems[0].Text;
-            lvi.Remove();
-            for (int i = 0; i < subject_group.Count; i++)
-            {
-                for (int j = 0; j < ((ArrayList)subject_group[i]).Count; j++)
-                {
-                    if (((TimeElement)((ArrayList)subject_group[i])[j]).index.ToString() == vi)
-                    {
-                        ((ArrayList)subject_group[i]).RemoveAt(j);
-                        if (((ArrayList)subject_group[i]).Count == 0)
-                            subject_group.RemoveAt(i);
-                        return;
-                    }
-                }
-            }
-        }
-
+        /// <summary>
+        /// 서브젝트 정보를 검색 뷰어에 출력합니다.
+        /// </summary>
         private void AppendSubjectToList(Bot.SubjectStruct ss)
         {
-            listView1.Items.Add(new ListViewItem(new string[] { ss.index.ToString(),
+            lvSearch.Items.Add(new ListViewItem(new string[] { ss.index.ToString(),
                 ss.필드, ss.학수번호, ss.분반, ss.과목명, ss.학년, ss.학점,
                 ss.구분, ss.시강, ss.교수, ss.평가, ss.비고 }));
         }
 
-        bool escape = false;
-        ArrayList result = new ArrayList();
+        #region 테스트
+        /// <summary>
+        /// 시간표가 겹치는지의 여부를 확인하기 위한 시험용 테이블 입니다.
+        /// </summary>
         TimeTable AccessTable;
+
+        /// <summary>
+        /// escape: esacpe가 True이면 iteration을 탈출합니다.
+        /// </summary>
+        bool escape = false;
+        List<string> result = new List<string>();
         Stack<string> stack = new Stack<string>();
-        private void button1_Click(object sender, EventArgs e)
+
+        private void bStart_Click(object sender, EventArgs e)
         {
             result.Clear();
             AccessTable = new TimeTable();
             stack.Clear();
             if ( subject_group.Count > 1 )
             {
-                for ( int i = 0; i < ((ArrayList)subject_group[0]).Count; i++ )
+                for ( int i = 0; i < subject_group[0].Count; i++ )
                 {
-                    stack.Push(((TimeElement)(((ArrayList)subject_group[0])[i])).index);
-                    AccessTable.Add((TimeElement)(((ArrayList)subject_group[0])[i]));
+                    stack.Push(subject_group[0][i].index);
+                    AccessTable.Add(subject_group[0][i]);
                     Iterate(1);
                     stack.Pop();
-                    AccessTable.Del((TimeElement)(((ArrayList)subject_group[0])[i]));
+                    AccessTable.Del(subject_group[0][i]);
                     if (escape)
                         break;
                 }
@@ -201,89 +194,111 @@ namespace InhaTT
 
         private void Iterate(int iter)
         {
-            if (escape)
-                return;
+            if (escape) return;
             if ( subject_group.Count == iter )
             {
                 StringBuilder builder = new StringBuilder();
                 foreach (string s in stack)
                     builder.Append(s + '|');
                 result.Add(builder.ToString());
-                if (result.Count >= numericUpDown1.Value)
+                if (result.Count >= numMax.Value)
                     escape = true;
                 return;
             }
-            for (int i = 0; i < ((ArrayList)subject_group[iter]).Count; i++)
+            for (int i = 0; i < subject_group[iter].Count; i++)
             {
-                if (AccessTable.CheckOverlap((TimeElement)(((ArrayList)subject_group[iter])[i])))
+                if (AccessTable.CheckOverlap(subject_group[iter][i]))
                     continue;
-                stack.Push(((TimeElement)(((ArrayList)subject_group[iter])[i])).index);
-                AccessTable.Add((TimeElement)(((ArrayList)subject_group[iter])[i]));
+                stack.Push(subject_group[iter][i].index);
+                AccessTable.Add(subject_group[iter][i]);
                 Iterate(iter + 1);
                 stack.Pop();
-                AccessTable.Del((TimeElement)(((ArrayList)subject_group[iter])[i]));
+                AccessTable.Del(subject_group[iter][i]);
                 if (escape)
                     return;
+            }
+        }
+        #endregion
+
+        #region 삭제 버튼
+        private void DelLVI(ListViewItem lvi)
+        {
+            string vi = lvi.SubItems[0].Text;
+            lvi.Remove();
+            for (int i = 0; i < subject_group.Count; i++)
+            {
+                for (int j = 0; j < subject_group[i].Count; j++)
+                {
+                    if (subject_group[i][j].index.ToString() == vi)
+                    {
+                        subject_group[i].RemoveAt(j);
+                        if (subject_group[i].Count == 0)
+                            subject_group.RemoveAt(i);
+                        return;
+                    }
+                }
             }
         }
 
         private void DelDay(int k)
         {
             for (int i = 0; i < subject_group.Count; i++)
-                for (int j = 0; j < ((ArrayList)subject_group[i]).Count; j++)
+                for (int j = 0; j < subject_group[i].Count; j++)
                 {
-                    if (checkBox1.Checked && ((Bot.SubjectStruct)(subject[Convert.ToInt32(((TimeElement)(((ArrayList)subject_group[i])[j])).index)])).구분 == "전공필수")
+                    if (cbJunPil.Checked && subject[Convert.ToInt32(subject_group[i][j].index)].구분 == "전공필수")
                         break;
-                    if (checkBox2.Checked && ((Bot.SubjectStruct)(subject[Convert.ToInt32(((TimeElement)(((ArrayList)subject_group[i])[j])).index)])).구분 == "교양필수")
+                    if (cbGyoFil.Checked && subject[Convert.ToInt32(subject_group[i][j].index)].구분 == "교양필수")
                         break;
-                    if (((TimeElement)(((ArrayList)subject_group[i])[j])).IsFillDay(k))
+                    if (subject_group[i][j].IsFillDay(k))
                     {
-                        foreach (ListViewItem lvi in listView1.Items)
-                            if (lvi.SubItems[0].Text == ((TimeElement)(((ArrayList)subject_group[i])[j])).index)
+                        foreach (ListViewItem lvi in lvSearch.Items)
+                            if (lvi.SubItems[0].Text == subject_group[i][j].index)
                             { DelLVI(lvi); break; }
                         j--;
                     }
                 }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void bDel1_Click(object sender, EventArgs e)
         { DelDay(0); }
-        private void button3_Click(object sender, EventArgs e)
+        private void bDel2_Click(object sender, EventArgs e)
         { DelDay(1); }
-        private void button5_Click(object sender, EventArgs e)
+        private void bDel3_Click(object sender, EventArgs e)
         { DelDay(2); }
-        private void button4_Click(object sender, EventArgs e)
+        private void bDel4_Click(object sender, EventArgs e)
         { DelDay(3); }
-        private void button6_Click(object sender, EventArgs e)
+        private void bDel5_Click(object sender, EventArgs e)
         { DelDay(4); }
 
-        private void button8_Click(object sender, EventArgs e)
+        private void bDel6_Click(object sender, EventArgs e)
         {
-            foreach (ListViewItem lvi in listView1.Items)
+            foreach (ListViewItem lvi in lvSearch.Items)
                 if (lvi.SubItems[7].Text.Contains("선택"))
                     DelLVI(lvi);
         }
 
-        private void button7_Click(object sender, EventArgs e)
+        private void bDel7_Click(object sender, EventArgs e)
         {
-            foreach (ListViewItem lvi in listView1.Items)
+            foreach (ListViewItem lvi in lvSearch.Items)
                 if (lvi.SubItems[7].Text.Contains("교양"))
                     DelLVI(lvi);
         }
 
-        private void button9_Click(object sender, EventArgs e)
+        private void bDel8_Click(object sender, EventArgs e)
         {
             for (int i = 0; i < subject_group.Count; i++)
-                for (int j = 0; j < ((ArrayList)subject_group[i]).Count; j++)
+                for (int j = 0; j < subject_group[i].Count; j++)
                 {
-                    if (((TimeElement)(((ArrayList)subject_group[i])[j])).te.Count == 0)
+                    if (subject_group[i][j].te.Count == 0)
                     {
-                        foreach (ListViewItem lvi in listView1.Items)
-                            if (lvi.SubItems[0].Text == ((TimeElement)(((ArrayList)subject_group[i])[j])).index)
+                        foreach (ListViewItem lvi in lvSearch.Items)
+                            if (lvi.SubItems[0].Text == subject_group[i][j].index)
                             { DelLVI(lvi); break; }
                         j--;
                     }
                 }
         }
+        #endregion
+
     }
 }

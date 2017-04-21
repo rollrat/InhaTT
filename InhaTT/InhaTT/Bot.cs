@@ -6,11 +6,11 @@
 
 ***/
 
-using System.Collections;
+using System.Collections.Generic;
 
 namespace InhaTT
 {
-    class Bot
+    public class Bot
     {
         int index_count = 0;
         
@@ -30,7 +30,7 @@ namespace InhaTT
             public string 비고;
         }
 
-        public ArrayList subject = new ArrayList();
+        public List<SubjectStruct> subject = new List<SubjectStruct>();
 
         public void ParseSubject(string field)
         {

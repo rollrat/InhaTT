@@ -16,11 +16,21 @@ namespace InhaTT
 {
     class TimeParser
     {
+        /// <summary>
+        /// 시간 정보를 해석합니다.
+        /// </summary>
         static public TimeElement Get(string table)
         {
             TimeElement te = new TimeElement();
             try
             {
+                /*
+                시간 표시 유형이 두 가지가 있다.
+
+                1. 월1,2,3/화1,2,3
+                2. 월1,2,3,화1,2,3
+
+                */
                 foreach (string s in table.Split('/'))
                 {
                     string i = s.Trim();

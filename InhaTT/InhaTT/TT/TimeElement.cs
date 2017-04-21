@@ -15,21 +15,16 @@ using System.Collections;
 
 namespace InhaTT
 {
-    class TimeElement
+    public class TimeElement
     {
-        public ArrayList te = new ArrayList();
+        public List<int> te = new List<int>();
         public string index;
 
         public void Add(int b)
         {
             te.Add(b);
         }
-
-        public int[] Get()
-        {
-            return te.ToArray(typeof(int)) as int[];
-        }
-
+        
         public bool Overlap(bool[] b)
         {
             foreach (int t in te)
@@ -38,6 +33,9 @@ namespace InhaTT
             return false;
         }
         
+        /// <summary>
+        /// 특정 요일에 수업시간이 존재하는지 확인함
+        /// </summary>
         public bool IsFillDay(int k)
         {
             foreach (int i in te)
@@ -45,6 +43,15 @@ namespace InhaTT
                     return true;
             return false;
         }
-        
+        /// <summary>
+        /// 특정 교시에 수업시간이 존재하는지 확인함
+        /// </summary>
+        public bool IsFillTime(int k)
+        {
+            foreach (int i in te)
+                if (i % 25 == k - 1)
+                    return true;
+            return false;
+        }
     }
 }
