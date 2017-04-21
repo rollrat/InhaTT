@@ -122,9 +122,9 @@
 오픈소스 프로젝트이며 누구나 재배포 또는 수정이 가능합니다.
 시간표 데이터나 기타 문의, 소스코드 참조는 다음을 통해 해주세요.
 
-E-Mail : rollrat@naver.com, 12171698@inha.ac.kr
+E-Mail : rollrat@naver.com
 Github : https://github.com/rollrat/inhatt
-제작자 : 컴퓨터공학과 12171698 정현준</value>
+</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">

@@ -34,16 +34,16 @@ namespace InhaTT
         private void frmMain_Load(object sender, EventArgs e)
         {
             Text += Version.Text;
-            cbbSearchType.Text = "과목명";
-
             // 조합 파일이 존재하는 경우 도구->시간표리스트 버튼 활성화
             if (File.Exists(PathCombinations)) bList.Enabled = true;
 
+            // 순서 변경금지
             InitDatas();
             InitSearchView();
             InitTableTime();
             InitSaveData();
-            
+
+            cbbSearchType.Text = "과목명";
         }
 
         /// <summary>
@@ -403,6 +403,7 @@ namespace InhaTT
                     tt.Add(te);
                     view_table.Add(te);
                     Save();
+                    DrawTimeTable(false);
                 }
                 else
                 {
@@ -432,7 +433,7 @@ namespace InhaTT
             return builder.ToString();
         }
 
-        private void DrawTimeTable()
+        private void DrawTimeTable(bool bpreview = true)
         {
             lvTable.Invalidate();
             Application.DoEvents();
@@ -469,6 +470,7 @@ namespace InhaTT
                 }
             }
 
+            if (bpreview)
             // Draw Preview
             foreach (int i in preview.te)
             {
