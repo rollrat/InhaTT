@@ -57,7 +57,10 @@
             this.cbGyoFil = new System.Windows.Forms.CheckBox();
             this.bDel7 = new System.Windows.Forms.Button();
             this.bDel8 = new System.Windows.Forms.Button();
+            this.numClass = new System.Windows.Forms.NumericUpDown();
+            this.bDelClass = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numMax)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numClass)).BeginInit();
             this.SuspendLayout();
             // 
             // tbSearch
@@ -304,11 +307,45 @@
             this.bDel8.UseVisualStyleBackColor = true;
             this.bDel8.Click += new System.EventHandler(this.bDel8_Click);
             // 
+            // numClass
+            // 
+            this.numClass.Location = new System.Drawing.Point(180, 603);
+            this.numClass.Maximum = new decimal(new int[] {
+            25,
+            0,
+            0,
+            0});
+            this.numClass.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numClass.Name = "numClass";
+            this.numClass.Size = new System.Drawing.Size(78, 23);
+            this.numClass.TabIndex = 20;
+            this.numClass.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // bDelClass
+            // 
+            this.bDelClass.Location = new System.Drawing.Point(264, 601);
+            this.bDelClass.Name = "bDelClass";
+            this.bDelClass.Size = new System.Drawing.Size(78, 28);
+            this.bDelClass.TabIndex = 21;
+            this.bDelClass.Text = "교시 삭제";
+            this.bDelClass.UseVisualStyleBackColor = true;
+            this.bDelClass.Click += new System.EventHandler(this.bDelClass_Click);
+            // 
             // frmTTCreator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1155, 635);
+            this.Controls.Add(this.bDelClass);
+            this.Controls.Add(this.numClass);
             this.Controls.Add(this.bDel8);
             this.Controls.Add(this.bDel7);
             this.Controls.Add(this.cbGyoFil);
@@ -335,6 +372,7 @@
             this.Text = "시간표 생성기";
             this.Load += new System.EventHandler(this.frmTTCreator_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numMax)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numClass)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -369,5 +407,7 @@
         private System.Windows.Forms.CheckBox cbGyoFil;
         private System.Windows.Forms.Button bDel7;
         private System.Windows.Forms.Button bDel8;
+        private System.Windows.Forms.NumericUpDown numClass;
+        private System.Windows.Forms.Button bDelClass;
     }
 }

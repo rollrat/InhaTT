@@ -299,7 +299,25 @@ namespace InhaTT
                     }
                 }
         }
-        #endregion
 
+        private void bDelClass_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < subject_group.Count; i++)
+                for (int j = 0; j < subject_group[i].Count; j++)
+                {
+                    if (cbJunPil.Checked && subject[Convert.ToInt32(subject_group[i][j].index)].구분 == "전공필수")
+                        break;
+                    if (cbGyoFil.Checked && subject[Convert.ToInt32(subject_group[i][j].index)].구분 == "교양필수")
+                        break;
+                    if (subject_group[i][j].IsFillTime((int)numClass.Value))
+                    {
+                        foreach (ListViewItem lvi in lvSearch.Items)
+                            if (lvi.SubItems[0].Text == subject_group[i][j].index)
+                            { DelLVI(lvi); break; }
+                        j--;
+                    }
+                }
+        }
+        #endregion
     }
 }
