@@ -65,8 +65,6 @@
             this.bList = new System.Windows.Forms.Button();
             this.bMenu = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.bPull = new System.Windows.Forms.Button();
-            this.bPush = new System.Windows.Forms.Button();
             this.bCreate = new System.Windows.Forms.Button();
             this.lvTable = new System.Windows.Forms.ListView();
             this.columnHeader18 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -76,6 +74,7 @@
             this.columnHeader15 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader16 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader17 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.bAnalyze = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage3.SuspendLayout();
@@ -306,12 +305,11 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.bAnalyze);
             this.tabPage2.Controls.Add(this.label1);
             this.tabPage2.Controls.Add(this.bList);
             this.tabPage2.Controls.Add(this.bMenu);
             this.tabPage2.Controls.Add(this.label2);
-            this.tabPage2.Controls.Add(this.bPull);
-            this.tabPage2.Controls.Add(this.bPush);
             this.tabPage2.Controls.Add(this.bCreate);
             this.tabPage2.Location = new System.Drawing.Point(4, 24);
             this.tabPage2.Name = "tabPage2";
@@ -359,26 +357,6 @@
             this.label2.Size = new System.Drawing.Size(542, 90);
             this.label2.TabIndex = 4;
             this.label2.Text = resources.GetString("label2.Text");
-            // 
-            // bPull
-            // 
-            this.bPull.Enabled = false;
-            this.bPull.Location = new System.Drawing.Point(175, 93);
-            this.bPull.Name = "bPull";
-            this.bPull.Size = new System.Drawing.Size(141, 33);
-            this.bPull.TabIndex = 3;
-            this.bPull.Text = "시간표 가져오기";
-            this.bPull.UseVisualStyleBackColor = true;
-            // 
-            // bPush
-            // 
-            this.bPush.Enabled = false;
-            this.bPush.Location = new System.Drawing.Point(28, 93);
-            this.bPush.Name = "bPush";
-            this.bPush.Size = new System.Drawing.Size(141, 33);
-            this.bPush.TabIndex = 1;
-            this.bPush.Text = "시간표 내보내기";
-            this.bPush.UseVisualStyleBackColor = true;
             // 
             // bCreate
             // 
@@ -452,6 +430,16 @@
             this.columnHeader17.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnHeader17.Width = 184;
             // 
+            // bAnalyze
+            // 
+            this.bAnalyze.Location = new System.Drawing.Point(28, 94);
+            this.bAnalyze.Name = "bAnalyze";
+            this.bAnalyze.Size = new System.Drawing.Size(141, 33);
+            this.bAnalyze.TabIndex = 8;
+            this.bAnalyze.Text = "분석기";
+            this.bAnalyze.UseVisualStyleBackColor = true;
+            this.bAnalyze.Click += new System.EventHandler(this.bAnalyze_Click);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -521,12 +509,11 @@
         private System.Windows.Forms.ColumnHeader columnHeader29;
         private System.Windows.Forms.ColumnHeader columnHeader30;
         private System.Windows.Forms.Button bCreate;
-        private System.Windows.Forms.Button bPush;
-        private System.Windows.Forms.Button bPull;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button bMenu;
         private System.Windows.Forms.Button bList;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button bAnalyze;
     }
 }
 

@@ -50,6 +50,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bot.cs" />
+    <Compile Include="frmAnalyzer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAnalyzer.Designer.cs">
+      <DependentUpon>frmAnalyzer.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,6 +87,9 @@
     <Compile Include="TT\TimeTable.cs" />
     <Compile Include="TT\TimeTableGenerator.cs" />
     <Compile Include="Version.cs" />
+    <EmbeddedResource Include="frmAnalyzer.resx">
+      <DependentUpon>frmAnalyzer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>

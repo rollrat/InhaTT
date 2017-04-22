@@ -416,7 +416,7 @@ namespace InhaTT
         /// 괄호 사이에 포함된 모든 내용을 가져온다.
         /// 매칭되는 것이 두 개 이상일 경우 '/'를 붙인다.
         /// </summary>
-        private string getSlice(string a)
+        static public string getSlice(string a)
         {
             Regex regex = new Regex("\\((.*?)\\)");
             Match match = regex.Match(a);
@@ -522,6 +522,11 @@ namespace InhaTT
         private void bMenu_Click(object sender, EventArgs e)
         {
             (new frmManual()).Show();
+        }
+
+        private void bAnalyze_Click(object sender, EventArgs e)
+        {
+            (new frmAnalyzer()).Show();
         }
 
         public void ActivateTTListButton()
