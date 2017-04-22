@@ -204,13 +204,13 @@ namespace InhaTT
             else if (e.KeyCode == Keys.Left && bLeft.Enabled)
                 LeftClick();
         }
-        #endregion
-
         private void bToMain_Click(object sender, EventArgs e)
         {
             Program.m.view_table = view_table;
             Program.m.Trans();
             Program.m.Focus();
         }
+        #endregion
+
     }
 }

@@ -16,7 +16,7 @@ namespace InhaTT
 {
     class Version
     {
-        static public string Text = "0.1";
+        static public string Text = "0.1 beta";
         static public string Name = "InhaTimeTable Manager";
     }
 }

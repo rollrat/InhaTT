@@ -51,40 +51,41 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.tabPage8 = new System.Windows.Forms.TabPage();
+            this.label14 = new System.Windows.Forms.Label();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.label13 = new System.Windows.Forms.Label();
             this.tabPage9 = new System.Windows.Forms.TabPage();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.tabPage10 = new System.Windows.Forms.TabPage();
-            this.label19 = new System.Windows.Forms.Label();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.label20 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.tabPage10 = new System.Windows.Forms.TabPage();
+            this.label20 = new System.Windows.Forms.Label();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabControl3 = new System.Windows.Forms.TabControl();
             this.tabPage11 = new System.Windows.Forms.TabPage();
-            this.tabPage12 = new System.Windows.Forms.TabPage();
-            this.tabPage13 = new System.Windows.Forms.TabPage();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
-            this.pictureBox8 = new System.Windows.Forms.PictureBox();
-            this.label26 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.tabPage12 = new System.Windows.Forms.TabPage();
             this.label27 = new System.Windows.Forms.Label();
-            this.pictureBox9 = new System.Windows.Forms.PictureBox();
-            this.label28 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
+            this.tabPage13 = new System.Windows.Forms.TabPage();
             this.label29 = new System.Windows.Forms.Label();
-            this.pictureBox10 = new System.Windows.Forms.PictureBox();
+            this.label28 = new System.Windows.Forms.Label();
+            this.pictureBox9 = new System.Windows.Forms.PictureBox();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
             this.label30 = new System.Windows.Forms.Label();
+            this.pictureBox10 = new System.Windows.Forms.PictureBox();
+            this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.label31 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -95,21 +96,22 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.tabPage8.SuspendLayout();
-            this.tabPage9.SuspendLayout();
-            this.tabPage3.SuspendLayout();
-            this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            this.tabPage9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.tabPage10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
+            this.tabPage3.SuspendLayout();
             this.tabControl3.SuspendLayout();
             this.tabPage11.SuspendLayout();
             this.tabPage12.SuspendLayout();
-            this.tabPage13.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
+            this.tabPage13.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
+            this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
+            this.tabPage5.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -351,6 +353,27 @@
             this.tabPage8.Text = "정렬";
             this.tabPage8.UseVisualStyleBackColor = true;
             // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(35, 295);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(705, 30);
+            this.label14.TabIndex = 5;
+            this.label14.Text = "가령 \"이공계열 글쓰기와 토론\"의 검색 목록을 \"필드\"범주로 정렬시키고 싶으면, 위 사진에 표시된 초록색 부분을 클릭하면 됩니다.\r\n기본적으로 오" +
+    "름차순으로 정렬되며, 한 번 더 클릭하면 내림차순으로 정렬됩니다.";
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Location = new System.Drawing.Point(69, 82);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(463, 183);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox4.TabIndex = 4;
+            this.pictureBox4.TabStop = false;
+            // 
             // label13
             // 
             this.label13.AutoSize = true;
@@ -377,76 +400,43 @@
             this.tabPage9.Text = "과목추가";
             this.tabPage9.UseVisualStyleBackColor = true;
             // 
-            // tabPage3
+            // label21
             // 
-            this.tabPage3.Controls.Add(this.tabControl3);
-            this.tabPage3.Location = new System.Drawing.Point(4, 24);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(887, 449);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "시간표 생성기";
-            this.tabPage3.UseVisualStyleBackColor = true;
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(35, 368);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(314, 15);
+            this.label21.TabIndex = 6;
+            this.label21.Text = "* 과목을 추가/삭제하면 .autosave파일로 자동저장됩니다.";
             // 
-            // tabPage4
+            // label18
             // 
-            this.tabPage4.Controls.Add(this.label30);
-            this.tabPage4.Controls.Add(this.pictureBox10);
-            this.tabPage4.Location = new System.Drawing.Point(4, 24);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(887, 449);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "시간표 리스트";
-            this.tabPage4.UseVisualStyleBackColor = true;
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(35, 308);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(747, 45);
+            this.label18.TabIndex = 5;
+            this.label18.Text = "리스트에 표시된 과목을 클릭하면 이전에 추가한 과목들과 겹치는지의 여부와 어느 요일에 수업이 있는지 확인하기 위해 옅은 빨간색으로 \r\n칸이 색칠 " +
+    "됩니다. 과목을 추가하고 싶다면 해당 과목을 더블클릭하여 추가할 수 있습니다.\r\n만약 이전에 추가한 과목과 겹치는 경우 오류가 발생되며 추가되지" +
+    " 않습니다.";
             // 
-            // tabPage5
+            // label17
             // 
-            this.tabPage5.Location = new System.Drawing.Point(4, 24);
-            this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Size = new System.Drawing.Size(887, 449);
-            this.tabPage5.TabIndex = 4;
-            this.tabPage5.Text = "가져오기 및 내보내기";
-            this.tabPage5.UseVisualStyleBackColor = true;
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(399, 273);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(195, 15);
+            this.label17.TabIndex = 4;
+            this.label17.Text = "<원하는 과목을 더블 클릭한 모습>";
             // 
-            // pictureBox4
+            // label16
             // 
-            this.pictureBox4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(69, 82);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(463, 183);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox4.TabIndex = 4;
-            this.pictureBox4.TabStop = false;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(35, 295);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(705, 30);
-            this.label14.TabIndex = 5;
-            this.label14.Text = "가령 \"이공계열 글쓰기와 토론\"의 검색 목록을 \"필드\"범주로 정렬시키고 싶으면, 위 사진에 표시된 초록색 부분을 클릭하면 됩니다.\r\n기본적으로 오" +
-    "름차순으로 정렬되며, 한 번 더 클릭하면 내림차순으로 정렬됩니다.";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("맑은 고딕", 12F);
-            this.label15.Location = new System.Drawing.Point(34, 33);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(730, 21);
-            this.label15.TabIndex = 0;
-            this.label15.Text = "사용자는 검색과목이 표시되는 리스트에서 원하는 과목을 더블클릭하여 과목을 추가할 수 있습니다.";
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(150, 85);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(201, 175);
-            this.pictureBox5.TabIndex = 1;
-            this.pictureBox5.TabStop = false;
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(168, 273);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(167, 15);
+            this.label16.TabIndex = 3;
+            this.label16.Text = "<원하는 과목을 클릭한 모습>";
             // 
             // pictureBox6
             // 
@@ -459,34 +449,25 @@
             this.pictureBox6.TabIndex = 2;
             this.pictureBox6.TabStop = false;
             // 
-            // label16
+            // pictureBox5
             // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(168, 273);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(167, 15);
-            this.label16.TabIndex = 3;
-            this.label16.Text = "<원하는 과목을 클릭한 모습>";
+            this.pictureBox5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
+            this.pictureBox5.Location = new System.Drawing.Point(150, 85);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(201, 175);
+            this.pictureBox5.TabIndex = 1;
+            this.pictureBox5.TabStop = false;
             // 
-            // label17
+            // label15
             // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(399, 273);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(195, 15);
-            this.label17.TabIndex = 4;
-            this.label17.Text = "<원하는 과목을 더블 클릭한 모습>";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(35, 308);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(747, 45);
-            this.label18.TabIndex = 5;
-            this.label18.Text = "리스트에 표시된 과목을 클릭하면 이전에 추가한 과목들과 겹치는지의 여부와 어느 요일에 수업이 있는지 확인하기 위해 옅은 빨간색으로 \r\n칸이 색칠 " +
-    "됩니다. 과목을 추가하고 싶다면 해당 과목을 더블클릭하여 추가할 수 있습니다.\r\n만약 이전에 추가한 과목과 겹치는 경우 오류가 발생되며 추가되지" +
-    " 않습니다.";
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("맑은 고딕", 12F);
+            this.label15.Location = new System.Drawing.Point(34, 33);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(730, 21);
+            this.label15.TabIndex = 0;
+            this.label15.Text = "사용자는 검색과목이 표시되는 리스트에서 원하는 과목을 더블클릭하여 과목을 추가할 수 있습니다.";
             // 
             // tabPage10
             // 
@@ -501,15 +482,15 @@
             this.tabPage10.Text = "과목삭제";
             this.tabPage10.UseVisualStyleBackColor = true;
             // 
-            // label19
+            // label20
             // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("맑은 고딕", 12F);
-            this.label19.Location = new System.Drawing.Point(34, 33);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(580, 21);
-            this.label19.TabIndex = 1;
-            this.label19.Text = "사용자는 \"추가됨\" 탭에서 DELETE키를 통해 원하는 과목을 삭제할 수 있습니다.";
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(35, 265);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(728, 30);
+            this.label20.TabIndex = 3;
+            this.label20.Text = "선택한 과목을 삭제하기 위해 위 사진에 표시된 초록색 부분 \"추가됨\" 탭을 클릭합니다. 그 다음 원하는 과목들을 클릭하여 선택하거나 \r\n또는 드래" +
+    "그하여 선택 후 키보드 자판에 있는 \"DELETE\" 킬르 누르면 과목이 삭제됩니다.";
             // 
             // pictureBox7
             // 
@@ -522,24 +503,25 @@
             this.pictureBox7.TabIndex = 2;
             this.pictureBox7.TabStop = false;
             // 
-            // label20
+            // label19
             // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(35, 265);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(728, 30);
-            this.label20.TabIndex = 3;
-            this.label20.Text = "선택한 과목을 삭제하기 위해 위 사진에 표시된 초록색 부분 \"추가됨\" 탭을 클릭합니다. 그 다음 원하는 과목들을 클릭하여 선택하거나 \r\n또는 드래" +
-    "그하여 선택 후 키보드 자판에 있는 \"DELETE\" 킬르 누르면 과목이 삭제됩니다.";
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("맑은 고딕", 12F);
+            this.label19.Location = new System.Drawing.Point(34, 33);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(580, 21);
+            this.label19.TabIndex = 1;
+            this.label19.Text = "사용자는 \"추가됨\" 탭에서 DELETE키를 통해 원하는 과목을 삭제할 수 있습니다.";
             // 
-            // label21
+            // tabPage3
             // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(35, 368);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(314, 15);
-            this.label21.TabIndex = 6;
-            this.label21.Text = "* 과목을 추가/삭제하면 .autosave파일로 자동저장됩니다.";
+            this.tabPage3.Controls.Add(this.tabControl3);
+            this.tabPage3.Location = new System.Drawing.Point(4, 24);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Size = new System.Drawing.Size(887, 449);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "시간표 생성기";
+            this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // tabControl3
             // 
@@ -566,6 +548,46 @@
             this.tabPage11.Text = "들어가기";
             this.tabPage11.UseVisualStyleBackColor = true;
             // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(51, 342);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(326, 15);
+            this.label25.TabIndex = 3;
+            this.label25.Text = "생성된 시간표는 시간표 리스트를 통해 확인할 수 있습니다.";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(51, 204);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(702, 105);
+            this.label24.TabIndex = 2;
+            this.label24.Text = resources.GetString("label24.Text");
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(51, 125);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(758, 45);
+            this.label23.TabIndex = 1;
+            this.label23.Text = "시간표 생성기는 사용자가 추가한 모든 과목을 기본 경우의 수로 삼고 생성을 진행합니다. 과목이 지나치게  많거나 겹치는 과목들이 있으면 \r\n생성이" +
+    " 지연될 수 있으며 검색이 도중 중단될 수 있습니다. \r\n이를 방지하기 위해 기본 생성횟수를 100개 이하로 설정하고 있습니다. (10,000개" +
+    "까지 설정가능합니다.)";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(51, 45);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(573, 45);
+            this.label22.TabIndex = 0;
+            this.label22.Text = "시간표 생성기에서 원하는 과목을 검색하는 방법은 커스텀 환경에서와 같습니다.\r\n단, 정확한 검색을 위해 과목이름 전체를 입력해야하며 범주도 \"과목" +
+    "명\"과 \"학수번호\" 두 개로 제한됩니다.\r\n정렬 기능 또한 커스터 환경에서와 같으며, 과목삭제 방법도 DELETE키를 눌러 진행할 수 있습니다." +
+    "";
+            // 
             // tabPage12
             // 
             this.tabPage12.Controls.Add(this.label27);
@@ -579,57 +601,23 @@
             this.tabPage12.Text = "삭제";
             this.tabPage12.UseVisualStyleBackColor = true;
             // 
-            // tabPage13
+            // label27
             // 
-            this.tabPage13.Controls.Add(this.label29);
-            this.tabPage13.Controls.Add(this.label28);
-            this.tabPage13.Controls.Add(this.pictureBox9);
-            this.tabPage13.Location = new System.Drawing.Point(4, 24);
-            this.tabPage13.Name = "tabPage13";
-            this.tabPage13.Size = new System.Drawing.Size(873, 415);
-            this.tabPage13.TabIndex = 2;
-            this.tabPage13.Text = "생성";
-            this.tabPage13.UseVisualStyleBackColor = true;
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(47, 249);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(663, 90);
+            this.label27.TabIndex = 2;
+            this.label27.Text = resources.GetString("label27.Text");
             // 
-            // label22
+            // label26
             // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(51, 45);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(573, 45);
-            this.label22.TabIndex = 0;
-            this.label22.Text = "시간표 생성기에서 원하는 과목을 검색하는 방법은 커스텀 환경에서와 같습니다.\r\n단, 정확한 검색을 위해 과목이름 전체를 입력해야하며 범주도 \"과목" +
-    "명\"과 \"학수번호\" 두 개로 제한됩니다.\r\n정렬 기능 또한 커스터 환경에서와 같으며, 과목삭제 방법도 DELETE키를 눌러 진행할 수 있습니다." +
-    "";
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(51, 125);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(758, 45);
-            this.label23.TabIndex = 1;
-            this.label23.Text = "시간표 생성기는 사용자가 추가한 모든 과목을 기본 경우의 수로 삼고 생성을 진행합니다. 과목이 지나치게  많거나 겹치는 과목들이 있으면 \r\n생성이" +
-    " 지연될 수 있으며 검색이 도중 중단될 수 있습니다. \r\n이를 방지하기 위해 기본 생성횟수를 100개 이하로 설정하고 있습니다. (10,000개" +
-    "까지 설정가능합니다.)";
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(51, 204);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(702, 105);
-            this.label24.TabIndex = 2;
-            this.label24.Text = resources.GetString("label24.Text");
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(51, 342);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(326, 15);
-            this.label25.TabIndex = 3;
-            this.label25.Text = "생성된 시간표는 시간표 리스트를 통해 확인할 수 있습니다.";
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(47, 199);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(765, 15);
+            this.label26.TabIndex = 1;
+            this.label26.Text = "시간표 생성기는 효율적인 시간표 생성을 위해 삭제기능을 제공합니다. 삭제 기능은 위 사진에 표시된 버튼과 체크박스로 수행할 수 있습니다.";
             // 
             // pictureBox8
             // 
@@ -642,23 +630,35 @@
             this.pictureBox8.TabIndex = 0;
             this.pictureBox8.TabStop = false;
             // 
-            // label26
+            // tabPage13
             // 
-            this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(47, 199);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(765, 15);
-            this.label26.TabIndex = 1;
-            this.label26.Text = "시간표 생성기는 효율적인 시간표 생성을 위해 삭제기능을 제공합니다. 삭제 기능은 위 사진에 표시된 버튼과 체크박스로 수행할 수 있습니다.";
+            this.tabPage13.Controls.Add(this.label29);
+            this.tabPage13.Controls.Add(this.label28);
+            this.tabPage13.Controls.Add(this.pictureBox9);
+            this.tabPage13.Location = new System.Drawing.Point(4, 24);
+            this.tabPage13.Name = "tabPage13";
+            this.tabPage13.Size = new System.Drawing.Size(873, 415);
+            this.tabPage13.TabIndex = 2;
+            this.tabPage13.Text = "생성";
+            this.tabPage13.UseVisualStyleBackColor = true;
             // 
-            // label27
+            // label29
             // 
-            this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(47, 249);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(663, 90);
-            this.label27.TabIndex = 2;
-            this.label27.Text = resources.GetString("label27.Text");
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(49, 281);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(386, 15);
+            this.label29.TabIndex = 2;
+            this.label29.Text = "생성된 시간표를 보려면 커스텀 환경에서 시간표 리스트를 클릭하세요.";
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(49, 210);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(486, 30);
+            this.label28.TabIndex = 1;
+            this.label28.Text = "최대치 칸에서 최대치를 설정한 다음 생성시작 버튼을 눌러 시간표를 생성할 수 있습니다.\r\n생성이 완료된 경우 생성완료 메시지가 표시됩니다.";
             // 
             // pictureBox9
             // 
@@ -671,23 +671,27 @@
             this.pictureBox9.TabIndex = 0;
             this.pictureBox9.TabStop = false;
             // 
-            // label28
+            // tabPage4
             // 
-            this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(49, 210);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(486, 30);
-            this.label28.TabIndex = 1;
-            this.label28.Text = "최대치 칸에서 최대치를 설정한 다음 생성시작 버튼을 눌러 시간표를 생성할 수 있습니다.\r\n생성이 완료된 경우 생성완료 메시지가 표시됩니다.";
+            this.tabPage4.Controls.Add(this.label30);
+            this.tabPage4.Controls.Add(this.pictureBox10);
+            this.tabPage4.Location = new System.Drawing.Point(4, 24);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Size = new System.Drawing.Size(887, 449);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "시간표 리스트";
+            this.tabPage4.UseVisualStyleBackColor = true;
             // 
-            // label29
+            // label30
             // 
-            this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(49, 281);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(386, 15);
-            this.label29.TabIndex = 2;
-            this.label29.Text = "생성된 시간표를 보려면 커스텀 환경에서 시간표 리스트를 클릭하세요.";
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(55, 237);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(641, 90);
+            this.label30.TabIndex = 1;
+            this.label30.Text = "시간표 생성기로 생성된 시간표는 시간표 리스트로 확인할 수 있습니다. 시간표 리스트는 생성된 시간표를 보여주며, \r\n위 세 버튼을 통해 이전/다음" +
+    " 시간표를 확인할 수 있습니다.\r\n\r\n또한 왼쪽/오른쪽 방향키를 통해 확인가능합니다.\r\n\r\n메인으로 버튼을 누르면 커스텀 환경으로 시간표가 옮겨" +
+    "집니다. 이때 기존의 커스텀 시간표는 삭제되니 주의해 주세요.";
             // 
             // pictureBox10
             // 
@@ -700,16 +704,24 @@
             this.pictureBox10.TabIndex = 0;
             this.pictureBox10.TabStop = false;
             // 
-            // label30
+            // tabPage5
             // 
-            this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(55, 237);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(641, 90);
-            this.label30.TabIndex = 1;
-            this.label30.Text = "시간표 생성기로 생성된 시간표는 시간표 리스트로 확인할 수 있습니다. 시간표 리스트는 생성된 시간표를 보여주며, \r\n위 세 버튼을 통해 이전/다음" +
-    " 시간표를 확인할 수 있습니다.\r\n\r\n또한 왼쪽/오른쪽 방향키를 통해 확인가능합니다.\r\n\r\n메인으로 버튼을 누르면 커스텀 환경으로 시간표가 옮겨" +
-    "집니다. 이때 기존의 커스텀 시간표는 삭제되니 주의해 주세요.";
+            this.tabPage5.Controls.Add(this.label31);
+            this.tabPage5.Location = new System.Drawing.Point(4, 24);
+            this.tabPage5.Name = "tabPage5";
+            this.tabPage5.Size = new System.Drawing.Size(887, 449);
+            this.tabPage5.TabIndex = 4;
+            this.tabPage5.Text = "가져오기 및 내보내기";
+            this.tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Location = new System.Drawing.Point(87, 90);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(90, 15);
+            this.label31.TabIndex = 0;
+            this.label31.Text = "구현 중 입니다.";
             // 
             // frmManual
             // 
@@ -739,27 +751,29 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.tabPage8.ResumeLayout(false);
             this.tabPage8.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.tabPage9.ResumeLayout(false);
             this.tabPage9.PerformLayout();
-            this.tabPage3.ResumeLayout(false);
-            this.tabPage4.ResumeLayout(false);
-            this.tabPage4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.tabPage10.ResumeLayout(false);
             this.tabPage10.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
+            this.tabPage3.ResumeLayout(false);
             this.tabControl3.ResumeLayout(false);
             this.tabPage11.ResumeLayout(false);
             this.tabPage11.PerformLayout();
             this.tabPage12.ResumeLayout(false);
             this.tabPage12.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             this.tabPage13.ResumeLayout(false);
             this.tabPage13.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
+            this.tabPage4.ResumeLayout(false);
+            this.tabPage4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
+            this.tabPage5.ResumeLayout(false);
+            this.tabPage5.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -822,5 +836,6 @@
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.PictureBox pictureBox10;
+        private System.Windows.Forms.Label label31;
     }
 }

@@ -225,11 +225,16 @@ namespace InhaTT
             {
                 for (int j = 0; j < subject_group[i].Count; j++)
                 {
-                    if (subject_group[i][j].index.ToString() == vi)
+                    string ix = subject_group[i][j].index;
+                    if (ix == vi)
                     {
                         subject_group[i].RemoveAt(j);
                         if (subject_group[i].Count == 0)
+                        {
                             subject_group.RemoveAt(i);
+                            MessageBox.Show($"\"{subject[Convert.ToInt32(ix)].과목명}\" 과목이 완전히 삭제되었습니다.", 
+                                Version.Name, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
                         return;
                     }
                 }

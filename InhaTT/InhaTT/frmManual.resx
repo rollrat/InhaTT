@@ -1056,28 +1056,6 @@
         94LXs0uDAk7xxHLhiD8+v/76/+QzDzDs6wYYAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="pictureBox5.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAM4AAACyCAYAAAAK//B+AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wwAADsMBx2+oZAAAA7JJREFUeF7t3EFOW0kARVHvx+thByyE9TDIPPtgwgKYM+j5718JNLb5cbtuaMlx
-        nyudCIHtUT2VTaLsFknT7Z6fnxdgzu719XUB5hgOBIYDgeFAYDgQGA4EhgPB7v7+fgHmXPQvB15eXt6+
-        km6vcr4NR//7DEcKGY4UMhwpZDhSyHCuqce7ZbfbHdgvD0/vP/r4+qhPz9ktd49vPzvt5LGHj/vl62sz
-        w7maHpe73d3650FPD8v+7XRvHeynh/2y2z8sx98er7MxnvFaR6//tDzsLximNjOca2rj9vhwerCPD/5R
-        B4P7p/W19ycPHsN7/57hzGU4f0ifD/bkcNw4X5rhXEXjEG/dMj+NW2HzYI8b6tK3aqMf4/l43cPHGM5c
-        hnOFjbdQmwd/ox+fcw7GMJy+JdPXZzhX1c/b4nQI77bG9GlkG59lPjp3s7lxZjKcP6THu68Yzq/zVm0u
-        w7mqLrxxzv727djx2Nw4X5XhXFXrcD592P/KxnBO/q5IKcO5qs7fOL//of/ff3unyzIcKWQ4UshwpJDh
-        SCHDkUKGI4UMRwr9Z8MZjf+9ULrVZs+34UhrhiOFDEcKGY4UMhwpZDhSyHCkkOFIIcORQoYjhQxHChmO
-        FDIcKWQ4UshwpJDhSCHDkULTwxlPAOa4caS12fNtONKa4Ughw5FChiOFDEcKGY4UMhwpZDhSyHCkkOFI
-        IcORQoYjhQxHChmOFDIcKWQ4UshwpND0cMYTgDluHGlt9nwbjrRmOFLIcKSQ4Ughw5FChiOFDEcKGY4U
-        MhwpZDhSyHCkkOFIIcORQoYjhQxHChmOFDIcKTQ9nPEEYM7FN85f374ty/fvcJPGGGYyHFgZDgSGA4Hh
-        QGA4EBgOBIYDgeFAYDgQGA4EhgOB4UBgOBAYDgSGA4HhQGA4EEwPZzzhEmM4cKu2zvw5bhxYjTHMZDiw
-        MhwIDAcCw4HAcCAwHAgMBwLDgcBwIDAcCAwHAsOBwHAgMBwIDAcCw4HAcCCYHs54wiXGcOBWbZ35c9w4
-        sBpjmMlwYGU4EBgOBIYDgeFAYDgQGA4EhgOB4UBgOBAYDgSGA4HhQGA4EBgOBIYDgeFAMD2c8YRLjOHA
-        rdo68+e4cWA1xjCT4cDKcCAwHAgMBwLDgcBwIDAcCAwHAsOBwHAgMBwIDAcCw4HAcCAwHAgMBwLDgWB6
-        OOMJlxjDgVu1debPufjGGQ+WbrXZ82040prhSCHDkUKGI4UMRwoZjhQyHClkOFLIcKSQ4UihufO9LH8D
-        Agefqhb/ueQAAAAASUVORK5CYII=
-</value>
-  </data>
   <data name="pictureBox6.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAMcAAACtCAYAAAAEamv6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
@@ -1112,6 +1090,28 @@
         OBCFxIEoJA5EIXEgCokDUUgciELiQBQSB6KQOBCFxIEoJA5EYTUO20BpcSBuVW/mQzlz4G61AEoQB+5W
         4kAUEgeikDgQhcSBKCQORCFxIAqJA1FIHIhC4kAUEgeikDgQhcSBKCQORCFxIAqJA1FIHIjCahy2gdLi
         QNyq3syHFs8ctgHAVqnNN3HAbiEOAAFxAAiIA0BAHACC8nx33f+SBTU4jkXatwAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="pictureBox5.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAM4AAACyCAYAAAAK//B+AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wwAADsMBx2+oZAAAA7JJREFUeF7t3EFOW0kARVHvx+thByyE9TDIPPtgwgKYM+j5718JNLb5cbtuaMlx
+        nyudCIHtUT2VTaLsFknT7Z6fnxdgzu719XUB5hgOBIYDgeFAYDgQGA4EhgPB7v7+fgHmXPQvB15eXt6+
+        km6vcr4NR//7DEcKGY4UMhwpZDhSyHCuqce7ZbfbHdgvD0/vP/r4+qhPz9ktd49vPzvt5LGHj/vl62sz
+        w7maHpe73d3650FPD8v+7XRvHeynh/2y2z8sx98er7MxnvFaR6//tDzsLximNjOca2rj9vhwerCPD/5R
+        B4P7p/W19ycPHsN7/57hzGU4f0ifD/bkcNw4X5rhXEXjEG/dMj+NW2HzYI8b6tK3aqMf4/l43cPHGM5c
+        hnOFjbdQmwd/ox+fcw7GMJy+JdPXZzhX1c/b4nQI77bG9GlkG59lPjp3s7lxZjKcP6THu68Yzq/zVm0u
+        w7mqLrxxzv727djx2Nw4X5XhXFXrcD592P/KxnBO/q5IKcO5qs7fOL//of/ff3unyzIcKWQ4UshwpJDh
+        SCHDkUKGI4UMRwr9Z8MZjf+9ULrVZs+34UhrhiOFDEcKGY4UMhwpZDhSyHCkkOFIIcORQoYjhQxHChmO
+        FDIcKWQ4UshwpJDhSCHDkULTwxlPAOa4caS12fNtONKa4Ughw5FChiOFDEcKGY4UMhwpZDhSyHCkkOFI
+        IcORQoYjhQxHChmOFDIcKWQ4UshwpND0cMYTgDluHGlt9nwbjrRmOFLIcKSQ4Ughw5FChiOFDEcKGY4U
+        MhwpZDhSyHCkkOFIIcORQoYjhQxHChmOFDIcKTQ9nPEEYM7FN85f374ty/fvcJPGGGYyHFgZDgSGA4Hh
+        QGA4EBgOBIYDgeFAYDgQGA4EhgOB4UBgOBAYDgSGA4HhQGA4EEwPZzzhEmM4cKu2zvw5bhxYjTHMZDiw
+        MhwIDAcCw4HAcCAwHAgMBwLDgcBwIDAcCAwHAsOBwHAgMBwIDAcCw4HAcCCYHs54wiXGcOBWbZ35c9w4
+        sBpjmMlwYGU4EBgOBIYDgeFAYDgQGA4EhgOB4UBgOBAYDgSGA4HhQGA4EBgOBIYDgeFAMD2c8YRLjOHA
+        rdo68+e4cWA1xjCT4cDKcCAwHAgMBwLDgcBwIDAcCAwHAsOBwHAgMBwIDAcCw4HAcCAwHAgMBwLDgWB6
+        OOMJlxjDgVu1debPufjGGQ+WbrXZ82040prhSCHDkUKGI4UMRwoZjhQyHClkOFLIcKSQ4UihufO9LH8D
+        Agefqhb/ueQAAAAASUVORK5CYII=
 </value>
   </data>
   <data name="pictureBox7.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -1189,6 +1189,14 @@
 공강을 반드시 만들 필요는 없지만 빠른 생성을 위한 방법으로 공강을 만드는 방법이 있습니다. 월~금 공강 중 하나를 선택 삭제후
 생성을 시작해 주세요.</value>
   </data>
+  <data name="label27.Text" xml:space="preserve">
+    <value>월삭-금삭 버튼: 각 버튼은 월요일-금요일 삭제를 뜻하며, 해당 요일에 수업이 포함된 모든 과목을 삭제합니다.
+이때 밑 "전필 남김", "교필 남김" 박스에 준하여 삭제합니다.
+
+선삭 버튼: 교양선택, 전공선택 과목을 삭제합니다.
+교삭 버튼: 교양선택, 교양필수 과목을 삭제합니다.
+웹삭 버튼: 모든 웹 강의를 삭제합니다. 이때 삭제되는 강의는 오직 웹강의 뿐이며, 웹강+현강인 과목은 삭제되지 않습니다.</value>
+  </data>
   <data name="pictureBox8.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAs0AAABRCAYAAAApdJuQAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
@@ -1238,14 +1246,6 @@
         zKGpNJ+q9H3YKOU1pvR9AACYz2hpBgCAS6c0AwDACKUZAABGKM0AADBCaQYAgBFKMwAAjFCaAQBghNIM
         AABH/V39H92VTQ6+oZHiAAAAAElFTkSuQmCC
 </value>
-  </data>
-  <data name="label27.Text" xml:space="preserve">
-    <value>월삭-금삭 버튼: 각 버튼은 월요일-금요일 삭제를 뜻하며, 해당 요일에 수업이 포함된 모든 과목을 삭제합니다.
-이때 밑 "전필 남김", "교필 남김" 박스에 준하여 삭제합니다.
-
-선삭 버튼: 교양선택, 전공선택 과목을 삭제합니다.
-교삭 버튼: 교양선택, 교양필수 과목을 삭제합니다.
-웹삭 버튼: 모든 웹 강의를 삭제합니다. 이때 삭제되는 강의는 오직 웹강의 뿐이며, 웹강+현강인 과목은 삭제되지 않습니다.</value>
   </data>
   <data name="pictureBox9.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
