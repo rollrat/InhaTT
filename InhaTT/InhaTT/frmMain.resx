@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="label2.Text" xml:space="preserve">
-    <value>이 프로그램은 인하대학교 재학생들이 보다 효율적으로 시간표를 작성할 수 있도록 제작되었습니다.
+    <value>이 프로그램은 인하대학교 학우분들이 보다 효율적으로 시간표를 작성할 수 있도록 제작되었습니다.
 오픈소스 프로젝트이며 누구나 재배포 또는 수정이 가능합니다.
 시간표 데이터나 기타 문의, 소스코드 참조는 다음을 통해 해주세요.
 

@@ -523,6 +523,11 @@ namespace InhaTT
         {
             (new frmManual()).Show();
         }
+
+        public void ActivateTTListButton()
+        {
+            bList.Enabled = true;
+        }
         #endregion
 
     }

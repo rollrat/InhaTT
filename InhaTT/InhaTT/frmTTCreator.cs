@@ -9,12 +9,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace InhaTT
@@ -189,6 +184,7 @@ namespace InhaTT
                 builder.Append(r + '\n');
             System.IO.File.WriteAllText(AppDomain.CurrentDomain.BaseDirectory + @"combinations.txt", builder.ToString());
             escape = false;
+            Program.m.ActivateTTListButton();
             MessageBox.Show("생성완료!\n생성횟수: " + result.Count, Version.Name, MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 

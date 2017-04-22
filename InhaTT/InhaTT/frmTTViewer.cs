@@ -7,15 +7,10 @@
 ***/
 
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace InhaTT
@@ -184,14 +179,19 @@ namespace InhaTT
         }
         private void RightClick()
         {
-            ir++; view_table = txts[ir];
-            if (txts.Count == ir + 1)
-                bRight.Enabled = false;
-            if (ir > 0)
-                bLeft.Enabled = true;
-            lvTable.Invalidate();
-            Application.DoEvents();
-            DrawTimeTable();
+            try
+            {
+                ir++; view_table = txts[ir];
+                if (txts.Count == ir + 1)
+                    bRight.Enabled = false;
+                if (ir > 0)
+                    bLeft.Enabled = true;
+                lvTable.Invalidate();
+                Application.DoEvents();
+                DrawTimeTable();
+            }
+            catch
+            { }
         }
         private void bRight_Click(object sender, EventArgs e)
         { RightClick(); }

@@ -43,6 +43,7 @@ namespace InhaTT
                     return true;
             return false;
         }
+
         /// <summary>
         /// 특정 교시에 수업시간이 존재하는지 확인함
         /// </summary>

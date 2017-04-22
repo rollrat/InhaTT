@@ -1,11 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿/***
+
+   Copyright (C) 2017. rollrat. All Rights Reserved.
+
+   04-20-2017:   HyunJun Jeong, Creation
+
+***/
+
+using System;
 using System.Windows.Forms;
 
 namespace InhaTT
