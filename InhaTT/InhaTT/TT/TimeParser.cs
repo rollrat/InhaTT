@@ -28,7 +28,7 @@ namespace InhaTT
                 시간 표시 유형이 두 가지가 있다.
 
                 1. 월1,2,3/화1,2,3
-                2. 월1,2,3,화1,2,3
+                2. 월1,2,3화1,2,3
 
                 */
                 foreach (string s in table.Split('/'))

@@ -59,6 +59,8 @@
             this.bDel8 = new System.Windows.Forms.Button();
             this.numClass = new System.Windows.Forms.NumericUpDown();
             this.bDelClass = new System.Windows.Forms.Button();
+            this.bFix = new System.Windows.Forms.Button();
+            this.bDel9 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numMax)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numClass)).BeginInit();
             this.SuspendLayout();
@@ -339,11 +341,33 @@
             this.bDelClass.UseVisualStyleBackColor = true;
             this.bDelClass.Click += new System.EventHandler(this.bDelClass_Click);
             // 
+            // bFix
+            // 
+            this.bFix.Location = new System.Drawing.Point(549, 601);
+            this.bFix.Name = "bFix";
+            this.bFix.Size = new System.Drawing.Size(78, 28);
+            this.bFix.TabIndex = 22;
+            this.bFix.Text = "고정";
+            this.bFix.UseVisualStyleBackColor = true;
+            this.bFix.Click += new System.EventHandler(this.bFix_Click);
+            // 
+            // bDel9
+            // 
+            this.bDel9.Location = new System.Drawing.Point(633, 601);
+            this.bDel9.Name = "bDel9";
+            this.bDel9.Size = new System.Drawing.Size(78, 28);
+            this.bDel9.TabIndex = 23;
+            this.bDel9.Text = "전삭";
+            this.bDel9.UseVisualStyleBackColor = true;
+            this.bDel9.Click += new System.EventHandler(this.bDel9_Click);
+            // 
             // frmTTCreator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1155, 635);
+            this.Controls.Add(this.bDel9);
+            this.Controls.Add(this.bFix);
             this.Controls.Add(this.bDelClass);
             this.Controls.Add(this.numClass);
             this.Controls.Add(this.bDel8);
@@ -409,5 +433,7 @@
         private System.Windows.Forms.Button bDel8;
         private System.Windows.Forms.NumericUpDown numClass;
         private System.Windows.Forms.Button bDelClass;
+        private System.Windows.Forms.Button bFix;
+        private System.Windows.Forms.Button bDel9;
     }
 }

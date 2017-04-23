@@ -97,6 +97,15 @@ namespace InhaTT
         {
             if (e.KeyCode == Keys.Enter)
             {
+                // 중복 검사
+                for ( int i = 0; i < subject_group.Count; i++ )
+                    if ( subject[Convert.ToInt32(subject_group[i][0].index)].과목명 == tbSearch.Text )
+                    {
+                        MessageBox.Show("같은 과목이 이미 추가되었습니다.", Version.Name, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+
+                // 추가
                 List<TimeElement> subjects = new List<TimeElement>();
                 List<Bot.SubjectStruct> ssl = new List<Bot.SubjectStruct>();
                 if (cbSearch.Text == "과목명")
@@ -320,6 +329,36 @@ namespace InhaTT
             lvSearch.Items.AddRange(lvil.ToArray());
         }
 
+        private void bDel9_Click(object sender, EventArgs e)
+        {
+            if (lvSearch.SelectedItems.Count > 0)
+            {
+                List<ListViewItem> lvil = new List<ListViewItem>(getLviArray());
+                int i = 0;
+                string sbj = lvSearch.SelectedItems[0].SubItems[4].Text;
+                for ( ; i < subject_group.Count; i++ )
+                {
+                    bool success = false;
+                    for ( int j = 0; j < subject_group[i].Count; )
+                        if ( subject_group[i][j].index == lvSearch.SelectedItems[0].SubItems[0].Text ) {
+                            foreach ( TimeElement te in subject_group[i] )
+                                for ( int k = 0; k < lvil.Count; )
+                                    if (lvil[k].SubItems[0].Text == te.index)
+                                    { lvil.RemoveAt(k); break; }
+                                    else k++;
+                            success = true;
+                            break;
+                        } else j++;
+                    if ( success ) break;
+                }
+                subject_group.RemoveAt(i);
+                lvSearch.Items.Clear();
+                lvSearch.Items.AddRange(lvil.ToArray());
+                MessageBox.Show($"\"{sbj}\" 과목이 완전히 삭제되었습니다.",
+                    Version.Name, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
         private void bDelClass_Click(object sender, EventArgs e)
         {
             List<ListViewItem> lvil = new List<ListViewItem>(getLviArray());
@@ -336,6 +375,33 @@ namespace InhaTT
             lvSearch.Items.Clear();
             lvSearch.Items.AddRange(lvil.ToArray());
         }
+
+        private void bFix_Click(object sender, EventArgs e)
+        {
+            if (lvSearch.SelectedItems.Count > 0)
+            {
+                List<string> ix = new List<string>();
+                List<ListViewItem> lvil = new List<ListViewItem>(getLviArray());
+                foreach (ListViewItem lvi in lvSearch.SelectedItems)
+                    ix.Add(lvi.SubItems[0].Text);
+                int i = 0;
+                for (; i < subject_group.Count; i++)
+                    for (int j = 0; j < subject_group[i].Count; j++)
+                        if (subject_group[i][j].index == lvSearch.SelectedItems[0].SubItems[0].Text)
+                            goto EX;
+                EX:
+                for (int j = 0; j < subject_group[i].Count; )
+                    if (!ix.Contains(subject_group[i][j].index)) {
+                        for ( int k = 0; k < lvil.Count; k++)
+                            if (lvil[k].SubItems[0].Text == subject_group[i][j].index)
+                            { lvil.RemoveAt(k); break; }
+                        subject_group[i].RemoveAt(j);
+                    } else j++;
+                lvSearch.Items.Clear();
+                lvSearch.Items.AddRange(lvil.ToArray());
+            }
+        }
         #endregion
+
     }
 }
