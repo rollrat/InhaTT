@@ -98,6 +98,7 @@ namespace InhaTT
             if (e.KeyCode == Keys.Enter)
             {
                 List<TimeElement> subjects = new List<TimeElement>();
+                List<Bot.SubjectStruct> ssl = new List<Bot.SubjectStruct>();
                 if (cbSearch.Text == "과목명")
                 {
                     foreach (Bot.SubjectStruct ss in subject)
@@ -107,7 +108,7 @@ namespace InhaTT
                             TimeElement te = TimeParser.Get(ss.시강);
                             te.index = ss.index.ToString();
                             subjects.Add(te);
-                            AppendSubjectToList(ss);
+                            ssl.Add(ss);
                         }
                     }
                 }
@@ -120,21 +121,12 @@ namespace InhaTT
                             TimeElement te = TimeParser.Get(ss.시강);
                             te.index = ss.index.ToString();
                             subjects.Add(te);
-                            AppendSubjectToList(ss);
+                            ssl.Add(ss);
                         }
                     }
                 }
+                AppendSubjectsToList(ssl);
                 subject_group.Add(subjects);
-            }
-        }
-        private void lvSearch_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Delete)
-            {
-                foreach (ListViewItem lvi in lvSearch.SelectedItems)
-                {
-                    DelLVI(lvi);
-                }
             }
         }
 
@@ -146,6 +138,21 @@ namespace InhaTT
             lvSearch.Items.Add(new ListViewItem(new string[] { ss.index.ToString(),
                 ss.필드, ss.학수번호, ss.분반, ss.과목명, ss.학년, ss.학점,
                 ss.구분, ss.시강, ss.교수, ss.평가, ss.비고 }));
+        }
+
+        /// <summary>
+        /// 서브젝트 리스트 정보를 모두 검색 뷰어에 출력합니다.
+        /// </summary>
+        private void AppendSubjectsToList(List<Bot.SubjectStruct> ssl)
+        {
+            List<ListViewItem> lvil = new List<ListViewItem>();
+            foreach (Bot.SubjectStruct ss in ssl)
+            {
+                lvil.Add(new ListViewItem(new string[] { ss.index.ToString(),
+                    ss.필드, ss.학수번호, ss.분반, ss.과목명, ss.학년, ss.학점,
+                    ss.구분, ss.시강, ss.교수, ss.평가, ss.비고 }));
+            }
+            lvSearch.Items.AddRange(lvil.ToArray());
         }
 
         #region 테스트
@@ -217,10 +224,18 @@ namespace InhaTT
         #endregion
 
         #region 삭제 버튼
-        private void DelLVI(ListViewItem lvi)
+        private int CheckDelComplete(string ix, int i)
         {
-            string vi = lvi.SubItems[0].Text;
-            lvi.Remove();
+            if (subject_group[i].Count == 0)
+            {
+                subject_group.RemoveAt(i--);
+                MessageBox.Show($"\"{subject[Convert.ToInt32(ix)].과목명}\" 과목이 완전히 삭제되었습니다.",
+                    Version.Name, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            return i;
+        }
+        private void DelInIndex(string vi)
+        {
             for (int i = 0; i < subject_group.Count; i++)
             {
                 for (int j = 0; j < subject_group[i].Count; j++)
@@ -229,37 +244,43 @@ namespace InhaTT
                     if (ix == vi)
                     {
                         subject_group[i].RemoveAt(j);
-                        if (subject_group[i].Count == 0)
-                        {
-                            subject_group.RemoveAt(i);
-                            MessageBox.Show($"\"{subject[Convert.ToInt32(ix)].과목명}\" 과목이 완전히 삭제되었습니다.", 
-                                Version.Name, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        }
+                        i = CheckDelComplete(ix, i);
                         return;
                     }
                 }
             }
         }
 
-        private void DelDay(int k)
+        private void lvSearch_KeyDown(object sender, KeyEventArgs e)
         {
-            for (int i = 0; i < subject_group.Count; i++)
-                for (int j = 0; j < subject_group[i].Count; j++)
-                {
-                    if (cbJunPil.Checked && subject[Convert.ToInt32(subject_group[i][j].index)].구분 == "전공필수")
-                        break;
-                    if (cbGyoFil.Checked && subject[Convert.ToInt32(subject_group[i][j].index)].구분 == "교양필수")
-                        break;
-                    if (subject_group[i][j].IsFillDay(k))
-                    {
-                        foreach (ListViewItem lvi in lvSearch.Items)
-                            if (lvi.SubItems[0].Text == subject_group[i][j].index)
-                            { DelLVI(lvi); break; }
-                        j--;
-                    }
-                }
+            if (e.KeyCode == Keys.Delete)
+                foreach (ListViewItem lvi in lvSearch.SelectedItems)
+                { DelInIndex(lvi.SubItems[0].Text); lvi.Remove(); }
         }
 
+        private ListViewItem[] getLviArray()
+        {
+            ListViewItem[] items = new ListViewItem[lvSearch.Items.Count];
+            lvSearch.Items.CopyTo(items, 0);
+            return items;
+        }
+
+        private void DelDay(int k)
+        {
+            List<ListViewItem> lvil = new List<ListViewItem>(getLviArray());
+            for (int i = 0; i < lvil.Count;)
+            {
+                if (cbJunPil.Checked && lvil[i].SubItems[7].Text == "전공필수")
+                    break;
+                if (cbGyoFil.Checked && lvil[i].SubItems[7].Text == "교양필수")
+                    break;
+                if (TimeParser.Get(lvil[i].SubItems[8].Text).IsFillDay(k))
+                { DelInIndex(lvil[i].SubItems[0].Text); lvil.RemoveAt(i); }
+                else i++;
+            }
+            lvSearch.Items.Clear();
+            lvSearch.Items.AddRange(lvil.ToArray());
+        }
         private void bDel1_Click(object sender, EventArgs e)
         { DelDay(0); }
         private void bDel2_Click(object sender, EventArgs e)
@@ -271,52 +292,49 @@ namespace InhaTT
         private void bDel5_Click(object sender, EventArgs e)
         { DelDay(4); }
 
+        private void DelGubun(string v)
+        {
+            List<ListViewItem> lvil = new List<ListViewItem>(getLviArray());
+            for (int i = 0; i < lvil.Count;)
+                if (lvil[i].SubItems[7].Text.Contains(v))
+                { DelInIndex(lvil[i].SubItems[0].Text); lvil.RemoveAt(i); }
+                else i++;
+            lvSearch.Items.Clear();
+            lvSearch.Items.AddRange(lvil.ToArray());
+        }
         private void bDel6_Click(object sender, EventArgs e)
-        {
-            foreach (ListViewItem lvi in lvSearch.Items)
-                if (lvi.SubItems[7].Text.Contains("선택"))
-                    DelLVI(lvi);
-        }
-
+        { DelGubun("선택"); }
         private void bDel7_Click(object sender, EventArgs e)
-        {
-            foreach (ListViewItem lvi in lvSearch.Items)
-                if (lvi.SubItems[7].Text.Contains("교양"))
-                    DelLVI(lvi);
-        }
+        { DelGubun("교양"); }
 
         private void bDel8_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < subject_group.Count; i++)
-                for (int j = 0; j < subject_group[i].Count; j++)
-                {
-                    if (subject_group[i][j].te.Count == 0)
-                    {
-                        foreach (ListViewItem lvi in lvSearch.Items)
-                            if (lvi.SubItems[0].Text == subject_group[i][j].index)
-                            { DelLVI(lvi); break; }
-                        j--;
-                    }
-                }
+            List<ListViewItem> lvil = new List<ListViewItem>(getLviArray());
+            for (int i = 0; i < lvil.Count;)
+            {
+                if (TimeParser.Get(lvil[i].SubItems[8].Text).te.Count == 0)
+                { DelInIndex(lvil[i].SubItems[0].Text); lvil.RemoveAt(i); }
+                else i++;
+            }
+            lvSearch.Items.Clear();
+            lvSearch.Items.AddRange(lvil.ToArray());
         }
 
         private void bDelClass_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < subject_group.Count; i++)
-                for (int j = 0; j < subject_group[i].Count; j++)
-                {
-                    if (cbJunPil.Checked && subject[Convert.ToInt32(subject_group[i][j].index)].구분 == "전공필수")
-                        break;
-                    if (cbGyoFil.Checked && subject[Convert.ToInt32(subject_group[i][j].index)].구분 == "교양필수")
-                        break;
-                    if (subject_group[i][j].IsFillTime((int)numClass.Value))
-                    {
-                        foreach (ListViewItem lvi in lvSearch.Items)
-                            if (lvi.SubItems[0].Text == subject_group[i][j].index)
-                            { DelLVI(lvi); break; }
-                        j--;
-                    }
-                }
+            List<ListViewItem> lvil = new List<ListViewItem>(getLviArray());
+            for (int i = 0; i < lvil.Count;)
+            {
+                if (cbJunPil.Checked && lvil[i].SubItems[7].Text == "전공필수")
+                    break;
+                if (cbGyoFil.Checked && lvil[i].SubItems[7].Text == "교양필수")
+                    break;
+                if (TimeParser.Get(lvil[i].SubItems[8].Text).IsFillTime((int)numClass.Value))
+                { DelInIndex(lvil[i].SubItems[0].Text); lvil.RemoveAt(i); }
+                else i++;
+            }
+            lvSearch.Items.Clear();
+            lvSearch.Items.AddRange(lvil.ToArray());
         }
         #endregion
     }

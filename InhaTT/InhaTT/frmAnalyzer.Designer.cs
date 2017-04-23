@@ -31,6 +31,19 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAnalyzer));
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.lvField = new System.Windows.Forms.ListView();
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader22 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader23 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader24 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tvField = new System.Windows.Forms.TreeView();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.lvClass = new System.Windows.Forms.ListView();
@@ -47,34 +60,15 @@
             this.columnHeader20 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader21 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tvClass = new System.Windows.Forms.TreeView();
-            this.lvField = new System.Windows.Forms.ListView();
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader22 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader23 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader24 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tbCmd = new System.Windows.Forms.TextBox();
-            this.rtbCommand = new System.Windows.Forms.RichTextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.tabControl2.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.tabPage4.SuspendLayout();
-            this.tabPage1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl2
             // 
             this.tabControl2.Controls.Add(this.tabPage3);
             this.tabControl2.Controls.Add(this.tabPage4);
-            this.tabControl2.Controls.Add(this.tabPage1);
             this.tabControl2.Location = new System.Drawing.Point(12, 12);
             this.tabControl2.Name = "tabControl2";
             this.tabControl2.SelectedIndex = 0;
@@ -92,6 +86,85 @@
             this.tabPage3.TabIndex = 0;
             this.tabPage3.Text = "필드";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // lvField
+            // 
+            this.lvField.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader2,
+            this.columnHeader3,
+            this.columnHeader4,
+            this.columnHeader6,
+            this.columnHeader7,
+            this.columnHeader8,
+            this.columnHeader9,
+            this.columnHeader10,
+            this.columnHeader11,
+            this.columnHeader22,
+            this.columnHeader23,
+            this.columnHeader24});
+            this.lvField.FullRowSelect = true;
+            this.lvField.GridLines = true;
+            this.lvField.Location = new System.Drawing.Point(246, 6);
+            this.lvField.Name = "lvField";
+            this.lvField.Size = new System.Drawing.Size(1042, 419);
+            this.lvField.TabIndex = 4;
+            this.lvField.UseCompatibleStateImageBehavior = false;
+            this.lvField.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "인덱스";
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "필드";
+            this.columnHeader3.Width = 107;
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "학수번호";
+            this.columnHeader4.Width = 101;
+            // 
+            // columnHeader6
+            // 
+            this.columnHeader6.Text = "분반";
+            // 
+            // columnHeader7
+            // 
+            this.columnHeader7.Text = "과목명";
+            this.columnHeader7.Width = 164;
+            // 
+            // columnHeader8
+            // 
+            this.columnHeader8.Text = "학년";
+            this.columnHeader8.Width = 48;
+            // 
+            // columnHeader9
+            // 
+            this.columnHeader9.Text = "학점";
+            // 
+            // columnHeader10
+            // 
+            this.columnHeader10.Text = "구분";
+            this.columnHeader10.Width = 90;
+            // 
+            // columnHeader11
+            // 
+            this.columnHeader11.Text = "시간 및 강의실";
+            this.columnHeader11.Width = 122;
+            // 
+            // columnHeader22
+            // 
+            this.columnHeader22.Text = "교수";
+            // 
+            // columnHeader23
+            // 
+            this.columnHeader23.Text = "평가방식";
+            this.columnHeader23.Width = 83;
+            // 
+            // columnHeader24
+            // 
+            this.columnHeader24.Text = "비고";
             // 
             // tvField
             // 
@@ -200,125 +273,6 @@
             this.tvClass.TabIndex = 2;
             this.tvClass.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tvClass_AfterSelect);
             // 
-            // lvField
-            // 
-            this.lvField.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader2,
-            this.columnHeader3,
-            this.columnHeader4,
-            this.columnHeader6,
-            this.columnHeader7,
-            this.columnHeader8,
-            this.columnHeader9,
-            this.columnHeader10,
-            this.columnHeader11,
-            this.columnHeader22,
-            this.columnHeader23,
-            this.columnHeader24});
-            this.lvField.FullRowSelect = true;
-            this.lvField.GridLines = true;
-            this.lvField.Location = new System.Drawing.Point(246, 6);
-            this.lvField.Name = "lvField";
-            this.lvField.Size = new System.Drawing.Size(1042, 419);
-            this.lvField.TabIndex = 4;
-            this.lvField.UseCompatibleStateImageBehavior = false;
-            this.lvField.View = System.Windows.Forms.View.Details;
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "인덱스";
-            // 
-            // columnHeader3
-            // 
-            this.columnHeader3.Text = "필드";
-            this.columnHeader3.Width = 107;
-            // 
-            // columnHeader4
-            // 
-            this.columnHeader4.Text = "학수번호";
-            this.columnHeader4.Width = 101;
-            // 
-            // columnHeader6
-            // 
-            this.columnHeader6.Text = "분반";
-            // 
-            // columnHeader7
-            // 
-            this.columnHeader7.Text = "과목명";
-            this.columnHeader7.Width = 164;
-            // 
-            // columnHeader8
-            // 
-            this.columnHeader8.Text = "학년";
-            this.columnHeader8.Width = 48;
-            // 
-            // columnHeader9
-            // 
-            this.columnHeader9.Text = "학점";
-            // 
-            // columnHeader10
-            // 
-            this.columnHeader10.Text = "구분";
-            this.columnHeader10.Width = 90;
-            // 
-            // columnHeader11
-            // 
-            this.columnHeader11.Text = "시간 및 강의실";
-            this.columnHeader11.Width = 122;
-            // 
-            // columnHeader22
-            // 
-            this.columnHeader22.Text = "교수";
-            // 
-            // columnHeader23
-            // 
-            this.columnHeader23.Text = "평가방식";
-            this.columnHeader23.Width = 83;
-            // 
-            // columnHeader24
-            // 
-            this.columnHeader24.Text = "비고";
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.Controls.Add(this.label1);
-            this.tabPage1.Controls.Add(this.rtbCommand);
-            this.tabPage1.Controls.Add(this.tbCmd);
-            this.tabPage1.Location = new System.Drawing.Point(4, 24);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1294, 431);
-            this.tabPage1.TabIndex = 2;
-            this.tabPage1.Text = "커맨드";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // tbCmd
-            // 
-            this.tbCmd.Enabled = false;
-            this.tbCmd.Location = new System.Drawing.Point(6, 402);
-            this.tbCmd.Name = "tbCmd";
-            this.tbCmd.Size = new System.Drawing.Size(1282, 23);
-            this.tbCmd.TabIndex = 0;
-            // 
-            // rtbCommand
-            // 
-            this.rtbCommand.Enabled = false;
-            this.rtbCommand.Location = new System.Drawing.Point(6, 6);
-            this.rtbCommand.Name = "rtbCommand";
-            this.rtbCommand.Size = new System.Drawing.Size(1282, 390);
-            this.rtbCommand.TabIndex = 1;
-            this.rtbCommand.Text = "";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("맑은 고딕", 20F);
-            this.label1.Location = new System.Drawing.Point(559, 188);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(98, 37);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "준비중";
-            // 
             // frmAnalyzer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -337,8 +291,6 @@
             this.tabControl2.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
             this.tabPage4.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -376,9 +328,5 @@
         private System.Windows.Forms.ColumnHeader columnHeader22;
         private System.Windows.Forms.ColumnHeader columnHeader23;
         private System.Windows.Forms.ColumnHeader columnHeader24;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TextBox tbCmd;
-        private System.Windows.Forms.RichTextBox rtbCommand;
-        private System.Windows.Forms.Label label1;
     }
 }

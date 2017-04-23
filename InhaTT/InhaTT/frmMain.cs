@@ -26,8 +26,18 @@ namespace InhaTT
 
         public Bot bot = new Bot();
 
+        public bool IsOpenSafety = true;
+
         public frmMain()
         {
+            // 데이터 파일이 존재하지 않으면 프로그램을 종료시킴
+            if ( !File.Exists(PathData) )
+            {
+                MessageBox.Show("데이터 파일을 찾을 수 없습니다.", Version.Name, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                IsOpenSafety = false;
+                return;
+            }
+
             InitializeComponent();
         }
 
@@ -54,6 +64,21 @@ namespace InhaTT
             lvSearch.Items.Add(new ListViewItem(new string[] { ss.index.ToString(),
                 ss.필드, ss.학수번호, ss.분반, ss.과목명, ss.학년, ss.학점,
                 ss.구분, ss.시강, ss.교수, ss.평가, ss.비고 }));
+        }
+
+        /// <summary>
+        /// 서브젝트 리스트 정보를 모두 검색 뷰어에 출력합니다.
+        /// </summary>
+        private void AppendSubjectsToList(List<Bot.SubjectStruct> ssl)
+        {
+            List<ListViewItem> lvil = new List<ListViewItem>();
+            foreach (Bot.SubjectStruct ss in ssl)
+            {
+                lvil.Add(new ListViewItem(new string[] { ss.index.ToString(),
+                    ss.필드, ss.학수번호, ss.분반, ss.과목명, ss.학년, ss.학점,
+                    ss.구분, ss.시강, ss.교수, ss.평가, ss.비고 }));
+            }
+            lvSearch.Items.AddRange(lvil.ToArray());
         }
 
         #region 프로그램 초기화
@@ -86,11 +111,7 @@ namespace InhaTT
             lvSearch.Columns.AddRange(columnsTrans.ToArray());
 
             // 과목 데이터 출력
-            foreach (Bot.SubjectStruct ss in bot.subject)
-            {
-                AppendSubjectToList(ss);
-                Application.DoEvents();
-            }
+            AppendSubjectsToList(bot.subject);
         }
 
         /// <summary>
@@ -98,7 +119,6 @@ namespace InhaTT
         /// </summary>
         private void InitTableTime()
         {
-            lvTable.Columns[0].TextAlign = HorizontalAlignment.Center;
             DateTime dt = new DateTime(1900, 1, 1, 9, 0, 0);
             for (int i = 1; i <= 25; i++)
             {
