@@ -184,6 +184,7 @@ namespace InhaTT
             stack.Clear();
             if ( subject_group.Count > 1 )
             {
+                subject_group.Sort((v1, v2) => v2.Count.CompareTo(v1.Count));
                 for ( int i = 0; i < subject_group[0].Count; i++ )
                 {
                     stack.Push(subject_group[0][i].index);
