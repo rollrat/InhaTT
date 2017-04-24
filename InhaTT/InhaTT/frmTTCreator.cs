@@ -9,6 +9,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
@@ -134,6 +135,7 @@ namespace InhaTT
                         }
                     }
                 }
+                if (ssl.Count == 0) return;
                 AppendSubjectsToList(ssl);
                 subject_group.Add(subjects);
             }
@@ -196,6 +198,9 @@ namespace InhaTT
                         break;
                 }
             }
+            result = result.OrderBy(a => Guid.NewGuid()).ToList();
+            if ( result.Count > numMax.Value )
+                result.RemoveRange((int)numMax.Value, result.Count - (int)numMax.Value);
             StringBuilder builder = new StringBuilder();
             foreach (string r in result)
                 builder.Append(r + '\n');
@@ -214,7 +219,7 @@ namespace InhaTT
                 foreach (string s in stack)
                     builder.Append(s + '|');
                 result.Add(builder.ToString());
-                if (result.Count >= numMax.Value)
+                if (result.Count >= numMax.Maximum)
                     escape = true;
                 return;
             }
@@ -403,6 +408,6 @@ namespace InhaTT
             }
         }
         #endregion
-
+        
     }
 }

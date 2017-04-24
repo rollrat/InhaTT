@@ -255,7 +255,7 @@
             // 
             this.numMax.Location = new System.Drawing.Point(797, 572);
             this.numMax.Maximum = new decimal(new int[] {
-            10000,
+            100000,
             0,
             0,
             0});
