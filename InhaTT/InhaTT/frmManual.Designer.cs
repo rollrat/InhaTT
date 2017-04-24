@@ -602,7 +602,7 @@
             this.label27.AutoSize = true;
             this.label27.Location = new System.Drawing.Point(47, 249);
             this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(663, 90);
+            this.label27.Size = new System.Drawing.Size(663, 120);
             this.label27.TabIndex = 2;
             this.label27.Text = resources.GetString("label27.Text");
             // 

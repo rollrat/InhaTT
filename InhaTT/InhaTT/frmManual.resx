@@ -117,7 +117,67 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="label27.Text" xml:space="preserve">
+    <value>월삭-금삭 버튼: 각 버튼은 월요일-금요일 삭제를 뜻하며, 해당 요일에 수업이 포함된 모든 과목을 삭제합니다.
+이때 밑 "전필 남김", "교필 남김" 박스에 준하여 삭제합니다.
+
+선삭 버튼: 교양선택, 전공선택 과목을 삭제합니다.
+교삭 버튼: 교양선택, 교양필수 과목을 삭제합니다.
+웹삭 버튼: 모든 웹 강의를 삭제합니다. 이때 삭제되는 강의는 오직 웹강의 뿐이며, 웹강+현강인 과목은 삭제되지 않습니다.
+고정 버튼: 해당 과목에서 선택한 것만 남기고 나머지를 전부 삭제합니다.
+전삭 버튼: 해당 과목 전체를 삭제합니다.</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="pictureBox8.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        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
+        AABH/V39H92VTQ6+oZHiAAAAAElFTkSuQmCC
+</value>
+  </data>
   <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAoUAAAKFCAYAAAC6KZPUAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAu
@@ -1188,64 +1248,6 @@
 2. 공강 생성
 공강을 반드시 만들 필요는 없지만 빠른 생성을 위한 방법으로 공강을 만드는 방법이 있습니다. 월~금 공강 중 하나를 선택 삭제후
 생성을 시작해 주세요.</value>
-  </data>
-  <data name="label27.Text" xml:space="preserve">
-    <value>월삭-금삭 버튼: 각 버튼은 월요일-금요일 삭제를 뜻하며, 해당 요일에 수업이 포함된 모든 과목을 삭제합니다.
-이때 밑 "전필 남김", "교필 남김" 박스에 준하여 삭제합니다.
-
-선삭 버튼: 교양선택, 전공선택 과목을 삭제합니다.
-교삭 버튼: 교양선택, 교양필수 과목을 삭제합니다.
-웹삭 버튼: 모든 웹 강의를 삭제합니다. 이때 삭제되는 강의는 오직 웹강의 뿐이며, 웹강+현강인 과목은 삭제되지 않습니다.</value>
-  </data>
-  <data name="pictureBox8.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        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
-        AABH/V39H92VTQ6+oZHiAAAAAElFTkSuQmCC
-</value>
   </data>
   <data name="pictureBox9.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
