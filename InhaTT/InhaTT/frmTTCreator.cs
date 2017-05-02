@@ -286,9 +286,9 @@ namespace InhaTT
             for (int i = 0; i < lvil.Count;)
             {
                 if (cbJunPil.Checked && lvil[i].SubItems[7].Text == "전공필수")
-                    break;
+                    continue;
                 if (cbGyoFil.Checked && lvil[i].SubItems[7].Text == "교양필수")
-                    break;
+                    continue;
                 if (TimeParser.Get(lvil[i].SubItems[8].Text).IsFillDay(k))
                 { DelInIndex(lvil[i].SubItems[0].Text); lvil.RemoveAt(i); }
                 else i++;
@@ -371,9 +371,9 @@ namespace InhaTT
             for (int i = 0; i < lvil.Count;)
             {
                 if (cbJunPil.Checked && lvil[i].SubItems[7].Text == "전공필수")
-                    break;
+                    continue;
                 if (cbGyoFil.Checked && lvil[i].SubItems[7].Text == "교양필수")
-                    break;
+                    continue;
                 if (TimeParser.Get(lvil[i].SubItems[8].Text).IsFillTime((int)numClass.Value))
                 { DelInIndex(lvil[i].SubItems[0].Text); lvil.RemoveAt(i); }
                 else i++;

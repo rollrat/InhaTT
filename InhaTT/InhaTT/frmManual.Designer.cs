@@ -486,7 +486,7 @@
             this.label20.Size = new System.Drawing.Size(728, 30);
             this.label20.TabIndex = 3;
             this.label20.Text = "선택한 과목을 삭제하기 위해 위 사진에 표시된 초록색 부분 \"추가됨\" 탭을 클릭합니다. 그 다음 원하는 과목들을 클릭하여 선택하거나 \r\n또는 드래" +
-    "그하여 선택 후 키보드 자판에 있는 \"DELETE\" 킬르 누르면 과목이 삭제됩니다.";
+    "그하여 선택 후 키보드 자판에 있는 \"DELETE\" 키를 누르면 과목이 삭제됩니다.";
             // 
             // pictureBox7
             // 
