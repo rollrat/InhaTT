@@ -7,15 +7,11 @@
 ***/
 
 using System;
-using System.Collections.Generic;
-using System.Windows.Forms;
 using System.Text;
-using System.Threading.Tasks;
 using System.Collections;
 using System.Net;
 using System.Text.RegularExpressions;
-using System.Collections.Specialized;
-using System.IO;
+using System.Collections.Generic;
 
 namespace InhaTT_Downloader
 {
@@ -117,10 +113,25 @@ namespace InhaTT_Downloader
                 match = match.NextMatch();
             }
         }
+
+        public void SubjectTrim()
+        {
+            Dictionary<string, SubjectStruct> ssd = new Dictionary<string, SubjectStruct>();
+            foreach ( SubjectStruct ss in subject )
+            {
+                string v = ss.과목명 + '|' + ss.시강;
+                if (!ssd.ContainsKey(v))
+                    ssd.Add(v, ss);
+            }
+            subject.Clear();
+            subject.AddRange(ssd.Values);
+        }
         
         public string SubjectsToString()
         {
             StringBuilder builder = new StringBuilder();
+
+            SubjectTrim();
 
             foreach (SubjectStruct ss in subject)
             {

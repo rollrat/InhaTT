@@ -219,7 +219,7 @@ namespace InhaTT
                 foreach (string s in stack)
                     builder.Append(s + '|');
                 result.Add(builder.ToString());
-                if (result.Count >= numMax.Maximum)
+                if (result.Count >= numPannelMax.Value)
                     escape = true;
                 return;
             }
@@ -408,6 +408,10 @@ namespace InhaTT
             }
         }
         #endregion
-        
+
+        private void numMax_ValueChanged(object sender, EventArgs e)
+        {
+            numPannelMax.Minimum = numMax.Value;
+        }
     }
 }

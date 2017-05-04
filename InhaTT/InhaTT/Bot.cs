@@ -31,12 +31,12 @@ namespace InhaTT
         }
 
         public List<SubjectStruct> subject = new List<SubjectStruct>();
-
+        
         public void ParseSubject(string field)
         {
             string[] sl = field.Split('|');
             SubjectStruct ss;
-
+            
             ss.index = index_count++;
             ss.필드 = sl[0];
             ss.학수번호 = sl[1];

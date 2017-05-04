@@ -61,6 +61,7 @@
             this.columnHeader29 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader30 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.bAnalyze = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.bList = new System.Windows.Forms.Button();
             this.bMenu = new System.Windows.Forms.Button();
@@ -74,7 +75,6 @@
             this.columnHeader15 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader16 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader17 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.bAnalyze = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage3.SuspendLayout();
@@ -319,6 +319,16 @@
             this.tabPage2.Text = "도구";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // bAnalyze
+            // 
+            this.bAnalyze.Location = new System.Drawing.Point(28, 94);
+            this.bAnalyze.Name = "bAnalyze";
+            this.bAnalyze.Size = new System.Drawing.Size(141, 33);
+            this.bAnalyze.TabIndex = 8;
+            this.bAnalyze.Text = "분석기";
+            this.bAnalyze.UseVisualStyleBackColor = true;
+            this.bAnalyze.Click += new System.EventHandler(this.bAnalyze_Click);
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -429,16 +439,6 @@
             this.columnHeader17.Text = "금요일";
             this.columnHeader17.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnHeader17.Width = 184;
-            // 
-            // bAnalyze
-            // 
-            this.bAnalyze.Location = new System.Drawing.Point(28, 94);
-            this.bAnalyze.Name = "bAnalyze";
-            this.bAnalyze.Size = new System.Drawing.Size(141, 33);
-            this.bAnalyze.TabIndex = 8;
-            this.bAnalyze.Text = "분석기";
-            this.bAnalyze.UseVisualStyleBackColor = true;
-            this.bAnalyze.Click += new System.EventHandler(this.bAnalyze_Click);
             // 
             // frmMain
             // 

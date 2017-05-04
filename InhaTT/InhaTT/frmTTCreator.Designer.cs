@@ -61,8 +61,11 @@
             this.bDelClass = new System.Windows.Forms.Button();
             this.bFix = new System.Windows.Forms.Button();
             this.bDel9 = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.numPannelMax = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.numMax)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numClass)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numPannelMax)).BeginInit();
             this.SuspendLayout();
             // 
             // tbSearch
@@ -267,6 +270,7 @@
             0,
             0,
             0});
+            this.numMax.ValueChanged += new System.EventHandler(this.numMax_ValueChanged);
             // 
             // label1
             // 
@@ -301,6 +305,7 @@
             // 
             // bDel8
             // 
+            this.bDel8.Enabled = false;
             this.bDel8.Location = new System.Drawing.Point(633, 567);
             this.bDel8.Name = "bDel8";
             this.bDel8.Size = new System.Drawing.Size(78, 28);
@@ -361,11 +366,44 @@
             this.bDel9.UseVisualStyleBackColor = true;
             this.bDel9.Click += new System.EventHandler(this.bDel9_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(721, 605);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(70, 15);
+            this.label2.TabIndex = 27;
+            this.label2.Text = "패널최대치:";
+            // 
+            // numPannelMax
+            // 
+            this.numPannelMax.Location = new System.Drawing.Point(797, 603);
+            this.numPannelMax.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.numPannelMax.Minimum = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
+            this.numPannelMax.Name = "numPannelMax";
+            this.numPannelMax.Size = new System.Drawing.Size(118, 23);
+            this.numPannelMax.TabIndex = 26;
+            this.numPannelMax.Value = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            // 
             // frmTTCreator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1155, 635);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.numPannelMax);
             this.Controls.Add(this.bDel9);
             this.Controls.Add(this.bFix);
             this.Controls.Add(this.bDelClass);
@@ -397,6 +435,7 @@
             this.Load += new System.EventHandler(this.frmTTCreator_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numMax)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numClass)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numPannelMax)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -435,5 +474,7 @@
         private System.Windows.Forms.Button bDelClass;
         private System.Windows.Forms.Button bFix;
         private System.Windows.Forms.Button bDel9;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.NumericUpDown numPannelMax;
     }
 }
