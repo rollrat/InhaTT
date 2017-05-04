@@ -305,7 +305,6 @@
             // 
             // bDel8
             // 
-            this.bDel8.Enabled = false;
             this.bDel8.Location = new System.Drawing.Point(633, 567);
             this.bDel8.Name = "bDel8";
             this.bDel8.Size = new System.Drawing.Size(78, 28);
