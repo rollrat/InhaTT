@@ -25,6 +25,9 @@ namespace InhaTT
             te.Add(b);
         }
         
+        /// <summary>
+        /// 수업이 겹치는지의 여부를 확인함
+        /// </summary>
         public bool Overlap(bool[] b)
         {
             foreach (int t in te)

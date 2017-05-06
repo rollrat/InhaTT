@@ -475,12 +475,12 @@ namespace InhaTT
                         ), lvTable.Items[r].SubItems[c + 2].Bounds);
 
                     if (Math.Abs(g - i) != 1) {
-                        lvTable.CreateGraphics().DrawString(((Bot.SubjectStruct)bot.subject[index]).과목명,
+                        lvTable.CreateGraphics().DrawString(bot.subject[index].과목명,
                             lvTable.Font, Brushes.White,
                             lvTable.Items[r].SubItems[c + 2].Bounds);
                         second = true;
                     } else if ( second == true ) {
-                        lvTable.CreateGraphics().DrawString(getSlice(((Bot.SubjectStruct)bot.subject[index]).시강),
+                        lvTable.CreateGraphics().DrawString(getSlice(bot.subject[index].시강),
                             lvTable.Font, Brushes.White,
                             lvTable.Items[r].SubItems[c + 2].Bounds);
                         second = false;
