@@ -50,22 +50,11 @@
             this.bDel4 = new System.Windows.Forms.Button();
             this.bDel3 = new System.Windows.Forms.Button();
             this.bDel5 = new System.Windows.Forms.Button();
-            this.bDel6 = new System.Windows.Forms.Button();
-            this.cbJunPil = new System.Windows.Forms.CheckBox();
-            this.numMax = new System.Windows.Forms.NumericUpDown();
-            this.label1 = new System.Windows.Forms.Label();
-            this.cbGyoFil = new System.Windows.Forms.CheckBox();
-            this.bDel7 = new System.Windows.Forms.Button();
-            this.bDel8 = new System.Windows.Forms.Button();
             this.numClass = new System.Windows.Forms.NumericUpDown();
             this.bDelClass = new System.Windows.Forms.Button();
             this.bFix = new System.Windows.Forms.Button();
             this.bDel9 = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.numPannelMax = new System.Windows.Forms.NumericUpDown();
-            ((System.ComponentModel.ISupportInitialize)(this.numMax)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numClass)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numPannelMax)).BeginInit();
             this.SuspendLayout();
             // 
             // tbSearch
@@ -174,9 +163,9 @@
             // 
             // bStart
             // 
-            this.bStart.Location = new System.Drawing.Point(921, 567);
+            this.bStart.Location = new System.Drawing.Point(1018, 567);
             this.bStart.Name = "bStart";
-            this.bStart.Size = new System.Drawing.Size(222, 62);
+            this.bStart.Size = new System.Drawing.Size(125, 28);
             this.bStart.TabIndex = 5;
             this.bStart.Text = "생성시작";
             this.bStart.UseVisualStyleBackColor = true;
@@ -232,90 +221,9 @@
             this.bDel5.UseVisualStyleBackColor = true;
             this.bDel5.Click += new System.EventHandler(this.bDel5_Click);
             // 
-            // bDel6
-            // 
-            this.bDel6.Location = new System.Drawing.Point(465, 567);
-            this.bDel6.Name = "bDel6";
-            this.bDel6.Size = new System.Drawing.Size(78, 28);
-            this.bDel6.TabIndex = 12;
-            this.bDel6.Text = "선삭";
-            this.bDel6.UseVisualStyleBackColor = true;
-            this.bDel6.Click += new System.EventHandler(this.bDel6_Click);
-            // 
-            // cbJunPil
-            // 
-            this.cbJunPil.AutoSize = true;
-            this.cbJunPil.Checked = true;
-            this.cbJunPil.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbJunPil.Location = new System.Drawing.Point(12, 604);
-            this.cbJunPil.Name = "cbJunPil";
-            this.cbJunPil.Size = new System.Drawing.Size(78, 19);
-            this.cbJunPil.TabIndex = 13;
-            this.cbJunPil.Text = "전필 남김";
-            this.cbJunPil.UseVisualStyleBackColor = true;
-            // 
-            // numMax
-            // 
-            this.numMax.Location = new System.Drawing.Point(797, 572);
-            this.numMax.Maximum = new decimal(new int[] {
-            100000,
-            0,
-            0,
-            0});
-            this.numMax.Name = "numMax";
-            this.numMax.Size = new System.Drawing.Size(118, 23);
-            this.numMax.TabIndex = 14;
-            this.numMax.Value = new decimal(new int[] {
-            100,
-            0,
-            0,
-            0});
-            this.numMax.ValueChanged += new System.EventHandler(this.numMax_ValueChanged);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(745, 574);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(46, 15);
-            this.label1.TabIndex = 15;
-            this.label1.Text = "최대치:";
-            // 
-            // cbGyoFil
-            // 
-            this.cbGyoFil.AutoSize = true;
-            this.cbGyoFil.Checked = true;
-            this.cbGyoFil.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbGyoFil.Location = new System.Drawing.Point(96, 604);
-            this.cbGyoFil.Name = "cbGyoFil";
-            this.cbGyoFil.Size = new System.Drawing.Size(78, 19);
-            this.cbGyoFil.TabIndex = 16;
-            this.cbGyoFil.Text = "교필 남김";
-            this.cbGyoFil.UseVisualStyleBackColor = true;
-            // 
-            // bDel7
-            // 
-            this.bDel7.Location = new System.Drawing.Point(549, 567);
-            this.bDel7.Name = "bDel7";
-            this.bDel7.Size = new System.Drawing.Size(78, 28);
-            this.bDel7.TabIndex = 17;
-            this.bDel7.Text = "교삭";
-            this.bDel7.UseVisualStyleBackColor = true;
-            this.bDel7.Click += new System.EventHandler(this.bDel7_Click);
-            // 
-            // bDel8
-            // 
-            this.bDel8.Location = new System.Drawing.Point(633, 567);
-            this.bDel8.Name = "bDel8";
-            this.bDel8.Size = new System.Drawing.Size(78, 28);
-            this.bDel8.TabIndex = 19;
-            this.bDel8.Text = "웹삭";
-            this.bDel8.UseVisualStyleBackColor = true;
-            this.bDel8.Click += new System.EventHandler(this.bDel8_Click);
-            // 
             // numClass
             // 
-            this.numClass.Location = new System.Drawing.Point(180, 603);
+            this.numClass.Location = new System.Drawing.Point(473, 569);
             this.numClass.Maximum = new decimal(new int[] {
             25,
             0,
@@ -337,7 +245,7 @@
             // 
             // bDelClass
             // 
-            this.bDelClass.Location = new System.Drawing.Point(264, 601);
+            this.bDelClass.Location = new System.Drawing.Point(557, 567);
             this.bDelClass.Name = "bDelClass";
             this.bDelClass.Size = new System.Drawing.Size(78, 28);
             this.bDelClass.TabIndex = 21;
@@ -347,73 +255,33 @@
             // 
             // bFix
             // 
-            this.bFix.Location = new System.Drawing.Point(549, 601);
+            this.bFix.Location = new System.Drawing.Point(701, 567);
             this.bFix.Name = "bFix";
             this.bFix.Size = new System.Drawing.Size(78, 28);
             this.bFix.TabIndex = 22;
-            this.bFix.Text = "고정";
+            this.bFix.Text = "남김";
             this.bFix.UseVisualStyleBackColor = true;
             this.bFix.Click += new System.EventHandler(this.bFix_Click);
             // 
             // bDel9
             // 
-            this.bDel9.Location = new System.Drawing.Point(633, 601);
+            this.bDel9.Location = new System.Drawing.Point(785, 567);
             this.bDel9.Name = "bDel9";
             this.bDel9.Size = new System.Drawing.Size(78, 28);
             this.bDel9.TabIndex = 23;
-            this.bDel9.Text = "전삭";
+            this.bDel9.Text = "과목삭제";
             this.bDel9.UseVisualStyleBackColor = true;
             this.bDel9.Click += new System.EventHandler(this.bDel9_Click);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(721, 605);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(70, 15);
-            this.label2.TabIndex = 27;
-            this.label2.Text = "패널최대치:";
-            // 
-            // numPannelMax
-            // 
-            this.numPannelMax.Location = new System.Drawing.Point(797, 603);
-            this.numPannelMax.Maximum = new decimal(new int[] {
-            100000,
-            0,
-            0,
-            0});
-            this.numPannelMax.Minimum = new decimal(new int[] {
-            100,
-            0,
-            0,
-            0});
-            this.numPannelMax.Name = "numPannelMax";
-            this.numPannelMax.Size = new System.Drawing.Size(118, 23);
-            this.numPannelMax.TabIndex = 26;
-            this.numPannelMax.Value = new decimal(new int[] {
-            100000,
-            0,
-            0,
-            0});
             // 
             // frmTTCreator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1155, 635);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.numPannelMax);
+            this.ClientSize = new System.Drawing.Size(1155, 602);
             this.Controls.Add(this.bDel9);
             this.Controls.Add(this.bFix);
             this.Controls.Add(this.bDelClass);
             this.Controls.Add(this.numClass);
-            this.Controls.Add(this.bDel8);
-            this.Controls.Add(this.bDel7);
-            this.Controls.Add(this.cbGyoFil);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.numMax);
-            this.Controls.Add(this.cbJunPil);
-            this.Controls.Add(this.bDel6);
             this.Controls.Add(this.bDel5);
             this.Controls.Add(this.bDel4);
             this.Controls.Add(this.bDel3);
@@ -432,9 +300,7 @@
             this.Name = "frmTTCreator";
             this.Text = "시간표 생성기";
             this.Load += new System.EventHandler(this.frmTTCreator_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.numMax)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numClass)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numPannelMax)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -462,18 +328,9 @@
         private System.Windows.Forms.Button bDel4;
         private System.Windows.Forms.Button bDel3;
         private System.Windows.Forms.Button bDel5;
-        private System.Windows.Forms.Button bDel6;
-        private System.Windows.Forms.CheckBox cbJunPil;
-        private System.Windows.Forms.NumericUpDown numMax;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.CheckBox cbGyoFil;
-        private System.Windows.Forms.Button bDel7;
-        private System.Windows.Forms.Button bDel8;
         private System.Windows.Forms.NumericUpDown numClass;
         private System.Windows.Forms.Button bDelClass;
         private System.Windows.Forms.Button bFix;
         private System.Windows.Forms.Button bDel9;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.NumericUpDown numPannelMax;
     }
 }

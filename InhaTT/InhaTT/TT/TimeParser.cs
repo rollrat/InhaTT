@@ -25,6 +25,7 @@ namespace InhaTT
             try
             {
                 /*
+
                 시간 표시 유형이 두 가지가 있다.
 
                 1. 월1,2,3(하-101)/화1,2,3(2-112)
@@ -50,7 +51,7 @@ namespace InhaTT
                                 // 2 유형의 경우 "화1" 처럼 숫자와 문자가 붙어 있음
                                 if (dayOfWeek.Contains(t[0]))
                                 {
-                                    j = 25 * dayOfWeek.IndexOf(i[0]);
+                                    j = 25 * dayOfWeek.IndexOf(t[0]);
                                     te.Add(j + Convert.ToInt32(t.Substring(1)) - 1);
                                 }
                                 else

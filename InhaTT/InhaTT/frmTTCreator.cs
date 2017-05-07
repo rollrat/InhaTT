@@ -179,8 +179,23 @@ namespace InhaTT
         List<string> result = new List<string>();
         Stack<string> stack = new Stack<string>();
 
+        /// <summary>
+        /// maxShowCount : 사용자에게 보여줄 최종생성경우의 수 입니다.
+        /// maxPannelCount : 추출할 모든 경우의 수 입니다.
+        /// </summary>
+        const int maxShowCount = 100;
+        const int maxPannelCount = 100000;
+
         private void bStart_Click(object sender, EventArgs e)
         {
+            // 웹 강의 삭제
+            List<ListViewItem> lvil = new List<ListViewItem>(getLviArray());
+            for (int i = 0; i < lvil.Count;)
+            {
+                if (TimeParser.Get(lvil[i].SubItems[8].Text).te.Count == 0)
+                { DelInIndex(lvil[i].SubItems[0].Text); lvil.RemoveAt(i); }
+                else i++;
+            }
             result.Clear();
             AccessTable = new TimeTable();
             stack.Clear();
@@ -199,8 +214,8 @@ namespace InhaTT
                 }
             }
             result = result.OrderBy(a => Guid.NewGuid()).ToList();
-            if ( result.Count > numMax.Value )
-                result.RemoveRange((int)numMax.Value, result.Count - (int)numMax.Value);
+            if ( result.Count > maxShowCount)
+                result.RemoveRange(maxShowCount, result.Count - maxShowCount);
             StringBuilder builder = new StringBuilder();
             foreach (string r in result)
                 builder.Append(r + '\n');
@@ -219,7 +234,7 @@ namespace InhaTT
                 foreach (string s in stack)
                     builder.Append(s + '|');
                 result.Add(builder.ToString());
-                if (result.Count >= numPannelMax.Value)
+                if (result.Count >= maxPannelCount)
                     escape = true;
                 return;
             }
@@ -239,6 +254,12 @@ namespace InhaTT
         #endregion
 
         #region 삭제 버튼
+
+        /// <summary>
+        /// 어떤 과목이 완벽히 삭제되었는지 확인합니다.
+        /// 이때, 해당 과목이 완벽히 삭제되었다면, for문의 i++가 
+        /// 생략되어야 하므로, i에다 1을 감산합니다.
+        /// </summary>
         private int CheckDelComplete(string ix, int i)
         {
             if (subject_group[i].Count == 0)
@@ -249,6 +270,10 @@ namespace InhaTT
             }
             return i;
         }
+
+        /// <summary>
+        /// 해당 인덱스를 가진 과목을 삭제합니다.
+        /// </summary>
         private void DelInIndex(string vi)
         {
             for (int i = 0; i < subject_group.Count; i++)
@@ -280,15 +305,14 @@ namespace InhaTT
             return items;
         }
 
+        /// <summary>
+        /// k번째 요일의 모든 과목을 삭제합니다.
+        /// </summary>
         private void DelDay(int k)
         {
             List<ListViewItem> lvil = new List<ListViewItem>(getLviArray());
             for (int i = 0; i < lvil.Count;)
             {
-                if (cbJunPil.Checked && lvil[i].SubItems[7].Text == "전공필수")
-                    continue;
-                if (cbGyoFil.Checked && lvil[i].SubItems[7].Text == "교양필수")
-                    continue;
                 if (TimeParser.Get(lvil[i].SubItems[8].Text).IsFillDay(k))
                 { DelInIndex(lvil[i].SubItems[0].Text); lvil.RemoveAt(i); }
                 else i++;
@@ -307,34 +331,9 @@ namespace InhaTT
         private void bDel5_Click(object sender, EventArgs e)
         { DelDay(4); }
 
-        private void DelGubun(string v)
-        {
-            List<ListViewItem> lvil = new List<ListViewItem>(getLviArray());
-            for (int i = 0; i < lvil.Count;)
-                if (lvil[i].SubItems[7].Text.Contains(v))
-                { DelInIndex(lvil[i].SubItems[0].Text); lvil.RemoveAt(i); }
-                else i++;
-            lvSearch.Items.Clear();
-            lvSearch.Items.AddRange(lvil.ToArray());
-        }
-        private void bDel6_Click(object sender, EventArgs e)
-        { DelGubun("선택"); }
-        private void bDel7_Click(object sender, EventArgs e)
-        { DelGubun("교양"); }
-
-        private void bDel8_Click(object sender, EventArgs e)
-        {
-            List<ListViewItem> lvil = new List<ListViewItem>(getLviArray());
-            for (int i = 0; i < lvil.Count;)
-            {
-                if (TimeParser.Get(lvil[i].SubItems[8].Text).te.Count == 0)
-                { DelInIndex(lvil[i].SubItems[0].Text); lvil.RemoveAt(i); }
-                else i++;
-            }
-            lvSearch.Items.Clear();
-            lvSearch.Items.AddRange(lvil.ToArray());
-        }
-
+        /// <summary>
+        /// 어떤 한 과목을 완전히 삭제합니다.
+        /// </summary>
         private void bDel9_Click(object sender, EventArgs e)
         {
             if (lvSearch.SelectedItems.Count > 0)
@@ -370,10 +369,6 @@ namespace InhaTT
             List<ListViewItem> lvil = new List<ListViewItem>(getLviArray());
             for (int i = 0; i < lvil.Count;)
             {
-                if (cbJunPil.Checked && lvil[i].SubItems[7].Text == "전공필수")
-                    continue;
-                if (cbGyoFil.Checked && lvil[i].SubItems[7].Text == "교양필수")
-                    continue;
                 if (TimeParser.Get(lvil[i].SubItems[8].Text).IsFillTime((int)numClass.Value))
                 { DelInIndex(lvil[i].SubItems[0].Text); lvil.RemoveAt(i); }
                 else i++;
@@ -408,10 +403,5 @@ namespace InhaTT
             }
         }
         #endregion
-
-        private void numMax_ValueChanged(object sender, EventArgs e)
-        {
-            numPannelMax.Minimum = numMax.Value;
-        }
     }
 }
