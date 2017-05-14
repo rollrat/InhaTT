@@ -239,7 +239,8 @@ namespace InhaTT_Creator
             {
                 // 중복 검사
                 for (int i = 0; i < subject_group.Count; i++)
-                    if (bot.subject[Convert.ToInt32(subject_group[i][0].index)].과목명 == tbSearch.Text)
+                    if ((cbSearch.Text == "과목명" && bot.subject[Convert.ToInt32(subject_group[i][0].index)].과목명 == tbSearch.Text) ||
+                        (cbSearch.Text == "학수번호" && bot.subject[Convert.ToInt32(subject_group[i][0].index)].학수번호 == tbSearch.Text))
                     {
                         MessageBox.Show("같은 과목이 이미 추가되었습니다.", Version.Name, MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
@@ -522,6 +523,8 @@ namespace InhaTT_Creator
         }
         #endregion
 
+        #region 메뉴 스트립
+
         private void 생성된시간표ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             (new frmTTViewer(bot.subject)).Show();
@@ -531,5 +534,7 @@ namespace InhaTT_Creator
         {
             (new frmAnalyzer()).Show();
         }
+        
+        #endregion
     }
 }

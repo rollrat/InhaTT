@@ -30,6 +30,11 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.보기ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.생성된시간표ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.도구TToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.과목분석기ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.도움말HToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bDel9 = new System.Windows.Forms.Button();
             this.bFix = new System.Windows.Forms.Button();
             this.bDelClass = new System.Windows.Forms.Button();
@@ -55,11 +60,6 @@
             this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tbSearch = new System.Windows.Forms.TextBox();
-            this.보기ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.도움말HToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.도구TToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.생성된시간표ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.과목분석기ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numClass)).BeginInit();
             this.SuspendLayout();
@@ -78,6 +78,45 @@
             this.menuStrip1.Size = new System.Drawing.Size(1154, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
+            // 
+            // 보기ToolStripMenuItem
+            // 
+            this.보기ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.생성된시간표ToolStripMenuItem});
+            this.보기ToolStripMenuItem.Name = "보기ToolStripMenuItem";
+            this.보기ToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
+            this.보기ToolStripMenuItem.Text = "보기(&V)";
+            // 
+            // 생성된시간표ToolStripMenuItem
+            // 
+            this.생성된시간표ToolStripMenuItem.Name = "생성된시간표ToolStripMenuItem";
+            this.생성된시간표ToolStripMenuItem.ShortcutKeyDisplayString = "";
+            this.생성된시간표ToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.V)));
+            this.생성된시간표ToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
+            this.생성된시간표ToolStripMenuItem.Text = "생성된 시간표";
+            this.생성된시간표ToolStripMenuItem.Click += new System.EventHandler(this.생성된시간표ToolStripMenuItem_Click);
+            // 
+            // 도구TToolStripMenuItem
+            // 
+            this.도구TToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.과목분석기ToolStripMenuItem});
+            this.도구TToolStripMenuItem.Name = "도구TToolStripMenuItem";
+            this.도구TToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
+            this.도구TToolStripMenuItem.Text = "도구(&T)";
+            // 
+            // 과목분석기ToolStripMenuItem
+            // 
+            this.과목분석기ToolStripMenuItem.Name = "과목분석기ToolStripMenuItem";
+            this.과목분석기ToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)));
+            this.과목분석기ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.과목분석기ToolStripMenuItem.Text = "과목 분석기";
+            this.과목분석기ToolStripMenuItem.Click += new System.EventHandler(this.과목분석기ToolStripMenuItem_Click);
+            // 
+            // 도움말HToolStripMenuItem
+            // 
+            this.도움말HToolStripMenuItem.Name = "도움말HToolStripMenuItem";
+            this.도움말HToolStripMenuItem.Size = new System.Drawing.Size(72, 20);
+            this.도움말HToolStripMenuItem.Text = "도움말(&H)";
             // 
             // bDel9
             // 
@@ -294,45 +333,6 @@
             this.tbSearch.Size = new System.Drawing.Size(1034, 23);
             this.tbSearch.TabIndex = 24;
             this.tbSearch.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tbSearch_KeyUp);
-            // 
-            // 보기ToolStripMenuItem
-            // 
-            this.보기ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.생성된시간표ToolStripMenuItem});
-            this.보기ToolStripMenuItem.Name = "보기ToolStripMenuItem";
-            this.보기ToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
-            this.보기ToolStripMenuItem.Text = "보기(&V)";
-            // 
-            // 도움말HToolStripMenuItem
-            // 
-            this.도움말HToolStripMenuItem.Name = "도움말HToolStripMenuItem";
-            this.도움말HToolStripMenuItem.Size = new System.Drawing.Size(72, 20);
-            this.도움말HToolStripMenuItem.Text = "도움말(&H)";
-            // 
-            // 도구TToolStripMenuItem
-            // 
-            this.도구TToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.과목분석기ToolStripMenuItem});
-            this.도구TToolStripMenuItem.Name = "도구TToolStripMenuItem";
-            this.도구TToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
-            this.도구TToolStripMenuItem.Text = "도구(&T)";
-            // 
-            // 생성된시간표ToolStripMenuItem
-            // 
-            this.생성된시간표ToolStripMenuItem.Name = "생성된시간표ToolStripMenuItem";
-            this.생성된시간표ToolStripMenuItem.ShortcutKeyDisplayString = "";
-            this.생성된시간표ToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.V)));
-            this.생성된시간표ToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
-            this.생성된시간표ToolStripMenuItem.Text = "생성된 시간표";
-            this.생성된시간표ToolStripMenuItem.Click += new System.EventHandler(this.생성된시간표ToolStripMenuItem_Click);
-            // 
-            // 과목분석기ToolStripMenuItem
-            // 
-            this.과목분석기ToolStripMenuItem.Name = "과목분석기ToolStripMenuItem";
-            this.과목분석기ToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)));
-            this.과목분석기ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.과목분석기ToolStripMenuItem.Text = "과목 분석기";
-            this.과목분석기ToolStripMenuItem.Click += new System.EventHandler(this.과목분석기ToolStripMenuItem_Click);
             // 
             // frmMain
             // 
