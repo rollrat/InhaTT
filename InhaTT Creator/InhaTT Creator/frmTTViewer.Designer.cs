@@ -160,7 +160,7 @@
             this.lvSearch.TabIndex = 8;
             this.lvSearch.UseCompatibleStateImageBehavior = false;
             this.lvSearch.View = System.Windows.Forms.View.Details;
-            this.lvSearch.ColumnWidthChanging += new System.Windows.Forms.ColumnWidthChangingEventHandler(this.lvTable_ColumnWidthChanging);
+            //this.lvSearch.ColumnWidthChanging += new System.Windows.Forms.ColumnWidthChangingEventHandler(this.lvTable_ColumnWidthChanging);
             // 
             // columnHeader31
             // 

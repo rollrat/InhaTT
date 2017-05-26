@@ -73,6 +73,8 @@
     <Compile Include="TimeElement.cs" />
     <Compile Include="TimeParser.cs" />
     <Compile Include="TimeTable.cs" />
+    <Compile Include="TimeTableGenerator.cs" />
+    <Compile Include="TimeTableSettings.cs" />
     <Compile Include="Version.cs" />
     <EmbeddedResource Include="frmAnalyzer.resx">
       <DependentUpon>frmAnalyzer.cs</DependentUpon>

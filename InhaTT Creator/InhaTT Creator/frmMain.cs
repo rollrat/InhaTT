@@ -9,11 +9,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Data;
 using System.IO;
-using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
 using System.Windows.Forms;
 
 namespace InhaTT_Creator
@@ -109,25 +106,10 @@ namespace InhaTT_Creator
 
         public static int ComparePath(string addr1, string addr2)
         {
+            // 이 함수는 윈도우 파일시스템 정렬용으로 만들어진 string compare함수입니다.
             return StrCmpLogicalW(addr1, addr2);
         }
-        public static bool IsNumeric(string input)
-        {
-            int test;
-            return int.TryParse(input, out test);
-        }
-        public class PathComparer : IComparer
-        {
-            public int Compare(object x, object y)
-            {
-                return StrCmpLogicalW((string)x, (string)y);
-            }
-        }
-        public static IComparer GetPathComparer()
-        {
-            return (IComparer)new PathComparer();
-        }
-
+        
         public class SortWrapper
         {
             internal ListViewItem sortItem;
@@ -170,7 +152,6 @@ namespace InhaTT_Creator
 
         public class ColHeader : ColumnHeader
         {
-
             public bool @ascending;
             public ColHeader(string text, int width, HorizontalAlignment align, bool asc)
             {
@@ -282,28 +263,10 @@ namespace InhaTT_Creator
         }
 
         #region 테스트
-        /// <summary>
-        /// 시간표가 겹치는지의 여부를 확인하기 위한 시험용 테이블 입니다.
-        /// </summary>
-        TimeTable AccessTable;
-
-        /// <summary>
-        /// escape: esacpe가 True이면 iteration을 탈출합니다.
-        /// </summary>
-        bool escape = false;
-        List<string> result = new List<string>();
-        Stack<string> stack = new Stack<string>();
-
-        /// <summary>
-        /// maxShowCount : 사용자에게 보여줄 최종생성경우의 수 입니다.
-        /// maxPannelCount : 추출할 모든 경우의 수 입니다.
-        /// </summary>
-        const int maxShowCount = 100;
-        const int maxPannelCount = 100000;
 
         private void bStart_Click(object sender, EventArgs e)
         {
-            // 웹 강의 삭제
+            // 웹강의 삭제
             List<ListViewItem> lvil = new List<ListViewItem>(getLviArray());
             for (int i = 0; i < lvil.Count;)
             {
@@ -311,61 +274,23 @@ namespace InhaTT_Creator
                 { DelInIndex(lvil[i].SubItems[0].Text); lvil.RemoveAt(i); }
                 else i++;
             }
-            result.Clear();
-            AccessTable = new TimeTable();
-            stack.Clear();
+
+            // 시간표 생성
+            TimeTableGenerator generator = new TimeTableGenerator();
             if (subject_group.Count > 1)
             {
+                // 시간표 테스트 샘플을 크기에 대한 내림차순으로 정렬합니다.
+                // 이 정렬을 통해 더 고른 샘플을 추출할 수 있습니다.
                 subject_group.Sort((v1, v2) => v2.Count.CompareTo(v1.Count));
-                for (int i = 0; i < subject_group[0].Count; i++)
-                {
-                    stack.Push(subject_group[0][i].index);
-                    AccessTable.Add(subject_group[0][i]);
-                    Iterate(1);
-                    stack.Pop();
-                    AccessTable.Del(subject_group[0][i]);
-                    if (escape)
-                        break;
-                }
+                generator.StartCreate(subject_group);
             }
-            result = result.OrderBy(a => Guid.NewGuid()).ToList();
-            if (result.Count > maxShowCount)
-                result.RemoveRange(maxShowCount, result.Count - maxShowCount);
-            StringBuilder builder = new StringBuilder();
-            foreach (string r in result)
-                builder.Append(r + '\n');
-            System.IO.File.WriteAllText(AppDomain.CurrentDomain.BaseDirectory + @"combinations.txt", builder.ToString());
-            escape = false;
-            MessageBox.Show("생성완료!\n생성횟수: " + result.Count, Version.Name, MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            System.IO.File.WriteAllText(AppDomain.CurrentDomain.BaseDirectory + @"combinations.txt", generator.GetResult());
+
+            MessageBox.Show("생성완료!\n생성횟수: " + generator.GetResultCount(), Version.Name, MessageBoxButtons.OK, MessageBoxIcon.Information);
             (new frmTTViewer(bot.subject)).Show();
         }
 
-        private void Iterate(int iter)
-        {
-            if (escape) return;
-            if (subject_group.Count == iter)
-            {
-                StringBuilder builder = new StringBuilder();
-                foreach (string s in stack)
-                    builder.Append(s + '|');
-                result.Add(builder.ToString());
-                if (result.Count >= maxPannelCount)
-                    escape = true;
-                return;
-            }
-            for (int i = 0; i < subject_group[iter].Count; i++)
-            {
-                if (AccessTable.CheckOverlap(subject_group[iter][i]))
-                    continue;
-                stack.Push(subject_group[iter][i].index);
-                AccessTable.Add(subject_group[iter][i]);
-                Iterate(iter + 1);
-                stack.Pop();
-                AccessTable.Del(subject_group[iter][i]);
-                if (escape)
-                    return;
-            }
-        }
         #endregion
 
         #region 삭제 버튼
@@ -502,6 +427,8 @@ namespace InhaTT_Creator
                 List<ListViewItem> lvil = new List<ListViewItem>(getLviArray());
                 foreach (ListViewItem lvi in lvSearch.SelectedItems)
                     ix.Add(lvi.SubItems[0].Text);
+
+                /* subject_group에서 선택한 과목과 동일한 과목을 찾는다. */
                 int i = 0;
                 for (; i < subject_group.Count; i++)
                     for (int j = 0; j < subject_group[i].Count; j++)

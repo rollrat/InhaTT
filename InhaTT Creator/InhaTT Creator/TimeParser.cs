@@ -29,14 +29,14 @@ namespace InhaTT_Creator
                 2. 월1,2,3화1,2,3(60주년-1012)
 
                 */
-                string dayOfWeek = "월화수목금";
+                string dayOfWeek = TimeTableSettings.DayOfWeek;
                 foreach (string s in table.Split('/'))
                 {
                     string i = s.Trim();
                     int j = -1;
                     if (dayOfWeek.Contains(i[0]))
                     {
-                        j = 25 * dayOfWeek.IndexOf(i[0]);
+                        j = TimeTableSettings.DayMaxClass * dayOfWeek.IndexOf(i[0]);
                         i = i.Substring(1);
                         foreach (string t in i.Split(','))
                         {
@@ -48,7 +48,7 @@ namespace InhaTT_Creator
                                 // 2 유형의 경우 "화1" 처럼 숫자와 문자가 붙어 있음
                                 if (dayOfWeek.Contains(t[0]))
                                 {
-                                    j = 25 * dayOfWeek.IndexOf(t[0]);
+                                    j = TimeTableSettings.DayMaxClass * dayOfWeek.IndexOf(t[0]);
                                     te.Add(j + Convert.ToInt32(t.Substring(1)) - 1);
                                 }
                                 else

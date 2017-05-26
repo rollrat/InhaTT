@@ -10,6 +10,10 @@ using System.Collections.Generic;
 
 namespace InhaTT_Creator
 {
+    /// <summary>
+    /// 과목의 시간 정보가 저장되는 클래스입니다.
+    /// 시간 정보는 선형으로 저장됩니다.
+    /// </summary>
     public class TimeElement
     {
         public List<int> te = new List<int>();
@@ -37,7 +41,7 @@ namespace InhaTT_Creator
         public bool IsFillDay(int k)
         {
             foreach (int i in te)
-                if (i / 25 == k)
+                if (i / TimeTableSettings.DayMaxClass == k)
                     return true;
             return false;
         }
@@ -48,7 +52,7 @@ namespace InhaTT_Creator
         public bool IsFillTime(int k)
         {
             foreach (int i in te)
-                if (i % 25 == k - 1)
+                if (i % TimeTableSettings.DayMaxClass == k - 1)
                     return true;
             return false;
         }

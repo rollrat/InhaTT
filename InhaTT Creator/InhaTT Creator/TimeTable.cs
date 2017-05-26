@@ -10,12 +10,12 @@ namespace InhaTT_Creator
 {
     class TimeTable
     {
-        bool[] table = new bool[25 * 5];
+        bool[] table = new bool[TimeTableSettings.DayMaxClass * TimeTableSettings.DayOfWeek.Length];
         int i = 0;
 
         public TimeTable()
         {
-            for (int i = 0; i < 25 * 5; i++)
+            for (int i = 0; i < TimeTableSettings.DayMaxClass * TimeTableSettings.DayOfWeek.Length; i++)
                 table[i] = false;
         }
 

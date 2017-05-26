@@ -33,7 +33,7 @@ namespace InhaTT_Creator
             subject = al;
 
             Open();
-            this.Show();
+            Show();
 
             lvTable.Invalidate();
             Application.DoEvents();
@@ -134,12 +134,11 @@ namespace InhaTT_Creator
             }
         }
 
-        private void lvTable_ColumnWidthChanging(object sender, ColumnWidthChangingEventArgs e)
-        {
-            e.Cancel = true;
-            e.NewWidth = lvTable.Columns[e.ColumnIndex].Width;
-        }
-
+        //private void lvTable_ColumnWidthChanging(object sender, ColumnWidthChangingEventArgs e)
+        //{
+        //    e.Cancel = true;
+        //    e.NewWidth = lvTable.Columns[e.ColumnIndex].Width;
+        //}
 
         private void AppendSubjectToList(Bot.SubjectStruct ss)
         {
