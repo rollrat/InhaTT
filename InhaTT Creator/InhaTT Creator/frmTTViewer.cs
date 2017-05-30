@@ -26,13 +26,14 @@ namespace InhaTT_Creator
         List<List<TimeElement>> txts = new List<List<TimeElement>>();
         int ir = 0;
 
-        public frmTTViewer(List<Bot.SubjectStruct> al)
+        public frmTTViewer(List<Bot.SubjectStruct> al, bool file = true, List<Bot.SubjectStruct> view = null)
         {
             InitializeComponent();
 
             subject = al;
 
-            Open();
+            if (file) Open();
+            else Open(view);
             Show();
 
             lvTable.Invalidate();
@@ -89,6 +90,20 @@ namespace InhaTT_Creator
             }
             catch {  }
         }
+
+        private void Open(List<Bot.SubjectStruct> subject)
+        {
+            List<TimeElement> al = new List<TimeElement>();
+            foreach (Bot.SubjectStruct ss in subject)
+            {
+                TimeElement te = TimeParser.Get(ss.시강);
+                te.index = ss.index.ToString();
+                al.Add(te);
+            }
+            txts.Add(al);
+            view_table = txts[0];
+        }
+
         private void DrawTimeTable()
         {
             lvSearch.Items.Clear();

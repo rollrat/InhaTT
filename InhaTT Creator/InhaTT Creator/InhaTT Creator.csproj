@@ -56,11 +56,23 @@
     <Compile Include="frmAnalyzer.Designer.cs">
       <DependentUpon>frmAnalyzer.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmInfo.Designer.cs">
+      <DependentUpon>frmInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmManual.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmManual.Designer.cs">
+      <DependentUpon>frmManual.cs</DependentUpon>
     </Compile>
     <Compile Include="frmTTViewer.cs">
       <SubType>Form</SubType>
@@ -79,8 +91,14 @@
     <EmbeddedResource Include="frmAnalyzer.resx">
       <DependentUpon>frmAnalyzer.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmInfo.resx">
+      <DependentUpon>frmInfo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmManual.resx">
+      <DependentUpon>frmManual.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmTTViewer.resx">
       <DependentUpon>frmTTViewer.cs</DependentUpon>

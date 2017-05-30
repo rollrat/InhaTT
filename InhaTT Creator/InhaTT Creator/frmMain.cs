@@ -461,7 +461,18 @@ namespace InhaTT_Creator
         {
             (new frmAnalyzer()).Show();
         }
-        
+
+        private void 설명서ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            (new frmManual()).Show();
+        }
+
+        private void 정보IToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            (new frmInfo()).Show();
+        }
+
         #endregion
+
     }
 }
