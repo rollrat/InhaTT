@@ -26,6 +26,7 @@ namespace InhaTT_Creator
             InitField();
             InitClass();
             InitProfessor();
+            InitSubject();
         }
 
         #region 초기화
@@ -44,7 +45,11 @@ namespace InhaTT_Creator
             foreach (string n in list)
             {
                 tvField.Nodes.Add(n);
+                cbFilter.Items.Add(n);
+                cbFilterSubject.Items.Add(n);
             }
+            cbFilter.Text = list[0];
+            cbFilterSubject.Text = list[0];
         }
 
         static public string[] getSlice(string a)
@@ -103,6 +108,23 @@ namespace InhaTT_Creator
             }
         }
 
+        Dictionary<string, List<int>> _subject = new Dictionary<string, List<int>>();
+        private void InitSubject()
+        {
+            foreach (Bot.SubjectStruct ss in Program.m.bot.subject)
+            {
+                if (!_subject.ContainsKey(ss.과목명))
+                    _subject.Add(ss.과목명, new List<int>());
+                _subject[ss.과목명].Add(ss.index);
+            }
+            var list = _subject.Keys.ToList();
+            list.Sort();
+            foreach (string n in list)
+            {
+                tvSubject.Nodes.Add(n);
+            }
+        }
+
         #endregion
 
         /// <summary>
@@ -138,6 +160,13 @@ namespace InhaTT_Creator
                 AppendSubjectToList(lvProfessor, Program.m.bot.subject[ix]);
         }
 
+        private void tvSubject_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            lvSubject.Items.Clear();
+            foreach (int ix in _subject[tvSubject.SelectedNode.FullPath])
+                AppendSubjectToList(lvSubject, Program.m.bot.subject[ix]);
+        }
+
         private void lvField_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             List<Bot.SubjectStruct> subject = new List<Bot.SubjectStruct>();
@@ -166,6 +195,60 @@ namespace InhaTT_Creator
                     if (lvi.SubItems[0].Text == ss.index.ToString())
                     { subject.Add(ss); break; }
             (new frmTTViewer(Program.m.bot.subject, false, subject)).Show();
+        }
+
+        private void lvSubject_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            List<Bot.SubjectStruct> subject = new List<Bot.SubjectStruct>();
+            foreach (ListViewItem lvi in lvSubject.Items)
+                foreach (Bot.SubjectStruct ss in Program.m.bot.subject)
+                    if (lvi.SubItems[0].Text == ss.index.ToString())
+                    { subject.Add(ss); break; }
+            (new frmTTViewer(Program.m.bot.subject, false, subject)).Show();
+        }
+
+        private void cbFilter_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            _professor.Clear();
+            tvProfessor.Nodes.Clear();
+            lvProfessor.Items.Clear();
+            foreach (Bot.SubjectStruct ss in Program.m.bot.subject)
+            {
+                if (!ss.필드.Contains(cbFilter.Text)) continue;
+                string[] split = ss.교수.Split(',');
+                foreach (string c in split)
+                {
+                    if (!_professor.ContainsKey(c))
+                        _professor.Add(c, new List<int>());
+                    _professor[c].Add(ss.index);
+                }
+            }
+            var list = _professor.Keys.ToList();
+            list.Sort();
+            foreach (string n in list)
+            {
+                tvProfessor.Nodes.Add(n);
+            }
+        }
+
+        private void cbFilterSubject_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            _subject.Clear();
+            tvSubject.Nodes.Clear();
+            lvSubject.Items.Clear();
+            foreach (Bot.SubjectStruct ss in Program.m.bot.subject)
+            {
+                if (!ss.필드.Contains(cbFilterSubject.Text)) continue;
+                if (!_subject.ContainsKey(ss.과목명))
+                    _subject.Add(ss.과목명, new List<int>());
+                _subject[ss.과목명].Add(ss.index);
+            }
+            var list = _subject.Keys.ToList();
+            list.Sort();
+            foreach (string n in list)
+            {
+                tvSubject.Nodes.Add(n);
+            }
         }
 
         #endregion
