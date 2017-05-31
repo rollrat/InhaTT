@@ -20,5 +20,10 @@ namespace InhaTT_Creator
         /// 토요일도 수업을 추가하고 싶으면, "월화수목금토"로 대체하십시오.
         /// </summary>
         public const string DayOfWeek = "월화수목금";
+
+        /// <summary>
+        /// 한 교시가 몇 분인지 결정합니다.
+        /// </summary>
+        public const int MinPerClass = 30;
     }
 }

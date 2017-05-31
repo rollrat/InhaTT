@@ -76,7 +76,8 @@ namespace InhaTT_Creator
                 }
                 foreach (string c in getSlice(table))
                     te.cr.Add(c);
-                if (te.cr[0] == "웹강의" && te.cr.Count > 1) te.cr[0] = te.cr[1];
+                if (te.cr[0] == "웹강의" && te.cr.Count > 1)
+                { te.cr[0] = te.cr[1]; te.with_web = true; }
                 else if (te.cr.Count == 1) te.cr.Add(te.cr[0]);
             }
             catch

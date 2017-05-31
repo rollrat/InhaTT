@@ -53,7 +53,7 @@ namespace InhaTT_Creator
             for (int i = 1; i <= TimeTableSettings.DayMaxClass; i++)
             {
                 string dtt = dt.Hour.ToString().PadLeft(2, '0') + ":" + dt.Minute.ToString().PadLeft(2, '0') + "~";
-                dt = dt.AddMinutes(30);
+                dt = dt.AddMinutes(TimeTableSettings.MinPerClass);
                 dtt += dt.Hour.ToString().PadLeft(2, '0') + ":" + dt.Minute.ToString().PadLeft(2, '0');
                 lvTable.Items.Add(new ListViewItem(new string[] {"",
                     i.ToString().PadLeft(2, '0') + " 교시(" + dtt + ")","","","","",""}));
@@ -139,10 +139,10 @@ namespace InhaTT_Creator
                             lvTable.Items[r].SubItems[c + 2].Bounds);
                         second = true;
                     }
-                    else if (second == true)
+                    else if (second == true && te.cr.Count > 0)
                     {
                         if (classroom == "" || classroom == te.cr[icr])
-                            lvTable.CreateGraphics().DrawString(te.cr[icr],
+                            lvTable.CreateGraphics().DrawString(te.cr[icr] + "(" + subject[index].교수 + ")", 
                             lvTable.Font, Brushes.White,
                             lvTable.Items[r].SubItems[c + 2].Bounds);
                         second = false;

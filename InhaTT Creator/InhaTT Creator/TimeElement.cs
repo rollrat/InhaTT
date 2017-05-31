@@ -19,6 +19,7 @@ namespace InhaTT_Creator
         public List<int> te = new List<int>();
         public List<string> cr = new List<string>();
         public string index;
+        public bool with_web = false;
 
         public void Add(int b)
         {
