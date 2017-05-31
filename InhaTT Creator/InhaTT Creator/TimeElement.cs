@@ -17,6 +17,7 @@ namespace InhaTT_Creator
     public class TimeElement
     {
         public List<int> te = new List<int>();
+        public List<string> cr = new List<string>();
         public string index;
 
         public void Add(int b)

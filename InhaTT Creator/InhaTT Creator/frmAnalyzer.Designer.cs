@@ -220,7 +220,7 @@
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage4.Size = new System.Drawing.Size(1294, 431);
             this.tabPage4.TabIndex = 1;
-            this.tabPage4.Text = "건물 및 강의실";
+            this.tabPage4.Text = "강의실";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
             // lvClass

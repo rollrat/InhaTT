@@ -52,27 +52,12 @@ namespace InhaTT_Creator
             cbFilterSubject.Text = list[0];
         }
 
-        static public string[] getSlice(string a)
-        {
-            Regex regex = new Regex("\\((.*?)\\)");
-            Match match = regex.Match(a);
-            List<string> lv = new List<string>();
-
-            while (match.Success)
-            {
-                lv.Add(match.Groups[1].Value);
-                match = match.NextMatch();
-            }
-
-            return lv.ToArray();
-        }
-
         Dictionary<string, List<int>> _class = new Dictionary<string, List<int>>();
         private void InitClass()
         {
             foreach (Bot.SubjectStruct ss in Program.m.bot.subject)
             {
-                foreach (string c in getSlice(ss.시강))
+                foreach (string c in TimeParser.getSlice(ss.시강))
                 {
                     if (!_class.ContainsKey(c))
                         _class.Add(c, new List<int>());
@@ -146,10 +131,11 @@ namespace InhaTT_Creator
                 AppendSubjectToList(lvField,Program.m.bot.subject[ix]);
         }
 
+        string choose_cr;
         private void tvClass_AfterSelect(object sender, TreeViewEventArgs e)
         {
             lvClass.Items.Clear();
-            foreach (int ix in _class[tvClass.SelectedNode.FullPath])
+            foreach (int ix in _class[choose_cr = tvClass.SelectedNode.FullPath])
                 AppendSubjectToList(lvClass, Program.m.bot.subject[ix]);
         }
 
@@ -184,7 +170,7 @@ namespace InhaTT_Creator
                 foreach (Bot.SubjectStruct ss in Program.m.bot.subject)
                     if (lvi.SubItems[0].Text == ss.index.ToString())
                     { subject.Add(ss); break; }
-            (new frmTTViewer(Program.m.bot.subject, false, subject)).Show();
+            (new frmTTViewer(Program.m.bot.subject, false, subject, choose_cr)).Show();
         }
         
         private void lvProfessor_MouseDoubleClick(object sender, MouseEventArgs e)

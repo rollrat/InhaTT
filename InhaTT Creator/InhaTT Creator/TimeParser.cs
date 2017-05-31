@@ -7,12 +7,29 @@
 ***/
 
 using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace InhaTT_Creator
 {
     class TimeParser
     {
+        static public List<string> getSlice(string a)
+        {
+            Regex regex = new Regex("\\((.*?)\\)");
+            Match match = regex.Match(a);
+            List<string> lv = new List<string>();
+
+            while (match.Success)
+            {
+                lv.Add(match.Groups[1].Value);
+                match = match.NextMatch();
+            }
+
+            return lv;
+        }
+
         /// <summary>
         /// 시간 정보를 해석합니다.
         /// </summary>
@@ -57,6 +74,10 @@ namespace InhaTT_Creator
                         }
                     }
                 }
+                foreach (string c in getSlice(table))
+                    te.cr.Add(c);
+                if (te.cr[0] == "웹강의" && te.cr.Count > 1) te.cr[0] = te.cr[1];
+                else if (te.cr.Count == 1) te.cr.Add(te.cr[0]);
             }
             catch
             {

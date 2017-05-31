@@ -26,7 +26,10 @@ namespace InhaTT_Creator
         List<List<TimeElement>> txts = new List<List<TimeElement>>();
         int ir = 0;
 
-        public frmTTViewer(List<Bot.SubjectStruct> al, bool file = true, List<Bot.SubjectStruct> view = null)
+        string classroom;
+
+        public frmTTViewer(List<Bot.SubjectStruct> al, bool file = true, 
+            List<Bot.SubjectStruct> view = null, string classroom = "")
         {
             InitializeComponent();
 
@@ -35,6 +38,8 @@ namespace InhaTT_Creator
             if (file) Open();
             else Open(view);
             Show();
+
+            this.classroom = classroom;
 
             lvTable.Invalidate();
             Application.DoEvents();
@@ -45,7 +50,7 @@ namespace InhaTT_Creator
         {
             lvTable.Columns[0].TextAlign = HorizontalAlignment.Center;
             DateTime dt = new DateTime(1900, 1, 1, 9, 0, 0);
-            for (int i = 1; i <= 25; i++)
+            for (int i = 1; i <= TimeTableSettings.DayMaxClass; i++)
             {
                 string dtt = dt.Hour.ToString().PadLeft(2, '0') + ":" + dt.Minute.ToString().PadLeft(2, '0') + "~";
                 dt = dt.AddMinutes(30);
@@ -112,27 +117,32 @@ namespace InhaTT_Creator
                 int index = Convert.ToInt32(te.index);
                 Random rm = new Random(index);
                 int _r = rm.Next(256), _g = rm.Next(256), _b = rm.Next(256);
-                int g = -2;
+                int g = -2, icr = -1;
                 bool second = false;
                 foreach (int i in te.te)
                 {
-                    int c = i / 25;
-                    int r = i % 25;
+                    int c = i / TimeTableSettings.DayMaxClass;
+                    int r = i % TimeTableSettings.DayMaxClass;
 
-                    lvTable.CreateGraphics().FillRectangle(new SolidBrush(
-                        Color.FromArgb(200, _r, _g, _b)
-                        ), lvTable.Items[r].SubItems[c + 2].Bounds);
+                    if (Math.Abs(g - i) != 1) icr++;
+
+                    if (classroom == "" || classroom == te.cr[icr])
+                        lvTable.CreateGraphics().FillRectangle(new SolidBrush(
+                            Color.FromArgb(200, _r, _g, _b)
+                            ), lvTable.Items[r].SubItems[c + 2].Bounds);
 
                     if (Math.Abs(g - i) != 1)
                     {
-                        lvTable.CreateGraphics().DrawString(subject[index].과목명,
+                        if (classroom == "" || classroom == te.cr[icr])
+                            lvTable.CreateGraphics().DrawString(subject[index].과목명,
                             lvTable.Font, Brushes.White,
                             lvTable.Items[r].SubItems[c + 2].Bounds);
                         second = true;
                     }
                     else if (second == true)
                     {
-                        lvTable.CreateGraphics().DrawString(getSlice(subject[index].시강),
+                        if (classroom == "" || classroom == te.cr[icr])
+                            lvTable.CreateGraphics().DrawString(te.cr[icr],
                             lvTable.Font, Brushes.White,
                             lvTable.Items[r].SubItems[c + 2].Bounds);
                         second = false;
