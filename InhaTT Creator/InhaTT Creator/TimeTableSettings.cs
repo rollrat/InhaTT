@@ -13,7 +13,7 @@ namespace InhaTT_Creator
         /// <summary>
         /// 하루를 몇 교시로 할지 결정합니다.
         /// </summary>
-        public const int DayMaxClass = 25;
+        public const int DayMaxClass = 30;
 
         /// <summary>
         /// 일주일을 나타내는 요일의 접두구분자를 지정합니다.

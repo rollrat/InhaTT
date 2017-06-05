@@ -36,7 +36,16 @@ namespace InhaTT_Creator
 
         List<List<TimeElement>> subject_group;
 
-        public void StartCreate(List<List<TimeElement>> subject_group)
+        /// <summary>
+        /// 연강을 허용할 지의 여부를 결정합니다.
+        /// </summary>
+        bool continuity;
+
+        /// <summary>
+        /// 시간표 생성을 시작합니다.
+        /// </summary>
+        /// <param name="continuity">연강 여부를 결정합니다. 이 값이 true일경우 연강을 허용합니다.</param>
+        public void StartCreate(List<List<TimeElement>> subject_group, bool continuity = true)
         {
             AccessTable = new TimeTable();
             result.Clear();
@@ -45,6 +54,7 @@ namespace InhaTT_Creator
             internal_start();
             internal_trim();
             escape = false;
+            this.continuity = continuity;
         }
 
         public int GetResultCount()
@@ -61,7 +71,7 @@ namespace InhaTT_Creator
         }
 
         #region 테스트 부분
-        
+
         private void internal_start()
         {
             for (int i = 0; i < subject_group[0].Count; i++)
@@ -71,6 +81,7 @@ namespace InhaTT_Creator
                 internal_iterate(1);
                 AccessTable.Del(subject_group[0][i]);
                 stack.Pop();
+
                 if (escape) break;
             }
         }
@@ -90,15 +101,16 @@ namespace InhaTT_Creator
             }
             for (int i = 0; i < subject_group[iter].Count; i++)
             {
-                if (AccessTable.CheckOverlap(subject_group[iter][i]))
-                    continue;
+                if (continuity && AccessTable.CheckOverlap(subject_group[iter][i])) continue;
+                else if (!continuity && AccessTable.CheckOverlapWithContinuity(subject_group[iter][i])) continue;
+
                 stack.Push(subject_group[iter][i].index);
                 AccessTable.Add(subject_group[iter][i]);
                 internal_iterate(iter + 1);
                 AccessTable.Del(subject_group[iter][i]);
                 stack.Pop();
-                if (escape)
-                    return;
+
+                if (escape) return;
             }
         }
 
@@ -107,7 +119,9 @@ namespace InhaTT_Creator
         /// </summary>
         private void internal_trim()
         {
+            // 결과를 랜덤으로 정렬한다.
             result = result.OrderBy(a => Guid.NewGuid()).ToList();
+            // maxShowCount개수만큼(초기값은 100개)이 넘으면 뒤에것을 잘라 100개로 만든다.
             if (result.Count > maxShowCount)
                 result.RemoveRange(maxShowCount, result.Count - maxShowCount);
         }

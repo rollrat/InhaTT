@@ -36,6 +36,8 @@
             this.과목분석기ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.도움말HToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.설명서ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
+            this.정보IToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bDel9 = new System.Windows.Forms.Button();
             this.bFix = new System.Windows.Forms.Button();
             this.bDelClass = new System.Windows.Forms.Button();
@@ -61,8 +63,7 @@
             this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tbSearch = new System.Windows.Forms.TextBox();
-            this.정보IToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
+            this.cbContinuity = new System.Windows.Forms.CheckBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numClass)).BeginInit();
             this.SuspendLayout();
@@ -128,9 +129,21 @@
             // 설명서ToolStripMenuItem
             // 
             this.설명서ToolStripMenuItem.Name = "설명서ToolStripMenuItem";
-            this.설명서ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.설명서ToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
             this.설명서ToolStripMenuItem.Text = "설명서(&M)";
             this.설명서ToolStripMenuItem.Click += new System.EventHandler(this.설명서ToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(126, 6);
+            // 
+            // 정보IToolStripMenuItem
+            // 
+            this.정보IToolStripMenuItem.Name = "정보IToolStripMenuItem";
+            this.정보IToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.정보IToolStripMenuItem.Text = "정보(&I)";
+            this.정보IToolStripMenuItem.Click += new System.EventHandler(this.정보IToolStripMenuItem_Click);
             // 
             // bDel9
             // 
@@ -348,23 +361,22 @@
             this.tbSearch.TabIndex = 24;
             this.tbSearch.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tbSearch_KeyUp);
             // 
-            // 정보IToolStripMenuItem
+            // cbContinuity
             // 
-            this.정보IToolStripMenuItem.Name = "정보IToolStripMenuItem";
-            this.정보IToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.정보IToolStripMenuItem.Text = "정보(&I)";
-            this.정보IToolStripMenuItem.Click += new System.EventHandler(this.정보IToolStripMenuItem_Click);
-            // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(149, 6);
+            this.cbContinuity.AutoSize = true;
+            this.cbContinuity.Location = new System.Drawing.Point(917, 593);
+            this.cbContinuity.Name = "cbContinuity";
+            this.cbContinuity.Size = new System.Drawing.Size(60, 19);
+            this.cbContinuity.TabIndex = 37;
+            this.cbContinuity.Text = "연강 x";
+            this.cbContinuity.UseVisualStyleBackColor = true;
             // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1154, 623);
+            this.Controls.Add(this.cbContinuity);
             this.Controls.Add(this.bDel9);
             this.Controls.Add(this.bFix);
             this.Controls.Add(this.bDelClass);
@@ -433,6 +445,7 @@
         private System.Windows.Forms.ToolStripMenuItem 설명서ToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem 정보IToolStripMenuItem;
+        private System.Windows.Forms.CheckBox cbContinuity;
     }
 }
 

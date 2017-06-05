@@ -15,6 +15,10 @@ namespace InhaTT_Creator
 {
     class TimeParser
     {
+        /// <summary>
+        /// 괄호안에 있는 문자열들을 모두 가져옵니다.
+        /// 단, 각 문자열들을 차례로 리스트에 넣습니다.
+        /// </summary>
         static public List<string> getSlice(string a)
         {
             Regex regex = new Regex("\\((.*?)\\)");

@@ -227,7 +227,7 @@ namespace InhaTT_Creator
                         return;
                     }
 
-                // 추가
+                // 리스트에 항목 추가
                 List<TimeElement> subjects = new List<TimeElement>();
                 List<Bot.SubjectStruct> ssl = new List<Bot.SubjectStruct>();
                 if (cbSearch.Text == "과목명")
@@ -282,7 +282,7 @@ namespace InhaTT_Creator
                 // 시간표 테스트 샘플을 크기에 대한 내림차순으로 정렬합니다.
                 // 이 정렬을 통해 더 고른 샘플을 추출할 수 있습니다.
                 subject_group.Sort((v1, v2) => v2.Count.CompareTo(v1.Count));
-                generator.StartCreate(subject_group);
+                generator.StartCreate(subject_group, !cbContinuity.Checked);
             }
 
             System.IO.File.WriteAllText(AppDomain.CurrentDomain.BaseDirectory + @"combinations.txt", generator.GetResult());

@@ -70,7 +70,7 @@
             this.lvTable.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.lvTable.Location = new System.Drawing.Point(12, 12);
             this.lvTable.Name = "lvTable";
-            this.lvTable.Size = new System.Drawing.Size(1067, 503);
+            this.lvTable.Size = new System.Drawing.Size(1067, 601);
             this.lvTable.TabIndex = 5;
             this.lvTable.UseCompatibleStateImageBehavior = false;
             this.lvTable.View = System.Windows.Forms.View.Details;
@@ -119,7 +119,7 @@
             // bLeft
             // 
             this.bLeft.Enabled = false;
-            this.bLeft.Location = new System.Drawing.Point(374, 715);
+            this.bLeft.Location = new System.Drawing.Point(400, 813);
             this.bLeft.Name = "bLeft";
             this.bLeft.Size = new System.Drawing.Size(83, 29);
             this.bLeft.TabIndex = 6;
@@ -129,7 +129,7 @@
             // 
             // bRight
             // 
-            this.bRight.Location = new System.Drawing.Point(592, 715);
+            this.bRight.Location = new System.Drawing.Point(618, 813);
             this.bRight.Name = "bRight";
             this.bRight.Size = new System.Drawing.Size(83, 29);
             this.bRight.TabIndex = 7;
@@ -154,13 +154,12 @@
             this.columnHeader11});
             this.lvSearch.FullRowSelect = true;
             this.lvSearch.GridLines = true;
-            this.lvSearch.Location = new System.Drawing.Point(12, 521);
+            this.lvSearch.Location = new System.Drawing.Point(12, 619);
             this.lvSearch.Name = "lvSearch";
             this.lvSearch.Size = new System.Drawing.Size(1067, 188);
             this.lvSearch.TabIndex = 8;
             this.lvSearch.UseCompatibleStateImageBehavior = false;
             this.lvSearch.View = System.Windows.Forms.View.Details;
-            //this.lvSearch.ColumnWidthChanging += new System.Windows.Forms.ColumnWidthChangingEventHandler(this.lvTable_ColumnWidthChanging);
             // 
             // columnHeader31
             // 
@@ -221,7 +220,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1093, 757);
+            this.ClientSize = new System.Drawing.Size(1093, 850);
             this.Controls.Add(this.lvSearch);
             this.Controls.Add(this.bRight);
             this.Controls.Add(this.bLeft);
