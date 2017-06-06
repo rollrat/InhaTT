@@ -49,6 +49,9 @@ namespace InhaTT_Creator
                 1. 월1,2,3(하-101)/화1,2,3(2-112)
                 2. 월1,2,3화1,2,3(60주년-1012)
 
+                * 혼종 발견 ( 처리안함 귀찮음 )
+                3. 월1,2,3,화1,2,3(하-101)/수1,2,3(60주년-7077)
+
                 */
                 string dayOfWeek = TimeTableSettings.DayOfWeek;
                 foreach (string s in table.Split('/'))

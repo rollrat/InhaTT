@@ -10,6 +10,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Numerics;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
@@ -43,6 +44,7 @@ namespace InhaTT_Creator
 
             InitDatas();
             InitGUI();
+            InitSearchView();
         }
 
         /// <summary>
@@ -80,6 +82,21 @@ namespace InhaTT_Creator
             foreach (Bot.SubjectStruct ss in bot.subject)
                 if (!al.Contains(ss.과목명)) al.Add(ss.과목명);
             tbSearch.AutoCompleteCustomSource.AddRange(al.ToArray(typeof(string)) as string[]);
+        }
+
+        /// <summary>
+        /// 검색뷰어 컬럼
+        /// </summary>
+        private void InitSearchView()
+        {
+            // 일반 컬럼 헤더를 ColHeader로 변환
+            List<ColHeader> columnsTrans = new List<ColHeader>();
+            foreach (ColumnHeader column in lvSearch.Columns)
+            {
+                columnsTrans.Add(new ColHeader(column.Text, column.Width, column.TextAlign, true));
+            }
+            lvSearch.Columns.Clear();
+            lvSearch.Columns.AddRange(columnsTrans.ToArray());
         }
 
         /// <summary>
@@ -214,6 +231,16 @@ namespace InhaTT_Creator
         /// </summary>
         List<List<TimeElement>> subject_group = new List<List<TimeElement>>();
 
+        private BigInteger comb;
+
+        private void UpdateCombination()
+        {
+            comb = 1;
+            for (int i = 0; i < subject_group.Count; i++)
+                comb *= subject_group[i].Count;
+            lComb.Text = comb.ToString("#,#");
+        }
+
         private void tbSearch_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -259,6 +286,7 @@ namespace InhaTT_Creator
                 if (ssl.Count == 0) return;
                 AppendSubjectsToList(ssl);
                 subject_group.Add(subjects);
+                UpdateCombination();
             }
         }
 
@@ -336,6 +364,7 @@ namespace InhaTT_Creator
             if (e.KeyCode == Keys.Delete)
                 foreach (ListViewItem lvi in lvSearch.SelectedItems)
                 { DelInIndex(lvi.SubItems[0].Text); lvi.Remove(); }
+            UpdateCombination();
         }
 
         private ListViewItem[] getLviArray()
@@ -359,6 +388,7 @@ namespace InhaTT_Creator
             }
             lvSearch.Items.Clear();
             lvSearch.Items.AddRange(lvil.ToArray());
+            UpdateCombination();
         }
         private void bDel1_Click(object sender, EventArgs e)
         { DelDay(0); }
@@ -403,6 +433,7 @@ namespace InhaTT_Creator
                 lvSearch.Items.AddRange(lvil.ToArray());
                 MessageBox.Show($"\"{sbj}\" 과목이 완전히 삭제되었습니다.",
                     Version.Name, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                UpdateCombination();
             }
         }
 
@@ -417,6 +448,7 @@ namespace InhaTT_Creator
             }
             lvSearch.Items.Clear();
             lvSearch.Items.AddRange(lvil.ToArray());
+            UpdateCombination();
         }
 
         private void bFix_Click(object sender, EventArgs e)
@@ -446,6 +478,7 @@ namespace InhaTT_Creator
                     else j++;
                 lvSearch.Items.Clear();
                 lvSearch.Items.AddRange(lvil.ToArray());
+                UpdateCombination();
             }
         }
         #endregion

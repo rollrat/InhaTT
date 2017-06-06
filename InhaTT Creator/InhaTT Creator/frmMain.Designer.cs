@@ -64,6 +64,8 @@
             this.columnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tbSearch = new System.Windows.Forms.TextBox();
             this.cbContinuity = new System.Windows.Forms.CheckBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lComb = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numClass)).BeginInit();
             this.SuspendLayout();
@@ -95,8 +97,8 @@
             // 
             this.생성된시간표ToolStripMenuItem.Name = "생성된시간표ToolStripMenuItem";
             this.생성된시간표ToolStripMenuItem.ShortcutKeyDisplayString = "";
-            this.생성된시간표ToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.V)));
-            this.생성된시간표ToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
+            this.생성된시간표ToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.T)));
+            this.생성된시간표ToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
             this.생성된시간표ToolStripMenuItem.Text = "생성된 시간표";
             this.생성된시간표ToolStripMenuItem.Click += new System.EventHandler(this.생성된시간표ToolStripMenuItem_Click);
             // 
@@ -129,19 +131,19 @@
             // 설명서ToolStripMenuItem
             // 
             this.설명서ToolStripMenuItem.Name = "설명서ToolStripMenuItem";
-            this.설명서ToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.설명서ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.설명서ToolStripMenuItem.Text = "설명서(&M)";
             this.설명서ToolStripMenuItem.Click += new System.EventHandler(this.설명서ToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(126, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(149, 6);
             // 
             // 정보IToolStripMenuItem
             // 
             this.정보IToolStripMenuItem.Name = "정보IToolStripMenuItem";
-            this.정보IToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.정보IToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.정보IToolStripMenuItem.Text = "정보(&I)";
             this.정보IToolStripMenuItem.Click += new System.EventHandler(this.정보IToolStripMenuItem_Click);
             // 
@@ -289,7 +291,7 @@
             this.lvSearch.GridLines = true;
             this.lvSearch.Location = new System.Drawing.Point(12, 61);
             this.lvSearch.Name = "lvSearch";
-            this.lvSearch.Size = new System.Drawing.Size(1131, 520);
+            this.lvSearch.Size = new System.Drawing.Size(1131, 505);
             this.lvSearch.TabIndex = 25;
             this.lvSearch.UseCompatibleStateImageBehavior = false;
             this.lvSearch.View = System.Windows.Forms.View.Details;
@@ -371,11 +373,31 @@
             this.cbContinuity.Text = "연강 x";
             this.cbContinuity.UseVisualStyleBackColor = true;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 569);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(66, 15);
+            this.label1.TabIndex = 38;
+            this.label1.Text = "경우의 수: ";
+            // 
+            // lComb
+            // 
+            this.lComb.AutoSize = true;
+            this.lComb.Location = new System.Drawing.Point(84, 569);
+            this.lComb.Name = "lComb";
+            this.lComb.Size = new System.Drawing.Size(14, 15);
+            this.lComb.TabIndex = 39;
+            this.lComb.Text = "0";
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1154, 623);
+            this.Controls.Add(this.lComb);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.cbContinuity);
             this.Controls.Add(this.bDel9);
             this.Controls.Add(this.bFix);
@@ -446,6 +468,8 @@
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem 정보IToolStripMenuItem;
         private System.Windows.Forms.CheckBox cbContinuity;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lComb;
     }
 }
 

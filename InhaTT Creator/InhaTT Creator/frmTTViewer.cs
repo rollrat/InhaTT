@@ -171,23 +171,6 @@ namespace InhaTT_Creator
                 ss.필드, ss.학수번호, ss.분반, ss.과목명, ss.학년, ss.학점,
                 ss.구분, ss.시강, ss.교수, ss.평가, ss.비고 }));
         }
-
-        private string getSlice(string a)
-        {
-            Regex regex = new Regex("\\((.*?)\\)");
-            Match match = regex.Match(a);
-            StringBuilder builder = new StringBuilder();
-
-            while ( match.Success )
-            {
-                builder.Append(match.Groups[1]);
-                match = match.NextMatch();
-                if (match.Success)
-                    builder.Append("/");
-            }
-
-            return builder.ToString();
-        }
         
         #region 버튼 클릭
         private void LeftClick()

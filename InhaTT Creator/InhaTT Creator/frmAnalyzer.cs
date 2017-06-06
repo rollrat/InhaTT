@@ -23,10 +23,10 @@ namespace InhaTT_Creator
 
         private void frmAnalyzer_Load(object sender, EventArgs e)
         {
-            InitField();
             InitClass();
             InitProfessor();
             InitSubject();
+            InitField();
         }
 
         #region 초기화
