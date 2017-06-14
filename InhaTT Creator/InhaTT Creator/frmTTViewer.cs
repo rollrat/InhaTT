@@ -211,6 +211,15 @@ namespace InhaTT_Creator
             else if (e.KeyCode == Keys.Left && bLeft.Enabled)
                 LeftClick();
         }
+        private void bExport_Click(object sender, EventArgs e)
+        {
+            (new frmExport(view_table)).Show();
+        }
+        private void bReate_Click(object sender, EventArgs e)
+        {
+            Program.m.DoFixedMode(view_table);
+            Program.m.Focus();
+        }
         #endregion
 
     }

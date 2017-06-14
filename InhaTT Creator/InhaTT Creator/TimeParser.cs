@@ -34,6 +34,19 @@ namespace InhaTT_Creator
             return lv;
         }
 
+        static public string replaceEntity(string str)
+        {
+            string strs = str;
+            string[] oj = {"&nbsp;", "&amp;", "&quot;", "&lt;",
+                "&gt;", "&reg;", "&copy;", "&bull;", "&trade;", "&#39;" };
+            string[] kj = { " ", "&", "\"", "<", ">", "Â®", "Â©", "â€¢", "â„¢", "'" };
+            for (int i = 0; i <= oj.Length - 1; i++)
+            {
+                strs = strs.Replace(oj[i], kj[i]);
+            }
+            return strs;
+        }
+
         /// <summary>
         /// 시간 정보를 해석합니다.
         /// </summary>

@@ -24,7 +24,7 @@ namespace InhaTT_Creator
         public Bot bot = new Bot();
 
         public bool IsOpenSafety = true;
-
+        
         public frmMain()
         {
             // 데이터 파일이 존재하지 않으면 프로그램을 종료시킴
@@ -45,6 +45,8 @@ namespace InhaTT_Creator
             InitDatas();
             InitGUI();
             InitSearchView();
+
+            Text += " (" + bot.subject.Count + "개의 로드된 과목)";
         }
 
         /// <summary>
@@ -231,7 +233,13 @@ namespace InhaTT_Creator
         /// </summary>
         List<List<TimeElement>> subject_group = new List<List<TimeElement>>();
 
-        private BigInteger comb;
+        /// <summary>
+        /// 실행취소/다시실행을 위한 스택입니다.
+        /// </summary>
+        Stack<List<List<TimeElement>>> redo_stack = new Stack<List<List<TimeElement>>>();
+        Stack<List<List<TimeElement>>> undo_stack = new Stack<List<List<TimeElement>>>();
+
+        BigInteger comb;
 
         private void UpdateCombination()
         {
@@ -253,6 +261,8 @@ namespace InhaTT_Creator
                         MessageBox.Show("같은 과목이 이미 추가되었습니다.", Version.Name, MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
+
+                PushUndo();
 
                 // 리스트에 항목 추가
                 List<TimeElement> subjects = new List<TimeElement>();
@@ -290,10 +300,105 @@ namespace InhaTT_Creator
             }
         }
 
+        /// <summary>
+        /// frmTTViewer에서 '이 시간표를 기반으로 시간표 만들기'버튼을 누를때 이 함수가 호출됩니다.
+        /// </summary>
+        public void DoFixedMode(List<TimeElement> subject)
+        {
+            ClearStack();
+            subject_group.Clear();
+
+            List<Bot.SubjectStruct> ssl = new List<Bot.SubjectStruct>();
+            foreach (TimeElement tex in subject)
+            {
+                Bot.SubjectStruct ss = bot.subject[Convert.ToInt32(tex.index)];
+                List<TimeElement> subjects = new List<TimeElement>();
+                TimeElement te = TimeParser.Get(ss.시강);
+                te.index = ss.index.ToString();
+                subjects.Add(te);
+                ssl.Add(ss);
+                subject_group.Add(subjects);
+            }
+
+            lvSearch.Items.Clear();
+            AppendSubjectsToList(ssl);
+            UpdateCombination();
+        }
+
+        #region 스택처리
+
+        private void ClearStack()
+        {
+            redo_stack.Clear();
+            undo_stack.Clear();
+        }
+
+        private void PushRedo()
+        {
+            List<List<TimeElement>> push_list = new List<List<TimeElement>>();
+            subject_group.ForEach((te) => { push_list.Add(new List<TimeElement>(te)); });
+            redo_stack.Push(new List<List<TimeElement>>(subject_group));
+            UpdateCombination();
+        }
+        private void PopRedo()
+        {
+            if (redo_stack.Count > 0)
+            {
+                PushUndoInPopRedo();
+                subject_group = redo_stack.Pop();
+                UpdateCombination();
+
+                List<Bot.SubjectStruct> ssl = new List<Bot.SubjectStruct>();
+                foreach (List<TimeElement> lte in subject_group)
+                    foreach (TimeElement te in lte)
+                        ssl.Add(bot.subject[Convert.ToInt32(te.index)]);
+                lvSearch.Items.Clear();
+                AppendSubjectsToList(ssl);
+                UpdateCombination();
+            }
+        }
+
+        private void PushUndo()
+        {
+            if (redo_stack.Count > 0) redo_stack.Clear();
+            List<List<TimeElement>> push_list = new List<List<TimeElement>>();
+            subject_group.ForEach((te) => { push_list.Add(new List<TimeElement>(te)); });
+            undo_stack.Push(push_list);
+            UpdateCombination();
+        }
+        private void PushUndoInPopRedo()
+        {
+            List<List<TimeElement>> push_list = new List<List<TimeElement>>();
+            subject_group.ForEach((te) => { push_list.Add(new List<TimeElement>(te)); });
+            undo_stack.Push(push_list);
+            UpdateCombination();
+        }
+        private void PopUndo()
+        {
+            if (undo_stack.Count > 0)
+            {
+                PushRedo();
+                subject_group = undo_stack.Pop();
+                UpdateCombination();
+
+                List<Bot.SubjectStruct> ssl = new List<Bot.SubjectStruct>();
+                foreach (List<TimeElement> lte in subject_group)
+                    foreach (TimeElement te in lte)
+                        ssl.Add(bot.subject[Convert.ToInt32(te.index)]);
+                lvSearch.Items.Clear();
+                AppendSubjectsToList(ssl);
+                UpdateCombination();
+            }
+        }
+
+        #endregion
+
         #region 테스트
 
         private void bStart_Click(object sender, EventArgs e)
         {
+            PushUndo();
+
             // 웹강의 삭제
             List<ListViewItem> lvil = new List<ListViewItem>(getLviArray());
             for (int i = 0; i < lvil.Count;)
@@ -302,6 +407,8 @@ namespace InhaTT_Creator
                 { DelInIndex(lvil[i].SubItems[0].Text); lvil.RemoveAt(i); }
                 else i++;
             }
+            lvSearch.Items.Clear();
+            lvSearch.Items.AddRange(lvil.ToArray());
 
             // 시간표 생성
             TimeTableGenerator generator = new TimeTableGenerator();
@@ -358,15 +465,7 @@ namespace InhaTT_Creator
                 }
             }
         }
-
-        private void lvSearch_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Delete)
-                foreach (ListViewItem lvi in lvSearch.SelectedItems)
-                { DelInIndex(lvi.SubItems[0].Text); lvi.Remove(); }
-            UpdateCombination();
-        }
-
+        
         private ListViewItem[] getLviArray()
         {
             ListViewItem[] items = new ListViewItem[lvSearch.Items.Count];
@@ -379,6 +478,7 @@ namespace InhaTT_Creator
         /// </summary>
         private void DelDay(int k)
         {
+            PushUndo();
             List<ListViewItem> lvil = new List<ListViewItem>(getLviArray());
             for (int i = 0; i < lvil.Count;)
             {
@@ -408,6 +508,7 @@ namespace InhaTT_Creator
         {
             if (lvSearch.SelectedItems.Count > 0)
             {
+                PushUndo();
                 List<ListViewItem> lvil = new List<ListViewItem>(getLviArray());
                 int i = 0;
                 string sbj = lvSearch.SelectedItems[0].SubItems[4].Text;
@@ -439,6 +540,7 @@ namespace InhaTT_Creator
 
         private void bDelClass_Click(object sender, EventArgs e)
         {
+            PushUndo();
             List<ListViewItem> lvil = new List<ListViewItem>(getLviArray());
             for (int i = 0; i < lvil.Count;)
             {
@@ -455,6 +557,7 @@ namespace InhaTT_Creator
         {
             if (lvSearch.SelectedItems.Count > 0)
             {
+                PushUndo();
                 List<string> ix = new List<string>();
                 List<ListViewItem> lvil = new List<ListViewItem>(getLviArray());
                 foreach (ListViewItem lvi in lvSearch.SelectedItems)
@@ -484,6 +587,24 @@ namespace InhaTT_Creator
         #endregion
 
         #region 메뉴 스트립
+
+        private void 다시실행ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PopRedo();
+        }
+
+        private void 실행취소ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PopUndo();
+        }
+
+        private void 삭제ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PushUndo();
+            foreach (ListViewItem lvi in lvSearch.SelectedItems)
+            { DelInIndex(lvi.SubItems[0].Text); lvi.Remove(); }
+            UpdateCombination();
+        }
 
         private void 생성된시간표ToolStripMenuItem_Click(object sender, EventArgs e)
         {

@@ -7,6 +7,7 @@
 ***/
 
 using System.Collections.Generic;
+using System.Text;
 
 namespace InhaTT_Creator
 {
@@ -51,6 +52,25 @@ namespace InhaTT_Creator
             ss.비고 = sl[10];
 
             subject.Add(ss);
+        }
+
+        static public string Concat(SubjectStruct ss)
+        {
+            StringBuilder sb = new StringBuilder();
+
+            sb.Append(ss.필드); sb.Append('|');
+            sb.Append(ss.학수번호); sb.Append('|');
+            sb.Append(ss.분반); sb.Append('|');
+            sb.Append(ss.과목명); sb.Append('|');
+            sb.Append(ss.학년); sb.Append('|');
+            sb.Append(ss.학점); sb.Append('|');
+            sb.Append(ss.구분); sb.Append('|');
+            sb.Append(ss.시강); sb.Append('|');
+            sb.Append(ss.교수); sb.Append('|');
+            sb.Append(ss.평가); sb.Append('|');
+            sb.Append(ss.비고);
+
+            return sb.ToString();
         }
 
     }
