@@ -37,13 +37,13 @@
             this.삭제ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.보기ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.생성된시간표ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.데이터DToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.도구TToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.과목분석기ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.도움말HToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.설명서ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.정보IToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.도움말ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bDel9 = new System.Windows.Forms.Button();
             this.bFix = new System.Windows.Forms.Button();
             this.bDelClass = new System.Windows.Forms.Button();
@@ -72,7 +72,8 @@
             this.cbContinuity = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.lComb = new System.Windows.Forms.Label();
-            this.도움말ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripSeparator();
+            this.데이터다운로더ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numClass)).BeginInit();
             this.SuspendLayout();
@@ -83,7 +84,6 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.편집EToolStripMenuItem,
             this.보기ToolStripMenuItem,
-            this.데이터DToolStripMenuItem,
             this.도구TToolStripMenuItem,
             this.도움말HToolStripMenuItem});
             this.menuStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
@@ -151,16 +151,12 @@
             this.생성된시간표ToolStripMenuItem.Text = "생성된 시간표";
             this.생성된시간표ToolStripMenuItem.Click += new System.EventHandler(this.생성된시간표ToolStripMenuItem_Click);
             // 
-            // 데이터DToolStripMenuItem
-            // 
-            this.데이터DToolStripMenuItem.Name = "데이터DToolStripMenuItem";
-            this.데이터DToolStripMenuItem.Size = new System.Drawing.Size(72, 20);
-            this.데이터DToolStripMenuItem.Text = "데이터(&D)";
-            // 
             // 도구TToolStripMenuItem
             // 
             this.도구TToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.과목분석기ToolStripMenuItem});
+            this.과목분석기ToolStripMenuItem,
+            this.toolStripMenuItem3,
+            this.데이터다운로더ToolStripMenuItem});
             this.도구TToolStripMenuItem.Name = "도구TToolStripMenuItem";
             this.도구TToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
             this.도구TToolStripMenuItem.Text = "도구(&T)";
@@ -169,8 +165,8 @@
             // 
             this.과목분석기ToolStripMenuItem.Name = "과목분석기ToolStripMenuItem";
             this.과목분석기ToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)));
-            this.과목분석기ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.과목분석기ToolStripMenuItem.Text = "과목 분석기";
+            this.과목분석기ToolStripMenuItem.Size = new System.Drawing.Size(222, 22);
+            this.과목분석기ToolStripMenuItem.Text = "과목 분석기(&A)";
             this.과목분석기ToolStripMenuItem.Click += new System.EventHandler(this.과목분석기ToolStripMenuItem_Click);
             // 
             // 도움말HToolStripMenuItem
@@ -202,6 +198,13 @@
             this.정보IToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.정보IToolStripMenuItem.Text = "정보(&I)";
             this.정보IToolStripMenuItem.Click += new System.EventHandler(this.정보IToolStripMenuItem_Click);
+            // 
+            // 도움말ToolStripMenuItem
+            // 
+            this.도움말ToolStripMenuItem.Name = "도움말ToolStripMenuItem";
+            this.도움말ToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F1;
+            this.도움말ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.도움말ToolStripMenuItem.Text = "도움말";
             // 
             // bDel9
             // 
@@ -446,12 +449,18 @@
             this.lComb.TabIndex = 39;
             this.lComb.Text = "0";
             // 
-            // 도움말ToolStripMenuItem
+            // toolStripMenuItem3
             // 
-            this.도움말ToolStripMenuItem.Name = "도움말ToolStripMenuItem";
-            this.도움말ToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F1;
-            this.도움말ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.도움말ToolStripMenuItem.Text = "도움말";
+            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(219, 6);
+            // 
+            // 데이터다운로더ToolStripMenuItem
+            // 
+            this.데이터다운로더ToolStripMenuItem.Enabled = false;
+            this.데이터다운로더ToolStripMenuItem.Name = "데이터다운로더ToolStripMenuItem";
+            this.데이터다운로더ToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D)));
+            this.데이터다운로더ToolStripMenuItem.Size = new System.Drawing.Size(222, 22);
+            this.데이터다운로더ToolStripMenuItem.Text = "데이터 다운로더(&D)";
             // 
             // frmMain
             // 
@@ -532,13 +541,14 @@
         private System.Windows.Forms.CheckBox cbContinuity;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lComb;
-        private System.Windows.Forms.ToolStripMenuItem 데이터DToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 편집EToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 실행취소ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 다시실행ToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem 삭제ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 도움말ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem3;
+        private System.Windows.Forms.ToolStripMenuItem 데이터다운로더ToolStripMenuItem;
     }
 }
 

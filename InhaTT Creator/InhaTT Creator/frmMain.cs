@@ -305,7 +305,7 @@ namespace InhaTT_Creator
         /// </summary>
         public void DoFixedMode(List<TimeElement> subject)
         {
-            ClearStack();
+            PushUndo();
             subject_group.Clear();
 
             List<Bot.SubjectStruct> ssl = new List<Bot.SubjectStruct>();

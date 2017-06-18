@@ -28,12 +28,15 @@ namespace InhaTT_Creator
 
         string classroom;
 
+        string title;
+
         public frmTTViewer(List<Bot.SubjectStruct> al, bool file = true, 
             List<Bot.SubjectStruct> view = null, string classroom = "")
         {
             InitializeComponent();
 
             subject = al;
+            title = Text + ' ';
 
             if (file) Open();
             else Open(view);
@@ -58,6 +61,7 @@ namespace InhaTT_Creator
                 lvTable.Items.Add(new ListViewItem(new string[] {"",
                     i.ToString().PadLeft(2, '0') + " 교시(" + dtt + ")","","","","",""}));
             }
+            update_title();
         }
 
         /// <summary>
@@ -126,29 +130,35 @@ namespace InhaTT_Creator
 
                     if (Math.Abs(g - i) != 1) icr++;
 
-                    if (classroom == "" || classroom == te.cr[icr])
-                        lvTable.CreateGraphics().FillRectangle(new SolidBrush(
-                            Color.FromArgb(200, _r, _g, _b)
-                            ), lvTable.Items[r].SubItems[c + 2].Bounds);
-
-                    if (Math.Abs(g - i) != 1)
+                    // te.cr배열을 참조할때 오류가 발생할 때가 있다.
+                    // 이 오류는 과목데이터-시간및강의실에 포함된 토요일에
+                    // 의해 발생한다. 토요일은 비중이 적어 현재 버전에선 구현되지 않은 상태이다.
+                    try
                     {
                         if (classroom == "" || classroom == te.cr[icr])
-                            lvTable.CreateGraphics().DrawString(subject[index].과목명,
-                            lvTable.Font, Brushes.White,
-                            lvTable.Items[r].SubItems[c + 2].Bounds);
-                        second = true;
-                    }
-                    else if (second == true && te.cr.Count > 0)
-                    {
-                        if (classroom == "" || classroom == te.cr[icr])
-                            lvTable.CreateGraphics().DrawString(te.cr[icr] + "(" + subject[index].교수 + ")", 
-                            lvTable.Font, Brushes.White,
-                            lvTable.Items[r].SubItems[c + 2].Bounds);
-                        second = false;
-                    }
+                            lvTable.CreateGraphics().FillRectangle(new SolidBrush(
+                                Color.FromArgb(200, _r, _g, _b)
+                                ), lvTable.Items[r].SubItems[c + 2].Bounds);
 
-                    g = i;
+                        if (Math.Abs(g - i) != 1)
+                        {
+                            if (classroom == "" || classroom == te.cr[icr])
+                                lvTable.CreateGraphics().DrawString(subject[index].과목명,
+                                lvTable.Font, Brushes.White,
+                                lvTable.Items[r].SubItems[c + 2].Bounds);
+                            second = true;
+                        }
+                        else if (second == true && te.cr.Count > 0)
+                        {
+                            if (classroom == "" || classroom == te.cr[icr])
+                                lvTable.CreateGraphics().DrawString(te.cr[icr] + "(" + subject[index].교수 + ")",
+                                lvTable.Font, Brushes.White,
+                                lvTable.Items[r].SubItems[c + 2].Bounds);
+                            second = false;
+                        }
+
+                    } catch { }
+                        g = i;
                 }
                 foreach (Bot.SubjectStruct ss in subject)
                     if ( ss.index.ToString() == te.index)
@@ -173,6 +183,10 @@ namespace InhaTT_Creator
         }
         
         #region 버튼 클릭
+        private void update_title()
+        {
+            Text = title + '(' + (ir + 1) + '/' + txts.Count + ')';
+        }
         private void LeftClick()
         {
             ir--; view_table = txts[ir];
@@ -180,6 +194,7 @@ namespace InhaTT_Creator
                 bLeft.Enabled = false;
             if (txts.Count != ir + 1)
                 bRight.Enabled = true;
+            update_title();
             lvTable.Invalidate();
             Application.DoEvents();
             DrawTimeTable();
@@ -193,6 +208,7 @@ namespace InhaTT_Creator
                     bRight.Enabled = false;
                 if (ir > 0)
                     bLeft.Enabled = true;
+                update_title();
                 lvTable.Invalidate();
                 Application.DoEvents();
                 DrawTimeTable();

@@ -50,9 +50,9 @@
             this.label1.Font = new System.Drawing.Font("맑은 고딕", 11F);
             this.label1.Location = new System.Drawing.Point(39, 105);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(184, 20);
+            this.label1.Size = new System.Drawing.Size(191, 20);
             this.label1.TabIndex = 12;
-            this.label1.Text = "제작자 : rollrat@inha.com";
+            this.label1.Text = "제작자 : rollrat@naver.com";
             // 
             // label3
             // 
