@@ -301,6 +301,44 @@ namespace InhaTT_Creator
         }
 
         /// <summary>
+        /// 특정 과목을 강제로 추가합니다.
+        /// </summary>
+        public void DoAddSubject(int index)
+        {
+            PushUndo();
+
+            foreach (List<TimeElement> lte in subject_group)
+                foreach (TimeElement te in lte)
+                    if ( te.index == index.ToString() )
+                    {
+                        MessageBox.Show("같은 과목이 이미 추가되었습니다.", Version.Name, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+
+            // 같은 이름을 가진 과목을 찾는다
+            for (int i = 0; i < subject_group.Count; i++)
+                if (bot.subject[Convert.ToInt32(subject_group[i][0].index)].과목명 == bot.subject[index].과목명)
+                {
+                    TimeElement te = TimeParser.Get(bot.subject[index].시강);
+                    te.index = index.ToString();
+                    subject_group[i].Add(te);
+                    return;
+                }
+
+            // 같은 이름을 가진 과목이 없다면 새로 만든다.
+            List<Bot.SubjectStruct> ssl = new List<Bot.SubjectStruct>();
+            List<TimeElement> subjects = new List<TimeElement>();
+            TimeElement ite = TimeParser.Get(bot.subject[index].시강);
+            ite.index = index.ToString();
+            subjects.Add(ite);
+            ssl.Add(bot.subject[index]);
+            subject_group.Add(subjects);
+
+            AppendSubjectsToList(ssl);
+            UpdateCombination();
+        }
+
+        /// <summary>
         /// frmTTViewer에서 '이 시간표를 기반으로 시간표 만들기'버튼을 누를때 이 함수가 호출됩니다.
         /// </summary>
         public void DoFixedMode(List<TimeElement> subject)

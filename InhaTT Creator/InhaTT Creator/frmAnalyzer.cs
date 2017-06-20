@@ -237,6 +237,21 @@ namespace InhaTT_Creator
             }
         }
 
+        private void 이과목을목록에추가AToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ToolStripItem menuItem = sender as ToolStripItem;
+            if ( menuItem != null )
+            {
+                ContextMenuStrip owner = menuItem.Owner as ContextMenuStrip;
+
+                ListView lv = (ListView)(owner.SourceControl);
+                if (lv.SelectedItems.Count > 0)
+                {
+                    Program.m.DoAddSubject(Convert.ToInt32(lv.SelectedItems[0].SubItems[0].Text));
+                }
+            }
+        }
+
         #endregion
 
     }

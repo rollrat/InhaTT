@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAnalyzer));
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
@@ -44,6 +45,8 @@
             this.columnHeader22 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader23 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader24 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.cntMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.이과목을목록에추가AToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tvField = new System.Windows.Forms.TreeView();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.lvClass = new System.Windows.Forms.ListView();
@@ -61,6 +64,7 @@
             this.columnHeader21 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tvClass = new System.Windows.Forms.TreeView();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.cbFilter = new System.Windows.Forms.ComboBox();
             this.lvProfessor = new System.Windows.Forms.ListView();
             this.columnHeader25 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader26 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -75,8 +79,8 @@
             this.columnHeader35 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader36 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tvProfessor = new System.Windows.Forms.TreeView();
-            this.cbFilter = new System.Windows.Forms.ComboBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.cbFilterSubject = new System.Windows.Forms.ComboBox();
             this.lvSubject = new System.Windows.Forms.ListView();
             this.columnHeader37 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader38 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -91,9 +95,9 @@
             this.columnHeader47 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader48 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tvSubject = new System.Windows.Forms.TreeView();
-            this.cbFilterSubject = new System.Windows.Forms.ComboBox();
             this.tabControl2.SuspendLayout();
             this.tabPage3.SuspendLayout();
+            this.cntMenu.SuspendLayout();
             this.tabPage4.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -138,9 +142,11 @@
             this.columnHeader22,
             this.columnHeader23,
             this.columnHeader24});
+            this.lvField.ContextMenuStrip = this.cntMenu;
             this.lvField.FullRowSelect = true;
             this.lvField.GridLines = true;
             this.lvField.Location = new System.Drawing.Point(246, 6);
+            this.lvField.MultiSelect = false;
             this.lvField.Name = "lvField";
             this.lvField.Size = new System.Drawing.Size(1042, 419);
             this.lvField.TabIndex = 4;
@@ -203,6 +209,20 @@
             // 
             this.columnHeader24.Text = "비고";
             // 
+            // cntMenu
+            // 
+            this.cntMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.이과목을목록에추가AToolStripMenuItem});
+            this.cntMenu.Name = "cntMenu";
+            this.cntMenu.Size = new System.Drawing.Size(211, 26);
+            // 
+            // 이과목을목록에추가AToolStripMenuItem
+            // 
+            this.이과목을목록에추가AToolStripMenuItem.Name = "이과목을목록에추가AToolStripMenuItem";
+            this.이과목을목록에추가AToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
+            this.이과목을목록에추가AToolStripMenuItem.Text = "이 과목을 목록에 추가(&A)";
+            this.이과목을목록에추가AToolStripMenuItem.Click += new System.EventHandler(this.이과목을목록에추가AToolStripMenuItem_Click);
+            // 
             // tvField
             // 
             this.tvField.Location = new System.Drawing.Point(6, 6);
@@ -238,9 +258,11 @@
             this.columnHeader19,
             this.columnHeader20,
             this.columnHeader21});
+            this.lvClass.ContextMenuStrip = this.cntMenu;
             this.lvClass.FullRowSelect = true;
             this.lvClass.GridLines = true;
             this.lvClass.Location = new System.Drawing.Point(246, 6);
+            this.lvClass.MultiSelect = false;
             this.lvClass.Name = "lvClass";
             this.lvClass.Size = new System.Drawing.Size(1042, 419);
             this.lvClass.TabIndex = 3;
@@ -324,6 +346,15 @@
             this.tabPage1.Text = "교수";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // cbFilter
+            // 
+            this.cbFilter.FormattingEnabled = true;
+            this.cbFilter.Location = new System.Drawing.Point(6, 6);
+            this.cbFilter.Name = "cbFilter";
+            this.cbFilter.Size = new System.Drawing.Size(234, 23);
+            this.cbFilter.TabIndex = 7;
+            this.cbFilter.SelectedIndexChanged += new System.EventHandler(this.cbFilter_SelectedIndexChanged);
+            // 
             // lvProfessor
             // 
             this.lvProfessor.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
@@ -339,9 +370,11 @@
             this.columnHeader34,
             this.columnHeader35,
             this.columnHeader36});
+            this.lvProfessor.ContextMenuStrip = this.cntMenu;
             this.lvProfessor.FullRowSelect = true;
             this.lvProfessor.GridLines = true;
             this.lvProfessor.Location = new System.Drawing.Point(246, 6);
+            this.lvProfessor.MultiSelect = false;
             this.lvProfessor.Name = "lvProfessor";
             this.lvProfessor.Size = new System.Drawing.Size(1042, 419);
             this.lvProfessor.TabIndex = 5;
@@ -412,15 +445,6 @@
             this.tvProfessor.TabIndex = 4;
             this.tvProfessor.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tvProfessor_AfterSelect);
             // 
-            // cbFilter
-            // 
-            this.cbFilter.FormattingEnabled = true;
-            this.cbFilter.Location = new System.Drawing.Point(6, 6);
-            this.cbFilter.Name = "cbFilter";
-            this.cbFilter.Size = new System.Drawing.Size(234, 23);
-            this.cbFilter.TabIndex = 7;
-            this.cbFilter.SelectedIndexChanged += new System.EventHandler(this.cbFilter_SelectedIndexChanged);
-            // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.cbFilterSubject);
@@ -433,6 +457,15 @@
             this.tabPage2.TabIndex = 3;
             this.tabPage2.Text = "과목";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // cbFilterSubject
+            // 
+            this.cbFilterSubject.FormattingEnabled = true;
+            this.cbFilterSubject.Location = new System.Drawing.Point(6, 6);
+            this.cbFilterSubject.Name = "cbFilterSubject";
+            this.cbFilterSubject.Size = new System.Drawing.Size(234, 23);
+            this.cbFilterSubject.TabIndex = 8;
+            this.cbFilterSubject.SelectedIndexChanged += new System.EventHandler(this.cbFilterSubject_SelectedIndexChanged);
             // 
             // lvSubject
             // 
@@ -449,9 +482,11 @@
             this.columnHeader46,
             this.columnHeader47,
             this.columnHeader48});
+            this.lvSubject.ContextMenuStrip = this.cntMenu;
             this.lvSubject.FullRowSelect = true;
             this.lvSubject.GridLines = true;
             this.lvSubject.Location = new System.Drawing.Point(246, 6);
+            this.lvSubject.MultiSelect = false;
             this.lvSubject.Name = "lvSubject";
             this.lvSubject.Size = new System.Drawing.Size(1042, 419);
             this.lvSubject.TabIndex = 6;
@@ -522,15 +557,6 @@
             this.tvSubject.TabIndex = 5;
             this.tvSubject.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tvSubject_AfterSelect);
             // 
-            // cbFilterSubject
-            // 
-            this.cbFilterSubject.FormattingEnabled = true;
-            this.cbFilterSubject.Location = new System.Drawing.Point(6, 6);
-            this.cbFilterSubject.Name = "cbFilterSubject";
-            this.cbFilterSubject.Size = new System.Drawing.Size(234, 23);
-            this.cbFilterSubject.TabIndex = 8;
-            this.cbFilterSubject.SelectedIndexChanged += new System.EventHandler(this.cbFilterSubject_SelectedIndexChanged);
-            // 
             // frmAnalyzer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -548,6 +574,7 @@
             this.Load += new System.EventHandler(this.frmAnalyzer_Load);
             this.tabControl2.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
+            this.cntMenu.ResumeLayout(false);
             this.tabPage4.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
@@ -620,5 +647,7 @@
         private System.Windows.Forms.ColumnHeader columnHeader48;
         private System.Windows.Forms.TreeView tvSubject;
         private System.Windows.Forms.ComboBox cbFilterSubject;
+        private System.Windows.Forms.ContextMenuStrip cntMenu;
+        private System.Windows.Forms.ToolStripMenuItem 이과목을목록에추가AToolStripMenuItem;
     }
 }

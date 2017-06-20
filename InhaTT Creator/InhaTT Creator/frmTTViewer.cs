@@ -39,7 +39,7 @@ namespace InhaTT_Creator
             title = Text + ' ';
 
             if (file) Open();
-            else Open(view);
+            else { Open(view); bReate.Enabled = false; }
             Show();
 
             this.classroom = classroom;
