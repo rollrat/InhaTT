@@ -211,10 +211,9 @@ namespace InhaTT_Creator
             }
             var list = _professor.Keys.ToList();
             list.Sort();
-            foreach (string n in list)
-            {
-                tvProfessor.Nodes.Add(n);
-            }
+            List<TreeNode> ll = new List<TreeNode>();
+            list.ForEach((x) => { ll.Add(new TreeNode(x)); });
+            tvProfessor.Nodes.AddRange(ll.ToArray());
         }
 
         private void cbFilterSubject_SelectedIndexChanged(object sender, EventArgs e)
@@ -231,10 +230,9 @@ namespace InhaTT_Creator
             }
             var list = _subject.Keys.ToList();
             list.Sort();
-            foreach (string n in list)
-            {
-                tvSubject.Nodes.Add(n);
-            }
+            List<TreeNode> ll = new List<TreeNode>();
+            list.ForEach((x) => { ll.Add(new TreeNode(x));});
+            tvSubject.Nodes.AddRange(ll.ToArray());
         }
 
         private void 이과목을목록에추가AToolStripMenuItem_Click(object sender, EventArgs e)
@@ -248,6 +246,66 @@ namespace InhaTT_Creator
                 if (lv.SelectedItems.Count > 0)
                 {
                     Program.m.DoAddSubject(Convert.ToInt32(lv.SelectedItems[0].SubItems[0].Text));
+                }
+            }
+        }
+
+        private void 필드찾기FToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ToolStripItem menuItem = sender as ToolStripItem;
+            if (menuItem != null)
+            {
+                ContextMenuStrip owner = menuItem.Owner as ContextMenuStrip;
+
+                ListView lv = (ListView)(owner.SourceControl);
+                if (lv.SelectedItems.Count > 0)
+                {
+                    tabControl2.SelectedTab = tabControl2.TabPages[0];
+                    cbFilter.Text = lv.SelectedItems[0].SubItems[1].Text;
+                    Application.DoEvents();
+                    foreach (TreeNode n in tvField.Nodes)
+                        if (n.Text == lv.SelectedItems[0].SubItems[1].Text)
+                            tvField.SelectedNode = n;
+                }
+            }
+        }
+
+        private void 교수보기PToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ToolStripItem menuItem = sender as ToolStripItem;
+            if (menuItem != null)
+            {
+                ContextMenuStrip owner = menuItem.Owner as ContextMenuStrip;
+
+                ListView lv = (ListView)(owner.SourceControl);
+                if (lv.SelectedItems.Count > 0)
+                {
+                    tabControl2.SelectedTab = tabControl2.TabPages[2];
+                    cbFilter.Text = lv.SelectedItems[0].SubItems[1].Text;
+                    Application.DoEvents();
+                    foreach (TreeNode n in tvProfessor.Nodes)
+                        if (n.Text == lv.SelectedItems[0].SubItems[9].Text)
+                            tvProfessor.SelectedNode = n;
+                }
+            }
+        }
+
+        private void 과목보기SToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ToolStripItem menuItem = sender as ToolStripItem;
+            if (menuItem != null)
+            {
+                ContextMenuStrip owner = menuItem.Owner as ContextMenuStrip;
+
+                ListView lv = (ListView)(owner.SourceControl);
+                if (lv.SelectedItems.Count > 0)
+                {
+                    tabControl2.SelectedTab = tabControl2.TabPages[3];
+                    cbFilterSubject.Text = lv.SelectedItems[0].SubItems[1].Text;
+                    Application.DoEvents();
+                    foreach (TreeNode n in tvSubject.Nodes)
+                        if (n.Text == lv.SelectedItems[0].SubItems[4].Text)
+                            tvSubject.SelectedNode = n;
                 }
             }
         }

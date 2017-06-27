@@ -95,6 +95,10 @@
             this.columnHeader47 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader48 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tvSubject = new System.Windows.Forms.TreeView();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
+            this.과목보기SToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.교수보기PToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.필드찾기FToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl2.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.cntMenu.SuspendLayout();
@@ -212,9 +216,13 @@
             // cntMenu
             // 
             this.cntMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.이과목을목록에추가AToolStripMenuItem});
+            this.이과목을목록에추가AToolStripMenuItem,
+            this.toolStripMenuItem1,
+            this.필드찾기FToolStripMenuItem,
+            this.교수보기PToolStripMenuItem,
+            this.과목보기SToolStripMenuItem});
             this.cntMenu.Name = "cntMenu";
-            this.cntMenu.Size = new System.Drawing.Size(211, 26);
+            this.cntMenu.Size = new System.Drawing.Size(211, 98);
             // 
             // 이과목을목록에추가AToolStripMenuItem
             // 
@@ -557,6 +565,32 @@
             this.tvSubject.TabIndex = 5;
             this.tvSubject.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tvSubject_AfterSelect);
             // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(207, 6);
+            // 
+            // 과목보기SToolStripMenuItem
+            // 
+            this.과목보기SToolStripMenuItem.Name = "과목보기SToolStripMenuItem";
+            this.과목보기SToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
+            this.과목보기SToolStripMenuItem.Text = "과목 찾기(&S)";
+            this.과목보기SToolStripMenuItem.Click += new System.EventHandler(this.과목보기SToolStripMenuItem_Click);
+            // 
+            // 교수보기PToolStripMenuItem
+            // 
+            this.교수보기PToolStripMenuItem.Name = "교수보기PToolStripMenuItem";
+            this.교수보기PToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
+            this.교수보기PToolStripMenuItem.Text = "교수 찾기(&P)";
+            this.교수보기PToolStripMenuItem.Click += new System.EventHandler(this.교수보기PToolStripMenuItem_Click);
+            // 
+            // 필드찾기FToolStripMenuItem
+            // 
+            this.필드찾기FToolStripMenuItem.Name = "필드찾기FToolStripMenuItem";
+            this.필드찾기FToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
+            this.필드찾기FToolStripMenuItem.Text = "필드 찾기(&F)";
+            this.필드찾기FToolStripMenuItem.Click += new System.EventHandler(this.필드찾기FToolStripMenuItem_Click);
+            // 
             // frmAnalyzer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -649,5 +683,9 @@
         private System.Windows.Forms.ComboBox cbFilterSubject;
         private System.Windows.Forms.ContextMenuStrip cntMenu;
         private System.Windows.Forms.ToolStripMenuItem 이과목을목록에추가AToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem 과목보기SToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 교수보기PToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 필드찾기FToolStripMenuItem;
     }
 }

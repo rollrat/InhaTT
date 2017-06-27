@@ -50,9 +50,9 @@ namespace InhaTT_Creator
         {
             foreach (int t in te)
             {
+                if (b[t] == true) return true;
                 if (t > 0 && b[t - 1] == true) return true;
                 if (t < TimeTableSettings.DayMaxClass * TimeTableSettings.DayOfWeek.Length && b[t + 1] == true) return true;
-                if (b[t] == true) return true;
             }
             return false;
         }

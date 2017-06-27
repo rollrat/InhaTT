@@ -32,7 +32,7 @@ namespace InhaTT_Creator
         /// maxPannelCount : 추출할 모든 경우의 수 입니다.
         /// </summary>
         const int maxShowCount = 100;
-        const int maxPannelCount = 100000;
+        const int maxPannelCount = 50000;
 
         List<List<TimeElement>> subject_group;
 

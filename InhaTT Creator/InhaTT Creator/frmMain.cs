@@ -622,6 +622,7 @@ namespace InhaTT_Creator
                 UpdateCombination();
             }
         }
+
         #endregion
 
         #region 메뉴 스트립
@@ -662,6 +663,11 @@ namespace InhaTT_Creator
         private void 정보IToolStripMenuItem_Click(object sender, EventArgs e)
         {
             (new frmInfo()).Show();
+        }
+
+        private void 도움말ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            (new frmHelp()).Show();
         }
 
         #endregion

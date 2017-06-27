@@ -39,6 +39,8 @@
             this.생성된시간표ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.도구TToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.과목분석기ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripSeparator();
+            this.데이터다운로더ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.도움말HToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.설명서ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
@@ -72,8 +74,6 @@
             this.cbContinuity = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.lComb = new System.Windows.Forms.Label();
-            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripSeparator();
-            this.데이터다운로더ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numClass)).BeginInit();
             this.SuspendLayout();
@@ -169,6 +169,19 @@
             this.과목분석기ToolStripMenuItem.Text = "과목 분석기(&A)";
             this.과목분석기ToolStripMenuItem.Click += new System.EventHandler(this.과목분석기ToolStripMenuItem_Click);
             // 
+            // toolStripMenuItem3
+            // 
+            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(219, 6);
+            // 
+            // 데이터다운로더ToolStripMenuItem
+            // 
+            this.데이터다운로더ToolStripMenuItem.Enabled = false;
+            this.데이터다운로더ToolStripMenuItem.Name = "데이터다운로더ToolStripMenuItem";
+            this.데이터다운로더ToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D)));
+            this.데이터다운로더ToolStripMenuItem.Size = new System.Drawing.Size(222, 22);
+            this.데이터다운로더ToolStripMenuItem.Text = "데이터 다운로더(&D)";
+            // 
             // 도움말HToolStripMenuItem
             // 
             this.도움말HToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -205,9 +218,11 @@
             this.도움말ToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F1;
             this.도움말ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.도움말ToolStripMenuItem.Text = "도움말";
+            this.도움말ToolStripMenuItem.Click += new System.EventHandler(this.도움말ToolStripMenuItem_Click);
             // 
             // bDel9
             // 
+            this.bDel9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.bDel9.Location = new System.Drawing.Point(785, 587);
             this.bDel9.Name = "bDel9";
             this.bDel9.Size = new System.Drawing.Size(78, 28);
@@ -218,6 +233,7 @@
             // 
             // bFix
             // 
+            this.bFix.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.bFix.Location = new System.Drawing.Point(701, 587);
             this.bFix.Name = "bFix";
             this.bFix.Size = new System.Drawing.Size(78, 28);
@@ -228,6 +244,7 @@
             // 
             // bDelClass
             // 
+            this.bDelClass.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.bDelClass.Location = new System.Drawing.Point(557, 587);
             this.bDelClass.Name = "bDelClass";
             this.bDelClass.Size = new System.Drawing.Size(78, 28);
@@ -238,6 +255,7 @@
             // 
             // numClass
             // 
+            this.numClass.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.numClass.Location = new System.Drawing.Point(473, 589);
             this.numClass.Maximum = new decimal(new int[] {
             25,
@@ -260,6 +278,7 @@
             // 
             // bDel5
             // 
+            this.bDel5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.bDel5.Location = new System.Drawing.Point(348, 587);
             this.bDel5.Name = "bDel5";
             this.bDel5.Size = new System.Drawing.Size(78, 28);
@@ -270,6 +289,7 @@
             // 
             // bDel4
             // 
+            this.bDel4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.bDel4.Location = new System.Drawing.Point(264, 587);
             this.bDel4.Name = "bDel4";
             this.bDel4.Size = new System.Drawing.Size(78, 28);
@@ -280,6 +300,7 @@
             // 
             // bDel3
             // 
+            this.bDel3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.bDel3.Location = new System.Drawing.Point(180, 587);
             this.bDel3.Name = "bDel3";
             this.bDel3.Size = new System.Drawing.Size(78, 28);
@@ -290,6 +311,7 @@
             // 
             // bDel2
             // 
+            this.bDel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.bDel2.Location = new System.Drawing.Point(96, 587);
             this.bDel2.Name = "bDel2";
             this.bDel2.Size = new System.Drawing.Size(78, 28);
@@ -300,6 +322,7 @@
             // 
             // bDel1
             // 
+            this.bDel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.bDel1.Location = new System.Drawing.Point(12, 587);
             this.bDel1.Name = "bDel1";
             this.bDel1.Size = new System.Drawing.Size(78, 28);
@@ -310,6 +333,7 @@
             // 
             // bStart
             // 
+            this.bStart.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.bStart.Location = new System.Drawing.Point(1018, 587);
             this.bStart.Name = "bStart";
             this.bStart.Size = new System.Drawing.Size(125, 28);
@@ -333,6 +357,9 @@
             // 
             // lvSearch
             // 
+            this.lvSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lvSearch.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader31,
             this.columnHeader1,
@@ -413,6 +440,8 @@
             // 
             // tbSearch
             // 
+            this.tbSearch.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tbSearch.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.tbSearch.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.tbSearch.Location = new System.Drawing.Point(109, 32);
@@ -423,6 +452,7 @@
             // 
             // cbContinuity
             // 
+            this.cbContinuity.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.cbContinuity.AutoSize = true;
             this.cbContinuity.Location = new System.Drawing.Point(917, 593);
             this.cbContinuity.Name = "cbContinuity";
@@ -433,6 +463,7 @@
             // 
             // label1
             // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(12, 569);
             this.label1.Name = "label1";
@@ -442,25 +473,13 @@
             // 
             // lComb
             // 
+            this.lComb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lComb.AutoSize = true;
             this.lComb.Location = new System.Drawing.Point(84, 569);
             this.lComb.Name = "lComb";
             this.lComb.Size = new System.Drawing.Size(14, 15);
             this.lComb.TabIndex = 39;
             this.lComb.Text = "0";
-            // 
-            // toolStripMenuItem3
-            // 
-            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(219, 6);
-            // 
-            // 데이터다운로더ToolStripMenuItem
-            // 
-            this.데이터다운로더ToolStripMenuItem.Enabled = false;
-            this.데이터다운로더ToolStripMenuItem.Name = "데이터다운로더ToolStripMenuItem";
-            this.데이터다운로더ToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D)));
-            this.데이터다운로더ToolStripMenuItem.Size = new System.Drawing.Size(222, 22);
-            this.데이터다운로더ToolStripMenuItem.Text = "데이터 다운로더(&D)";
             // 
             // frmMain
             // 
@@ -485,12 +504,12 @@
             this.Controls.Add(this.tbSearch);
             this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("맑은 고딕", 9F);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(1170, 662);
             this.Name = "frmMain";
             this.Text = "InhaTimeTable Creator ";
             this.Load += new System.EventHandler(this.frmMain_Load);
