@@ -168,13 +168,7 @@ namespace InhaTT_Creator
                     }
             }
         }
-
-        //private void lvTable_ColumnWidthChanging(object sender, ColumnWidthChangingEventArgs e)
-        //{
-        //    e.Cancel = true;
-        //    e.NewWidth = lvTable.Columns[e.ColumnIndex].Width;
-        //}
-
+        
         private void AppendSubjectToList(Bot.SubjectStruct ss)
         {
             lvSearch.Items.Add(new ListViewItem(new string[] { ss.index.ToString(),
@@ -226,10 +220,6 @@ namespace InhaTT_Creator
                 RightClick();
             else if (e.KeyCode == Keys.Left && bLeft.Enabled)
                 LeftClick();
-        }
-        private void bExport_Click(object sender, EventArgs e)
-        {
-            (new frmExport(view_table)).Show();
         }
         private void bReate_Click(object sender, EventArgs e)
         {

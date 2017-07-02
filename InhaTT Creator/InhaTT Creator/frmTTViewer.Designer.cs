@@ -52,8 +52,6 @@
             this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.bExport = new System.Windows.Forms.Button();
-            this.bImport = new System.Windows.Forms.Button();
             this.bReate = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -219,25 +217,6 @@
             // 
             this.columnHeader11.Text = "비고";
             // 
-            // bExport
-            // 
-            this.bExport.Location = new System.Drawing.Point(127, 813);
-            this.bExport.Name = "bExport";
-            this.bExport.Size = new System.Drawing.Size(109, 29);
-            this.bExport.TabIndex = 9;
-            this.bExport.Text = "시간표 내보내기";
-            this.bExport.UseVisualStyleBackColor = true;
-            this.bExport.Click += new System.EventHandler(this.bExport_Click);
-            // 
-            // bImport
-            // 
-            this.bImport.Location = new System.Drawing.Point(12, 813);
-            this.bImport.Name = "bImport";
-            this.bImport.Size = new System.Drawing.Size(109, 29);
-            this.bImport.TabIndex = 10;
-            this.bImport.Text = "시간표 가져오기";
-            this.bImport.UseVisualStyleBackColor = true;
-            // 
             // bReate
             // 
             this.bReate.Location = new System.Drawing.Point(856, 813);
@@ -254,8 +233,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1093, 850);
             this.Controls.Add(this.bReate);
-            this.Controls.Add(this.bImport);
-            this.Controls.Add(this.bExport);
             this.Controls.Add(this.lvSearch);
             this.Controls.Add(this.bRight);
             this.Controls.Add(this.bLeft);
@@ -298,8 +275,6 @@
         private System.Windows.Forms.ColumnHeader columnHeader9;
         private System.Windows.Forms.ColumnHeader columnHeader10;
         private System.Windows.Forms.ColumnHeader columnHeader11;
-        private System.Windows.Forms.Button bExport;
-        private System.Windows.Forms.Button bImport;
         private System.Windows.Forms.Button bReate;
     }
 }

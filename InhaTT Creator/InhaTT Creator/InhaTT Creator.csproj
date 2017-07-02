@@ -58,12 +58,6 @@
     <Compile Include="frmAnalyzer.Designer.cs">
       <DependentUpon>frmAnalyzer.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmExport.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmExport.Designer.cs">
-      <DependentUpon>frmExport.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmHelp.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,9 +98,6 @@
     <Compile Include="Version.cs" />
     <EmbeddedResource Include="frmAnalyzer.resx">
       <DependentUpon>frmAnalyzer.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmExport.resx">
-      <DependentUpon>frmExport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmHelp.resx">
       <DependentUpon>frmHelp.cs</DependentUpon>
