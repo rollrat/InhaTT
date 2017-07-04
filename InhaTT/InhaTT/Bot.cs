@@ -2,7 +2,7 @@
 
    Copyright (C) 2017. rollrat. All Rights Reserved.
 
-   03-21-2017:   HyunJun Jeong, Creation
+   03-21-2017:   HyunJun Jeong, Creationn
 
 ***/
 
