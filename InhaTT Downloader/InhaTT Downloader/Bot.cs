@@ -91,7 +91,8 @@ namespace InhaTT_Downloader
 
         public void ParseSubject(string field)
         {
-            Regex regex = new Regex(@"<font color=""blue"">(.*?)</font>.*?Center"">(.*?)</td>.*?Center"">(.*?)</td>.*?Center"">(.*?)</td>.*?Center"">(.*?)</td>.*?Center"">(.*?)</td>.*?Center"">(.*?)</td>.*?Center"">(.*?)</td>.*?Center"">(.*?)</td>.*?Center"">(.*?)</td>");
+            //Regex regex = new Regex(@"Center"">(.*?)</td>.*?Center"">(.*?)</td>.*?Center"">(.*?)</td>.*?Center"">(.*?)</td>.*?Center"">(.*?)</td>.*?Center"">(.*?)</td>.*?Center"">(.*?)</td>.*?Center"">(.*?)</td>.*?Center"">(.*?)</td>");
+            Regex regex = new Regex(@"<td class=""Center"">.*?([A-Z]{3}[0-9]{4}\-[0-9]{3}).*?Center"">(.*?)</td>.*?Center"">(.*?)</td>.*?Center"">(.*?)</td>.*?Center"">(.*?)</td>.*?Center"">(.*?)</td>.*?Center"">(.*?)</td>.*?Center"">(.*?)</td>.*?Center"">(.*?)</td>.*?Center"">(.*?)</td>");
             Match match = regex.Match(html_data);
 
             while (match.Success)
@@ -122,6 +123,12 @@ namespace InhaTT_Downloader
                 string v = ss.과목명 + '|' + ss.시강;
                 if (!ssd.ContainsKey(v))
                     ssd.Add(v, ss);
+                else
+                {
+                    SubjectStruct sst = ssd[v];
+                    sst.필드 = "공통교양";
+                    ssd[v] = sst;
+                }
             }
             subject.Clear();
             subject.AddRange(ssd.Values);
@@ -234,6 +241,8 @@ namespace InhaTT_Downloader
         {
             foreach (FieldStruct fs in field)
                 if (fs.magic == magic) return fs.name;
+            if (magic == "공통교양")
+                return magic;
             return "";
         }
     }

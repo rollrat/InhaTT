@@ -72,7 +72,8 @@ namespace InhaTT_Downloader
 
             foreach (HtmlWindow frameWindow in docWindow.Frames)
             {
-                Regex regex = new Regex(@"<font color=""blue"">(.*?)</font>.*?Center"">(.*?)</td>.*?Center"">(.*?)</td>.*?Center"">(.*?)</td>.*?Center"">(.*?)</td>.*?Center"">(.*?)</td>.*?Center"">(.*?)</td>.*?Center"">(.*?)</td>.*?Center"">(.*?)</td>.*?Center"">(.*?)</td>");
+                //Regex regex = new Regex(@"<font color=""blue"">(.*?)</font>.*?Center"">(.*?)</td>.*?Center"">(.*?)</td>.*?Center"">(.*?)</td>.*?Center"">(.*?)</td>.*?Center"">(.*?)</td>.*?Center"">(.*?)</td>.*?Center"">(.*?)</td>.*?Center"">(.*?)</td>.*?Center"">(.*?)</td>");
+                Regex regex = new Regex(@"<td class=""Center"">.*?([A-Z]{3}[0-9]{4}\-[0-9]{3}).*?Center"">(.*?)</td>.*?Center"">(.*?)</td>.*?Center"">(.*?)</td>.*?Center"">(.*?)</td>.*?Center"">(.*?)</td>.*?Center"">(.*?)</td>.*?Center"">(.*?)</td>.*?Center"">(.*?)</td>.*?Center"">(.*?)</td>");
                 Match match = regex.Match(frameWindow.Document.Body.OuterHtml);
                 
                 while (match.Success)
