@@ -42,14 +42,16 @@ namespace InhaTT_Creator
             }
             var list = field.Keys.ToList();
             list.Sort();
+            cbFilter.Items.Add("모든교수");
+            cbFilterSubject.Items.Add("모든과목");
             foreach (string n in list)
             {
                 tvField.Nodes.Add(n);
                 cbFilter.Items.Add(n);
                 cbFilterSubject.Items.Add(n);
             }
-            cbFilter.Text = list[0];
-            cbFilterSubject.Text = list[0];
+            cbFilter.Text = "모든교수";
+            cbFilterSubject.Text = "모든과목";
         }
 
         Dictionary<string, List<int>> _class = new Dictionary<string, List<int>>();
@@ -75,6 +77,7 @@ namespace InhaTT_Creator
         Dictionary<string, List<int>> _professor = new Dictionary<string, List<int>>();
         private void InitProfessor()
         {
+            _professor.Add("모든교수", new List<int>());
             foreach (Bot.SubjectStruct ss in Program.m.bot.subject)
             {
                 string[] split = ss.교수.Split(',');
@@ -83,30 +86,21 @@ namespace InhaTT_Creator
                     if (!_professor.ContainsKey(c))
                         _professor.Add(c, new List<int>());
                     _professor[c].Add(ss.index);
+                    _professor["모든교수"].Add(ss.index);
                 }
-            }
-            var list = _professor.Keys.ToList();
-            list.Sort();
-            foreach (string n in list)
-            {
-                tvProfessor.Nodes.Add(n);
             }
         }
 
         Dictionary<string, List<int>> _subject = new Dictionary<string, List<int>>();
         private void InitSubject()
         {
+            _subject.Add("모든과목", new List<int>());
             foreach (Bot.SubjectStruct ss in Program.m.bot.subject)
             {
                 if (!_subject.ContainsKey(ss.과목명))
                     _subject.Add(ss.과목명, new List<int>());
                 _subject[ss.과목명].Add(ss.index);
-            }
-            var list = _subject.Keys.ToList();
-            list.Sort();
-            foreach (string n in list)
-            {
-                tvSubject.Nodes.Add(n);
+                _subject["모든과목"].Add(ss.index);
             }
         }
 
@@ -200,7 +194,7 @@ namespace InhaTT_Creator
             lvProfessor.Items.Clear();
             foreach (Bot.SubjectStruct ss in Program.m.bot.subject)
             {
-                if (!ss.필드.Contains(cbFilter.Text)) continue;
+                if (!ss.필드.Contains(cbFilter.Text) && cbFilter.Text != "모든교수") continue;
                 string[] split = ss.교수.Split(',');
                 foreach (string c in split)
                 {
@@ -223,7 +217,7 @@ namespace InhaTT_Creator
             lvSubject.Items.Clear();
             foreach (Bot.SubjectStruct ss in Program.m.bot.subject)
             {
-                if (!ss.필드.Contains(cbFilterSubject.Text)) continue;
+                if (!ss.필드.Contains(cbFilterSubject.Text) && cbFilterSubject.Text != "모든과목") continue;
                 if (!_subject.ContainsKey(ss.과목명))
                     _subject.Add(ss.과목명, new List<int>());
                 _subject[ss.과목명].Add(ss.index);
@@ -237,8 +231,7 @@ namespace InhaTT_Creator
 
         private void 이과목을목록에추가AToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ToolStripItem menuItem = sender as ToolStripItem;
-            if ( menuItem != null )
+            if (sender is ToolStripItem menuItem)
             {
                 ContextMenuStrip owner = menuItem.Owner as ContextMenuStrip;
 
@@ -252,8 +245,7 @@ namespace InhaTT_Creator
 
         private void 필드찾기FToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ToolStripItem menuItem = sender as ToolStripItem;
-            if (menuItem != null)
+            if (sender is ToolStripItem menuItem)
             {
                 ContextMenuStrip owner = menuItem.Owner as ContextMenuStrip;
 
@@ -272,8 +264,7 @@ namespace InhaTT_Creator
 
         private void 교수보기PToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ToolStripItem menuItem = sender as ToolStripItem;
-            if (menuItem != null)
+            if (sender is ToolStripItem menuItem)
             {
                 ContextMenuStrip owner = menuItem.Owner as ContextMenuStrip;
 
@@ -292,8 +283,7 @@ namespace InhaTT_Creator
 
         private void 과목보기SToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ToolStripItem menuItem = sender as ToolStripItem;
-            if (menuItem != null)
+            if (sender is ToolStripItem menuItem)
             {
                 ContextMenuStrip owner = menuItem.Owner as ContextMenuStrip;
 
