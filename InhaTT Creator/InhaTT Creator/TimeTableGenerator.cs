@@ -101,8 +101,8 @@ namespace InhaTT_Creator
             }
             for (int i = 0; i < subject_group[iter].Count; i++)
             {
-                if (continuity && AccessTable.CheckOverlap(subject_group[iter][i])) continue;
-                else if (!continuity && AccessTable.CheckOverlapWithContinuity(subject_group[iter][i])) continue;
+                if (!continuity && AccessTable.CheckOverlap(subject_group[iter][i])) continue;
+                else if (continuity && AccessTable.CheckOverlapWithContinuity(subject_group[iter][i])) continue;
 
                 stack.Push(subject_group[iter][i].index);
                 AccessTable.Add(subject_group[iter][i]);
