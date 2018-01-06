@@ -93,7 +93,7 @@ namespace InhaTT_Downloader
         {
             //Regex regex = new Regex(@"Center"">(.*?)</td>.*?Center"">(.*?)</td>.*?Center"">(.*?)</td>.*?Center"">(.*?)</td>.*?Center"">(.*?)</td>.*?Center"">(.*?)</td>.*?Center"">(.*?)</td>.*?Center"">(.*?)</td>.*?Center"">(.*?)</td>");
             Regex regex = new Regex(@"<td class=""Center"">.*?([A-Z]{3}[0-9]{4})\-([0-9]{3}).*?Center"">.*?</td>.*?Center"">(.*?)</td>.*?Center"">(.*?)</td>.*?Center"">(.*?)</td>.*?Center"">(.*?)</td>.*?Center"">(.*?)</td>.*?Center"">(.*?)</td>.*?Center"">(.*?)</td>.*?Center"">(.*?)</td>");
-            Match match = regex.Match(html_data);
+            Match match = regex.Match(ReplaceNbsp(html_data));
 
             while (match.Success)
             {
@@ -132,6 +132,11 @@ namespace InhaTT_Downloader
             }
             subject.Clear();
             subject.AddRange(ssd.Values);
+        }
+
+        public string ReplaceNbsp(string v)
+        {
+            return Regex.Replace(v, "&nbsp;", " ");
         }
         
         public string SubjectsToString()
