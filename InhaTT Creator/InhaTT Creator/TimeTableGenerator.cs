@@ -25,7 +25,7 @@ namespace InhaTT_Creator
         /// </summary>
         bool escape = false;
         List<string> result = new List<string>();
-        Stack<string> stack = new Stack<string>();
+        Stack<string> stack;
 
         /// <summary>
         /// maxShowCount : 사용자에게 보여줄 최종생성경우의 수 입니다.
@@ -49,7 +49,7 @@ namespace InhaTT_Creator
         {
             AccessTable = new TimeTable();
             result.Clear();
-            stack.Clear();
+            stack = new Stack<string>(subject_group.Count);
             this.subject_group = subject_group;
             internal_start();
             internal_trim();
