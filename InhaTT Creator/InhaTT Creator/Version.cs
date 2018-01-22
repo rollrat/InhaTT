@@ -10,7 +10,7 @@ namespace InhaTT_Creator
 {
     class Version
     {
-        static public string Text = "0.3";
+        static public string Text = "0.4";
         static public string Name = "InhaTimeTable Creator";
     }
 }
