@@ -100,6 +100,11 @@
             this.columnHeader48 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tvSubject = new System.Windows.Forms.TreeView();
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.cb5 = new System.Windows.Forms.ComboBox();
+            this.cb4 = new System.Windows.Forms.ComboBox();
+            this.cb3 = new System.Windows.Forms.ComboBox();
+            this.cb2 = new System.Windows.Forms.ComboBox();
+            this.cb1 = new System.Windows.Forms.ComboBox();
             this.lvFilter = new System.Windows.Forms.ListView();
             this.columnHeader49 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader50 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -113,11 +118,6 @@
             this.columnHeader58 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader59 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader60 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.cb1 = new System.Windows.Forms.ComboBox();
-            this.cb2 = new System.Windows.Forms.ComboBox();
-            this.cb3 = new System.Windows.Forms.ComboBox();
-            this.cb4 = new System.Windows.Forms.ComboBox();
-            this.cb5 = new System.Windows.Forms.ComboBox();
             this.tabControl2.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.cntMenu.SuspendLayout();
@@ -628,6 +628,56 @@
             this.tabPage5.Text = "필터";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
+            // cb5
+            // 
+            this.cb5.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb5.FormattingEnabled = true;
+            this.cb5.Location = new System.Drawing.Point(1105, 1);
+            this.cb5.Name = "cb5";
+            this.cb5.Size = new System.Drawing.Size(82, 23);
+            this.cb5.TabIndex = 31;
+            this.cb5.SelectedIndexChanged += new System.EventHandler(this.cb5_SelectedIndexChanged);
+            // 
+            // cb4
+            // 
+            this.cb4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb4.FormattingEnabled = true;
+            this.cb4.Location = new System.Drawing.Point(695, 1);
+            this.cb4.Name = "cb4";
+            this.cb4.Size = new System.Drawing.Size(91, 23);
+            this.cb4.TabIndex = 30;
+            this.cb4.SelectedIndexChanged += new System.EventHandler(this.cb4_SelectedIndexChanged);
+            // 
+            // cb3
+            // 
+            this.cb3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb3.FormattingEnabled = true;
+            this.cb3.Location = new System.Drawing.Point(635, 1);
+            this.cb3.Name = "cb3";
+            this.cb3.Size = new System.Drawing.Size(62, 23);
+            this.cb3.TabIndex = 29;
+            this.cb3.SelectedIndexChanged += new System.EventHandler(this.cb3_SelectedIndexChanged);
+            // 
+            // cb2
+            // 
+            this.cb2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb2.FormattingEnabled = true;
+            this.cb2.Location = new System.Drawing.Point(587, 1);
+            this.cb2.Name = "cb2";
+            this.cb2.Size = new System.Drawing.Size(49, 23);
+            this.cb2.TabIndex = 28;
+            this.cb2.SelectedIndexChanged += new System.EventHandler(this.cb2_SelectedIndexChanged);
+            // 
+            // cb1
+            // 
+            this.cb1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb1.FormattingEnabled = true;
+            this.cb1.Location = new System.Drawing.Point(69, 1);
+            this.cb1.Name = "cb1";
+            this.cb1.Size = new System.Drawing.Size(106, 23);
+            this.cb1.TabIndex = 27;
+            this.cb1.SelectedIndexChanged += new System.EventHandler(this.cb1_SelectedIndexChanged);
+            // 
             // lvFilter
             // 
             this.lvFilter.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -646,6 +696,7 @@
             this.columnHeader58,
             this.columnHeader59,
             this.columnHeader60});
+            this.lvFilter.ContextMenuStrip = this.cntMenu;
             this.lvFilter.FullRowSelect = true;
             this.lvFilter.GridLines = true;
             this.lvFilter.Location = new System.Drawing.Point(6, 24);
@@ -711,56 +762,6 @@
             // columnHeader60
             // 
             this.columnHeader60.Text = "비고";
-            // 
-            // cb1
-            // 
-            this.cb1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cb1.FormattingEnabled = true;
-            this.cb1.Location = new System.Drawing.Point(69, 1);
-            this.cb1.Name = "cb1";
-            this.cb1.Size = new System.Drawing.Size(106, 23);
-            this.cb1.TabIndex = 27;
-            this.cb1.SelectedIndexChanged += new System.EventHandler(this.cb1_SelectedIndexChanged);
-            // 
-            // cb2
-            // 
-            this.cb2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cb2.FormattingEnabled = true;
-            this.cb2.Location = new System.Drawing.Point(587, 1);
-            this.cb2.Name = "cb2";
-            this.cb2.Size = new System.Drawing.Size(49, 23);
-            this.cb2.TabIndex = 28;
-            this.cb2.SelectedIndexChanged += new System.EventHandler(this.cb2_SelectedIndexChanged);
-            // 
-            // cb3
-            // 
-            this.cb3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cb3.FormattingEnabled = true;
-            this.cb3.Location = new System.Drawing.Point(635, 1);
-            this.cb3.Name = "cb3";
-            this.cb3.Size = new System.Drawing.Size(62, 23);
-            this.cb3.TabIndex = 29;
-            this.cb3.SelectedIndexChanged += new System.EventHandler(this.cb3_SelectedIndexChanged);
-            // 
-            // cb4
-            // 
-            this.cb4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cb4.FormattingEnabled = true;
-            this.cb4.Location = new System.Drawing.Point(695, 1);
-            this.cb4.Name = "cb4";
-            this.cb4.Size = new System.Drawing.Size(91, 23);
-            this.cb4.TabIndex = 30;
-            this.cb4.SelectedIndexChanged += new System.EventHandler(this.cb4_SelectedIndexChanged);
-            // 
-            // cb5
-            // 
-            this.cb5.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cb5.FormattingEnabled = true;
-            this.cb5.Location = new System.Drawing.Point(1105, 1);
-            this.cb5.Name = "cb5";
-            this.cb5.Size = new System.Drawing.Size(82, 23);
-            this.cb5.TabIndex = 31;
-            this.cb5.SelectedIndexChanged += new System.EventHandler(this.cb5_SelectedIndexChanged);
             // 
             // frmAnalyzer
             // 
