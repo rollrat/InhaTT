@@ -230,17 +230,7 @@ namespace InhaTT_Creator
                     { subject.Add(ss); break; }
             (new frmTTViewer(Program.m.bot.subject, false, subject)).Show();
         }
-
-        private void lvFilter_MouseDoubleClick(object sender, MouseEventArgs e)
-        {
-            List<Bot.SubjectStruct> subject = new List<Bot.SubjectStruct>();
-            foreach (ListViewItem lvi in lvFilter.Items)
-                foreach (Bot.SubjectStruct ss in Program.m.bot.subject)
-                    if (lvi.SubItems[0].Text == ss.index.ToString())
-                    { subject.Add(ss); break; }
-            (new frmTTViewer(Program.m.bot.subject, false, subject)).Show();
-        }
-
+        
         private void cbFilter_SelectedIndexChanged(object sender, EventArgs e)
         {
             _professor.Clear();

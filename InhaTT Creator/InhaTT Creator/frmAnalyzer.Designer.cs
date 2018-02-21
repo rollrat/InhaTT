@@ -705,7 +705,6 @@
             this.lvFilter.TabIndex = 26;
             this.lvFilter.UseCompatibleStateImageBehavior = false;
             this.lvFilter.View = System.Windows.Forms.View.Details;
-            this.lvFilter.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lvFilter_MouseDoubleClick);
             // 
             // columnHeader49
             // 
