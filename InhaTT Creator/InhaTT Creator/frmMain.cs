@@ -12,6 +12,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Numerics;
 using System.Runtime.InteropServices;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace InhaTT_Creator
@@ -297,6 +298,22 @@ namespace InhaTT_Creator
                 AppendSubjectsToList(ssl);
                 subject_group.Add(subjects);
                 UpdateCombination();
+                Task.Run(() => EstimateCountOfResult());
+            }
+        }
+
+        /// <summary>
+        /// 시간표의 생성 경우의 수를 보여줍니다.
+        /// </summary>
+        private void EstimateCountOfResult()
+        {
+            // 시간표 생성
+            TimeTableGenerator generator = new TimeTableGenerator();
+            if (subject_group.Count > 1)
+            {
+                lCount.Invoke(new Action(() => lCount.Text = "산출중..."));
+                generator.StartCreate(subject_group, !cbContinuity.Checked);
+                lCount.Invoke(new Action(() => lCount.Text = generator.GetResultCount().ToString()));
             }
         }
 

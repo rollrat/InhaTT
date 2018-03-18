@@ -74,6 +74,8 @@
             this.cbContinuity = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.lComb = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lCount = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numClass)).BeginInit();
             this.SuspendLayout();
@@ -196,19 +198,19 @@
             // 설명서ToolStripMenuItem
             // 
             this.설명서ToolStripMenuItem.Name = "설명서ToolStripMenuItem";
-            this.설명서ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.설명서ToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
             this.설명서ToolStripMenuItem.Text = "설명서(&M)";
             this.설명서ToolStripMenuItem.Click += new System.EventHandler(this.설명서ToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(149, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(127, 6);
             // 
             // 정보IToolStripMenuItem
             // 
             this.정보IToolStripMenuItem.Name = "정보IToolStripMenuItem";
-            this.정보IToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.정보IToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
             this.정보IToolStripMenuItem.Text = "정보(&I)";
             this.정보IToolStripMenuItem.Click += new System.EventHandler(this.정보IToolStripMenuItem_Click);
             // 
@@ -216,7 +218,7 @@
             // 
             this.도움말ToolStripMenuItem.Name = "도움말ToolStripMenuItem";
             this.도움말ToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F1;
-            this.도움말ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.도움말ToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
             this.도움말ToolStripMenuItem.Text = "도움말";
             this.도움말ToolStripMenuItem.Click += new System.EventHandler(this.도움말ToolStripMenuItem_Click);
             // 
@@ -481,11 +483,31 @@
             this.lComb.TabIndex = 39;
             this.lComb.Text = "0";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(180, 569);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(142, 15);
+            this.label2.TabIndex = 40;
+            this.label2.Text = "만들 수 있는 시간표 수 : ";
+            // 
+            // lCount
+            // 
+            this.lCount.AutoSize = true;
+            this.lCount.Location = new System.Drawing.Point(328, 569);
+            this.lCount.Name = "lCount";
+            this.lCount.Size = new System.Drawing.Size(14, 15);
+            this.lCount.TabIndex = 41;
+            this.lCount.Text = "0";
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1154, 623);
+            this.Controls.Add(this.lCount);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.lComb);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cbContinuity);
@@ -568,6 +590,8 @@
         private System.Windows.Forms.ToolStripMenuItem 도움말ToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem3;
         private System.Windows.Forms.ToolStripMenuItem 데이터다운로더ToolStripMenuItem;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lCount;
     }
 }
 
